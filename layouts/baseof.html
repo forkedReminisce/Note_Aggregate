@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <meta name="author" content="{{- .Params.author -}}">
+    <meta name="description" content="{{- .Params.desc -}}">
+    {{/* 
+        home page will define its title in its layout
+        all other pages will follow "Title — Note Aggregate"
+    */}}
+	<title>{{- block "title" . -}} {{ .Title }} — {{ site.Title }} {{- end -}}</title>	
+    {{/* everything in static is copied into the root of public */}}
+	<link rel="icon" href="/images/favicon.ico">
+
+    {{/* IBM Plex Sans + JP */}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;700&family=IBM+Plex+Sans:ital,wght@1,100..700&display=swap" rel="stylesheet">
+
+    {{/* use the stylesheet */}}
+	{{- $opts := dict 
+		"includePaths" (slice "assets/scss") 
+		"transpiler" "dartsass" 
+	-}}
+    {{/* access files in assets with resources.Get */}}
+	{{- with resources.Get "scss/styles.scss" | css.Sass $opts -}}
+	    <link rel="stylesheet" href="{{- .Permalink -}}">
+	{{- end -}}
+
+    {{/* TODO: javascript */}}
+</head>
+
+<body>
+    {{/* TODO: change to cached when finished */}}
+    {{ partial "header.html" . }}
+
+    <main>
+        <h1 id="title">{{- partial "inline/heading.html" .Title -}}</h1>
+        {{ .Content }}
+
+        {{/* only concerns sections and home */}}
+        {{ block "差分" . }}{{ end }}
+    </main>
+</body>
+
+</html>

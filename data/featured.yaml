@@ -1,0 +1,9 @@
+# page is the name of the section (folder)
+# background is the associated image in assets/featured
+
+# this is like a table (of mappings) fitted into a sequence
+# - page:
+  # background: featured/
+
+# - page:
+  # background: featured/

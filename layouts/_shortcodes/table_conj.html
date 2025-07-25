@@ -1,0 +1,26 @@
+{{/* 
+    Conjugation table generation.
+    Four named arguments for each row: `non_past`, `past`, `neg`, `neg_past`. 
+    Each argument is space separated for options. Later options are less polite.
+    Use Markdown notation since Goldmark has to actually generate the table.
+*/}}
+
+
+
+{{/* placing in the newlines */}}
+{{- $non_past := strings.Replace (.Get "non_past") " " "<br>" -}}
+{{- $past := replace (.Get "past") " " "<br>" -}}
+{{- $neg := replace (.Get "neg") " " "<br>" -}}
+{{- $neg_past := replace (.Get "neg_past") " " "<br>" -}}
+
+
+<div class="table">
+
+{{/* 
+    the actual content
+    :---: means center align the row's contents
+*/}}
+| Non-past | Past | Negative | Negative-Past |
+| :------: | :--: | :------: | :-----------: |
+| {{ .Page.RenderString $non_past }} | {{ .Page.RenderString $past }} | {{ .Page.RenderString $neg }} | {{ .Page.RenderString $neg_past }} |
+</div>

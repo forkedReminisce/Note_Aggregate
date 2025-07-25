@@ -1,0 +1,13 @@
+@use 'fonts';
+
+
+
+header {
+    position: sticky;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center; // only vertically
+    border-bottom: 1px solid #F1F1F1;
+}
+// TODO: explicitly define font sizes

@@ -1,0 +1,18 @@
+{{- define "title" -}}
+    {{- site.Title -}}
+{{- end -}}
+
+
+
+{{- define "差分" -}}
+    {{- $home := . -}}
+
+    {{- range site.Data.featured -}}
+        {{- $page := $home.GetPage .page -}}
+        {{- $background := resources.Get .background -}}
+
+	    <div class="featured" style="background-image: url({{- $background.Permalink -}})"> 
+            <a href="{{- $page.RelPermalink -}}">{{- $page.Title -}}</a> 
+        </div>
+    {{- end -}}
+{{- end -}}

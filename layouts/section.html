@@ -1,0 +1,7 @@
+{{- define "差分" -}}
+    <div id="table">
+        {{- range .Pages -}}
+            <a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
+        {{- end -}}
+    </div>
+{{- end -}}

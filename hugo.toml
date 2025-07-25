@@ -1,0 +1,29 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Note Aggregate'
+
+disableKinds = ['taxonomy']
+
+
+# separate from page.Params ; for custom parameters
+[params]
+    owner = 'FREEZURN'
+
+
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            [markup.goldmark.extensions.extras]
+                [markup.goldmark.extensions.extras.mark]
+                    enable = true
+                [markup.goldmark.extensions.extras.subscript]
+                    enable = true
+                [markup.goldmark.extensions.extras.superscript]
+                    enable = true
+        [markup.goldmark.parser.attribute]
+            block = true # allows markdown attributes
+        [markup.goldmark.renderer]
+            # enable raw HTML in Markdown
+            # (primarily to allow for <br> in tables)
+            unsafe = true
