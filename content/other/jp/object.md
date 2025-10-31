@@ -17,7 +17,7 @@ With verbs come objects. There are three types of objects:
 
 
 # {{< heading "Direct Object" >}}
-**を** attaches to **the object literally receiving the transitive action**. The *subject* is a willing agent.
+**を** attaches to **the object literally receiving the transitive action**. The *subject* is an active agent.
 
 {{< subtext >}}
     を is pronounced /o/.
@@ -33,7 +33,7 @@ Clauses that describe a *state or condition* of the subject may sometimes have *
 
 {{% example_jp
     jp="「**日本語**ができますか。」"
-    en="\"Can you speak **Japanese**?\""
+    en="\"*Can you speak **Japanese***?\""
 %}}
 
 
@@ -47,5 +47,5 @@ Clauses that describe a *state or condition* of the subject may sometimes have *
 
 {{% example_jp
     jp="「ケイトさんは**テイラー君**にチョコをくれました。」"
-    en="\"Kate-san gave **Taylor-kun** chocolate.\""
+    en="\"*Kate-san gave **Taylor-kun** chocolate*.\""
 %}}

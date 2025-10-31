@@ -11,6 +11,10 @@ params:
 
 The *copula verb* serves the function of "**to be**." It is **だ** in Japanese. 
 
+{{< subtext >}}
+    だ can appear existential in translation.
+{{< /subtext >}}
+
 {{% example_jp
     jp="「彼はバカ**だ**。」"
     en="\"*He **is** an idiot.*\""
@@ -20,7 +24,6 @@ The *copula verb* serves the function of "**to be**." It is **だ** in Japanese.
 
 
 
-<!-- <h1></h1> is created first, then the processed text is placed inside of it -->
 # {{< heading "Basic" >}}
 {{% table_conj
     non_past="だ"
@@ -30,7 +33,9 @@ The *copula verb* serves the function of "**to be**." It is **だ** in Japanese.
 %}}
 
 {{< subtext >}}
-    The は in では is pronounced /wa/.
+    The は in では～ is pronounced /wa/.
+
+    では～ can be contracted to ちゃ～.
 {{< /subtext >}}
 
 

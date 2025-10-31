@@ -9,7 +9,7 @@ params:
 
 
 
-All pure adjectives ==end in ～い==. It is this ～い that ==gets dropped in conjugations==. Adjectives possess an attributive and predicative form. 
+All pure adjectives end in ～い. It is this that gets dropped in conjugations. Adjectives possess an attributive and predicative form. 
 
 
 # {{< heading "Basic" >}}
@@ -43,6 +43,7 @@ Adjectival nouns are another way to modify a noun. *Not all adjectival nouns are
 
 An outright noun that modifies uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. 
 
+<!-- why is の sometimes omitted??? -->
 {{< subtext >}}
     The modifier noun may have attributes of its own, whether it be a pure adjective or even another noun using の.
 
@@ -51,5 +52,5 @@ An outright noun that modifies uses ==の==. When the modified noun is a relativ
 
 {{% example_jp 
     jp="「**子供の頃**は病弱でした。」"
-    en="\"I was sickly **when I was a kid**.\""
+    en="\"*I was sickly **when I was a kid***.\""
 %}}

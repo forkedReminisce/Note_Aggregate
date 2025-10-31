@@ -17,7 +17,7 @@ params:
 
 {{% example_jp 
     jp="「この魚のほうが**歯応えが弱い**。」"
-    en="\"This fish is **whose texture is weaker**."
+    en="\"*This fish is **whose texture is weaker***."
 %}}
 
 

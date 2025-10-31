@@ -41,16 +41,22 @@ main {
 #title {
     margin-top: 6.2rem;
     margin-bottom: 2.26rem;
-    font: 106 4.2rem/1.11 "Jabin";
+    font-weight: 106;
+    font-size: 4.2rem;
 }
 
-h1 {
+h1, h2 {
     margin-top: 4rem;
     margin-bottom: 0;
     text-align: center;
 
     font: 98 2.96rem/1.11 "Jabin";
     word-spacing: 0.6ch; 
+}
+
+h2 {
+    margin-top: 3.2rem;
+    font-size: 2.6rem;
 }
 
 // TODO: other heading levels?
@@ -196,10 +202,10 @@ table {
     th:last-child {
         border-top-right-radius: $table_radius;
     }
-    td:first-child {
+    tr:last-child td:first-child {
         border-bottom-left-radius: $table_radius;
     }
-    td:last-child {
+    tr:last-child td:last-child {
         border-bottom-right-radius: $table_radius;
     }
 }

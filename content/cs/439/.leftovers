@@ -1,0 +1,51 @@
+—
+
+Safety: "nothing bad happens"
+Liveness: "something good eventually happens
+
+
+
+# Intro
+Memory access model is what prevents processes from indexing into another process' address space in user mode.
+
+
+
+# Processes
+Orphaned processes are those that outlive their parent.
+
+`exec()` does not create a new process; it overlays (overwrites) the current process with a new program. It does not return, unless the system call failed and the rest of the code would run.
+
+`wait()` blocks the caller process. Zombie processes are child processes that have terminated, but the parent hasn't called `wait()`. So the associated PCB is left allocated (but mostly everything else is deallocated). Calling `wait()` when there are zombie processes returns one of the PIDs immediately and deallocates the PCB. `exit()` cleans up all waiting zombies.
+
+`kill()` can be used for interprocess communication. The receiving process can have signal handlers. 
+
+
+
+# Threads
+<!-- TODO: scheduler handles processes and kernel threads? schedules in units of threads? and i thought there was time-sharing? -->
+Threads have the same life cycle as processes, and when one thread blocks, another thread gets to run. There's no time-sharing, though. However, running threads can call a function to yield themselves "manually" and make way for another thread.
+
+Condition variable functions take in the lock.
+
+The semantics are about which thread should get the lock after `signal()` is called.
+
+
+
+# Booting
+1. CPU loads boot program (e.g., UEFI)
+2. Boot program puts hardware information into a data structure
+3. Boot program loads the OS' kernel and gives it the hardware data structure
+4. OS initializes kernel data structures (e.g., ready queue) and hardware, and creates basic processes
+5. After basic processes finish, the OS will run any user programs
+   - If there aren't any, enter the idle loop and do some system management and profiling tasks
+6. OS puts the computer to sleep
+7. When it receives a hardware interrupt, the OS will wake up
+
+
+
+# Memory
+Address translation happens in the MMU (memory management unit). The TLB (translation lookaside buffer) is part of the MMU, and it is a cache that holds the most recent page number to frame number mappings.
+
+Local page replacement algorithm only consider the pages owned by the process. This requires a fixed number of frames per process. Global page replacement algorithms consider all the pages. This allows processes to use up as many frames as they need. 
+
+Today's operating systems are best effort operating systems, meaning they will always execute the program the user wants. It may slow down the machine, but the program will run.
