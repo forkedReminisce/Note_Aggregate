@@ -48,4 +48,5 @@ Address translation happens in the MMU (memory management unit). The TLB (transl
 
 Local page replacement algorithm only consider the pages owned by the process. This requires a fixed number of frames per process. Global page replacement algorithms consider all the pages. This allows processes to use up as many frames as they need. 
 
-Today's operating systems are best effort operating systems, meaning they will always execute the program the user wants. It may slow down the machine, but the program will run.
+- Small pages: reduce internal fragmentation
+- Large pages: reduce number of page table entries, page faults, and I/O time

@@ -9,78 +9,89 @@ params:
 
 
 
-The physical address space is defined by the RAM (determines the size). Logical or virtual address space is the collection of addresses that a process can access. Segment is the logical address space but in the scope of the physical address space.
-
-In uniprogramming (one program running at a time to its termination), the program is always loaded at address 0 to ease the mapping from physical to virtual memory. When it finishes, the segment is reclaimed for the next program to take. For multiprogramming, we want something known as *transparency*: multiple processes, illusion that the process is the only process is memory, and where in physical memory they reside should not affect anything. Safety is ensuring processes cannot corrupt each other's or the OS' address space. Efficiency.
-
-{{< subtext >}}
-    OS sits in the highest memory.
-{{< /subtext >}}
-
-**Relocation** is how we support multiprogramming. Processes will be loaded wherever it fits, and if it cannot, the OS will wait for a space to open. Of the process' segment, the lowest memory address is known as the *base address*. The program's compiler will behave as though the program was loaded at 0. The loader fixes this in *static relocation*, where it adds the base address to all addresses in the binary. However, moving a process in memory is impossible.
-
-<!-- TODO: how can there be invalid addresses? how does a process tell the OS how much memory it needs? -->
-To circumvent this restriction, *dynamic relocation* is used. First, two new registers: base register stores the base address of the process and limit register with the largest address in the process' logical address space. Then hardware will, in parallel, check if the address is below the limit register and add the base register. Moving processes just reuses this architecture, albeit, tediously. Process' address space can also grow.
-<!-- disadvantages: sharing memory is hard, all of the process must fit in memory (cannot load a portion), expensive since checking ever address, only supports primitive security -->
-
-The goal of a memory allocation policy is to minimize wasted space, or *fragmentation*. External fragmentation is the cutting up of free blocks, and internal fragmentation is unused memory inside an allocated block. 
-- First-fit: allocate the lowest addressed free block, but a lot of external fragmentation
-- Best-fit: choose the smallest, adequate free block. Free list sorted by size. External fragmentation unusable and slow deallocation.
-- Worst-fit: choose the largest, adequate free block. Free list sorted by size. Allocate is fast. External fragmentation and slow deallocation
-
-*Compaction* is a strategy to eliminate fragmentation. Copy programs' address spaces to another address in order to coalesce the free blocks. *Swapping* allows a high priority process to run despite no appropriate free blocks. Some process is *suspended* (at the OS' discretion to be put back on the ready queue). Its address space is moved to disk, specifically the swap partition. Then this high priority process can take the address space.
+Memory is viewed in two different ways. The **physical address space** is for what is loaded into memory. However, not everything in the process thinks is in memory is actually in this physical address space. In actuality, each process has its own **logical/virtual address space**. Any data that is in the physical address space is in the process' *segment*. 
 
 
 
-# {{< heading "Virtual Memory" >}}
-Ours goals is to:
-- Allow processes to use more memory than that which is physically available
-- Reduce or eliminate external fragmentation
-- Easily allocate and deallocate memory (and grow processes)
-- Share memory between processes
-- Fine-grained protection
+# {{< heading "Relocation" >}}
+In uniprogramming (one program running at a time to its termination), the program is always loaded at physical address `0x0`. This makes mapping virtual addresses to physical addresses easy. When the process finishes, the segment is reclaimed for the next program to take. 
 
-Process' virtual address space is partitioned into *pages* of size *minimum unit*. Similarly, the physical address is partitioned into *frames*. Pages are slotted into frames. To keep track of the process' virtual address space, the *page table* maps a page number to a frame number (number is the lowest address divided by the minimum unit). Pages may be put into swap if the process doesn't access it for a period of time, allowing other pages of other or the same process to be inserted.
+For multiprogramming, we will want *transparency*: illusion that this process is the only process in memory, and where in physical memory its segment is should not matter. It's important to have safety, ensuring processes do not corrupt each others' or the OS' segments.
 
 {{< subtext >}}
-    A process' virtual address space can be larger than the physical address space.
-
-    Virtual address space size is universal. 
+    OS is reserved the highest physical addresses.
 {{< /subtext >}}
 
-Virtual addresses can be thought of as a $(p, o)$ pair bit string. The high-order $p$ bits represent the page number. The following $o$ bits are the page offset. Physical addresses have the synonymous $(f, o)$ bit string for frame number and frame offset respectively.
+**Relocation** will load processes where they fit. If there's no space, the OS will wait. Of the process' segment, the lowest physical address is the *base address*. This allows the program's compiler to assume that the program will be loaded at `0x0`. 
 
-The page table is like an array. Using the $p$ bits to index, the OS can get the $f$ bits and address translate using those bits and the offset bits. The page table lives in the PCB. The page table base register holds the pointer to the page table.
+The loader can correct this with *static relocation*. As in, it will go into the binary and add the base address to every address. However, this makes moving a process in memory impossible. *Dynamic relocation* is an alternative strategy that makes this possible. It will require two new registers from hardware: the *base register* with the process' base address and the *limit register* to hold the largest address of the process' logical address space. Then hardware will, in parallel, add the base register and check if the original address is below the limit register. Moving processes and segment growth can now use this architecture, albeit, tediously.
 
-Sharing memory is achieved by putting in multiple page tables the same $f$ bits. The OS knows to do this for processes via a system call. A page table entry contains some other bits. Permissions. Resident bit reveals whether the page is currently in physical memory, and then the next bits (including $f$) can either be the frame number or something else (e.g., swap slot). Reference bit tells whether the page has been used recently. Dirty bit determines eviction behavior.
+To figure out the most appropriate free block for the process, a memory allocation policy is used. 
+- **First-fit**: lowest addressed adequate free block 
+- **Best-fit**: smallest, adequate free block. Free list sorted by size
+- **Worst-fit**: largest, adequate free block. Free list sorted by size. Allocation faster than best-fit
 
-There are two policies to loading pages of a process for the first time. Demand paging loads a page when it is referenced. Pre-paging will see the OS load pages the process will likely immediately need.
+Fragmentation will be a major concern; *external fragmentation* is leftover free space after cutting up a free block, while *internal fragmentation* is unused memory inside an allocated block.
+
+*Compaction* is a strategy to eliminate external fragmentation. When an incoming process needs some noncontiguous free blocks to be merged, programs' segments are moved elsewhere in order to coalesce those free blocks. Alternatively, work around external fragmentation with *swapping*. Some process is suspended, its segment is moved to the swap partition, and the incoming process (especially a high priority one) now has a segment. 
+
+
+
+# {{< heading "Paging" >}}
+Relocation is not great for a number of reasons:
+- All of the process must fit in a contiguous chunk of physical memory
+- Computationally expensive to allocate and move
+- External fragmentation
+- Hard to share memory between processes
+- Only supports primitive security
+
+Overlays was the first step. Programmers would manually partition a process' virtual address space and only load the parts that were needed at this particular time. These ideas can be seen in the current solution of **pages**, but the partitions are of equal size. The physical address space is similarly partitioned into **frames**, which pages slot into. To keep track of the process' segment, the PCB stores a **page table**. 
+
+{{< subtext >}}
+    A process' virtual address space is now independent of the physical address space
+
+    Every process' virtual address space size is defined by the OS. 
+{{< /subtext >}}
+
+Virtual addresses are a $(p, o)$ pair bit string. The high-order $p$ bits represent the page number, and the following $o$ bits are the page offset. Physical addresses have the synonymous $(f, o)$ bit string for frame number and frame offset respectively. The MMU (Memory Control Unit) relies on this system for address translation. The $p$ bits index into the page table, which spits out $f$ bits to be prepended to the $o$ bits. The page table supports memory sharing by sharing frame numbers between different page tables. 
+
+{{< subtext >}}
+    The pointer to the current page table is stored in the *page table base register*.
+
+    A system call enables memory sharing.
+{{< /subtext >}}
+
+A page table entry contains some other bits. Permissions. Resident bit reveals whether the page is currently in physical memory, and then the next bits (including $f$) can either be the frame number or something else (e.g., swap slot). Reference bit tells whether the page has been used recently. Dirty bit determines eviction behavior.
+
+There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated data will cause an exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory. 
 
 {{< subtext >}}
     Demand paging is more popular due to the principle of locality.
 {{< /subtext >}}
 
-Pages of the code section are typically not in memory or even swap. They live in the file, and whatever code segments are being run are put into memory. Data and stack pages are in memory or the swap partition. If the process tries to access a non-mapped page, the OS will execute the page fault handler. The handler will figure out why the page is not in physical memory; unallocated data is treated as an exception, while a resident bit of 0 means true page fault. A true page fault is a mistake on the OS' part, and it fits the page into a frame.
+However, there may not be a free frame. Therefore, page replacement algorithms are in order. The goals of such algorithms are to reduce the number of page faults and efficiency. The ideal solution is to replace the page that hasn't been referenced for the longest time. However, this is predicting the future. Least Recently Used (LRU) is another option, but its hard to implement efficiently. 
 
-The goals of page replacement algorithms are to reduce the number of page faults and efficient. The ideal solution is to replace the page that gets referenced the latest. This is predicting the future, so we use least recently used (LRU). 
-
-LRU is hard to implement efficiently. Therefore, **clock** is used. There will be a circular linked list of all the pages in memory. The pointer to this list will be to the oldest page. When a page needs to be evicted, it will look for a page with a reference bit of `0`, meaning the page hasn't been accessed since the last time it was checked. If it's `1`, the reference bit is re-set to `0`. Either way, the hand is advanced.
+**Clock** is a viable compromise. There will be a circular linked list of all the pages in memory. On the first eviction, the pointer to this list start on the oldest page. It will then look for a page with a reference bit of `0`, meaning the page hasn't been accessed since the last time it was checked. If it's `1`, the reference bit is re-set to `0`. ==Either way, the hand is advanced.== The page that is replaced is typically put into swap, and the new page is typically retrieved from swap.
 
 {{< subtext >}}
     When a page is replaced, the new page will get a reference bit of `1`.
 
     Hardware sets the reference bit to `1`.
+
+    Pages of the code section are typically not seen in swap. They're pulled from the file system and, on eviction, its data in frame is simply discarded.
 {{< /subtext >}}
 
-It's actually cheaper to replace an unmodified page since it doesn't need to be written to disk. This is **second chance**, and it will also check the dirty bit if the reference bit is `0`. If the dirty bit is `0`, it replaces the page. If it's `1`, one option the OS could make is an I/O request to write *in parallel* with clearing the dirty bit and searching. Alternatively, clear the dirty bit and move on, while making sure to actually write if the page gets evicted.
+Since it's cheaper to simply replace an unmodified page and not write it back to swap, **second chance** may be preferred. It adds the dirty bit, which is only checked if the reference bit is `0`. If the dirty bit is `0`, it replaces the page. If it's `1`, the OS could make an I/O request to write *in parallel* with it clearing the dirty bit and continuing to search for a `0`-`0`. Another option is to clear the dirty bit and continue searching, making sure to actually write back if the page does get evicted.
 
-The working set model is a result of trying to use the principle of locality to evict a bunch of pages, create free frames, and avoid having to do page replacement. It consists of pages the process has referenced in the last $T$ seconds (window size). Evictions of pages that exceed the window size are handled by deamons—background processes or threads that run from the idle loop that perform system maintenance.
+Page replacement is still relatively expensive, so it would be great if true page faults could be reduced. The **working set model** strives to do this by evicting pages that haven't been referenced in the last $T$ seconds, the window size. Eviction is handled by a daemon—background process or thread that perform system maintenance during a period of light workload.
 
-Thrashing is when pages are evicted while they are still in use. This can be due to a small window size. Since page faults are so slow, the window size ends up being fairly large, enough to fit the number of instructions that can be done in the time of a page fault.
+Too small a window size can lead to **thrashing**, eviction of pages that are still in use. **Load control** can help ensure memory does not get over-committed by placing a limit on how many processes can be in physical memory at a time. If the system is already at the limit but a new process needs to run, some ready or blocked process is suspended.
 
-Load control is the maximum number of processes in memory at a single time. This is to ensure memory does not get over-committed and avoid thrashing. If the number will be exceeded, a ready or blocked process is chosen to be suspended. However, current operating systems do not use load control.
+{{< subtext >}}
+    The window size is fairly large, enough to fit the amount of instructions that can be done in the time it takes for the page fault handler to finish.
 
-Small pages reduce internal fragmentation. Larger pages reduce the number of page table entries and page faults. They also reduce I/O time. 
+    Load control is not used by current OSs. They're best effort operating systems, meaning they will always execute the program the user wants regardless of the performance hit.
+{{< /subtext >}}
 
 
 
@@ -102,7 +113,7 @@ However, navigating through the multi-level page table hurts time. Inverted page
 
 
 
-# {{< heading "Managing The Heap" >}}
+# {{< heading "Heap" >}}
 The heap is managed by the process itself. Therefore, there are many techniques for managing it happening at once. The runtime system (e.g., Java Virtual Machine or the handler for `malloc()`) manages the heap. When the heap doesn't have enough space (e.g., at the start), the runtime system will request pages from the OS. The OS allocates it these pages, flips the allocation bit, and makes more virtual addresses available. The pages are reclaimed when the process ends. The runtime system has several requirements to meet:
 - Handle arbitrary request sequences
 - Immediately respond to requests
