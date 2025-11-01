@@ -44,8 +44,6 @@ The semantics are about which thread should get the lock after `signal()` is cal
 
 
 # Memory
-Address translation happens in the MMU (memory management unit). The TLB (translation lookaside buffer) is part of the MMU, and it is a cache that holds the most recent page number to frame number mappings.
-
 Local page replacement algorithm only consider the pages owned by the process. This requires a fixed number of frames per process. Global page replacement algorithms consider all the pages. This allows processes to use up as many frames as they need. 
 
 - Small pages: reduce internal fragmentation

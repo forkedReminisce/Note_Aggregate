@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Memory Management
 
 params: 
-    desc: 
+    desc: The OS has to manage the memory of a process. A process has to manage its own heap. 
     author: FREEZURN 
 ---
 
@@ -61,8 +61,30 @@ Virtual addresses are a $(p, o)$ pair bit string. The high-order $p$ bits repres
     A system call enables memory sharing.
 {{< /subtext >}}
 
-A page table entry contains some other bits. Permissions. Resident bit reveals whether the page is currently in physical memory, and then the next bits (including $f$) can either be the frame number or something else (e.g., swap slot). Reference bit tells whether the page has been used recently. Dirty bit determines eviction behavior.
 
+## {{< heading "Optimization" >}}
+In general, accessing data requires going to memory twice: one to get to the page table and another to the data. The former can be less frequent with the use of the *TLB* (Translation Lookaside Buffer) cache, which resides in the MMU. It stores the most recently accessed page table entries. During address translation, both the TLB and page table will be queried *in parallel*. If there is a TLB hit, then the page table access is terminated. If there is a TLB miss, the page table entry is put into the TLB.
+
+{{< subtext >}}
+    <!-- TODO: mapped data or address? is TLB between virtually and physically?-->
+    There can be additional caches. A virtually addressed cache maps the most recently accessed virtual addresses to data. There is a similar physically addressed cache. 
+{{< /subtext >}}
+
+Space is another concern because page tables can be very big and are also per process. *Multi-level page tables* address this by first cutting the $p$ bits into parts. The highest-order part indexes into the first-level page table... The final-level page table has the frame numbers. Since most processes don't actually use all the virtual address space, some lower-level page tables can be pruned. This is made possible with a sort of lazy allocation strategy for the lower-level page tables.
+
+{{< subtext >}}
+    A forward-mapped page table is the stock one.
+{{< /subtext >}}
+
+<!-- TODO: what are you hashing? -->
+However, navigating through the multi-level page table is bad for time. *Inverted page tables* are an alternative that use frame numbers as the index. This means that there is only one kept throughout the entire system. An entry will contain the PID, page number, and flags. In address translation, hashing is used to figure out which frame the page is in. 
+
+{{< subtext >}}
+    Inverted page tables are so complicated that multi-level page tables are the convention.
+{{< /subtext >}}
+
+
+## {{< heading "Loading" >}}
 There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated data will cause an exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory. 
 
 {{< subtext >}}
@@ -95,67 +117,51 @@ Too small a window size can lead to **thrashing**, eviction of pages that are st
 
 
 
-## {{< heading "Optimization" >}}
-However, we end up going to memory twice: to access the page table then the data. The TLB (translation lookaside buffer) is a cache that does reduce the amount of page table accesses. It stores the most recently accessed page table entries. During address translation, both the TLB and page table will be queried. If there a TLB hit, then the page table access is terminated. If there is a TLB miss, the entry from the page table is put into the TLB.
-
-{{< subtext >}}
-    The TLB is part of the MMU (memory management unit). The MMU as a whole handles address translation.
-
-    The TLB takes advantage of the principle of locality.
-
-    A virtually addressed cache holds the recently accessed virtual addresses and maps to the corresponding data. Likewise, the physically addressed cache with physical addresses. The TLB gets a physical address, so the next step would be here.
-{{< /subtext >}}
-
-<!-- TODO: how does the OS determine to omit entries. regular page table is called forward-mapped -->
-Space is another concern because page tables can be very big and is also per process. Also internal fragmentation. Multi-level page tables seek to solve the first problem. The $p$ bits are cut into parts, and the highest order bits are used to index into the first-level page table, the next highest order bits for the second-level page table, and so on. The final-level page table has the frame numbers. Space is saved for most processes since they don't use all the virtual address space. Therefore, entries can be pruned.
-
-However, navigating through the multi-level page table hurts time. Inverted page tables use frame numbers as the index. This means that there is only one kept throughout the entire system. The entry will contain the PID, page number, and flags. In address translation, hashing is used to figure out which frame is for the page. However, this is so complicated that multi-level page tables is the convention.
-
-
-
 # {{< heading "Heap" >}}
-The heap is managed by the process itself. Therefore, there are many techniques for managing it happening at once. The runtime system (e.g., Java Virtual Machine or the handler for `malloc()`) manages the heap. When the heap doesn't have enough space (e.g., at the start), the runtime system will request pages from the OS. The OS allocates it these pages, flips the allocation bit, and makes more virtual addresses available. The pages are reclaimed when the process ends. The runtime system has several requirements to meet:
-- Handle arbitrary request sequences
-- Immediately respond to requests
-- Metadata structures must reside in the heap
-- Blocks must be aligned
-
-Explicit memory managers (runtime system) makes the programmer actively manage the heap (think C). Programmer burden can be high, but efficiency can be very high and exposes addresses to programmers. Automatic memory managers manage the heap (think Java). However, explicit pointers are prohibited so that the runtime system can determine what data is no longer in use. Safe pointers are the substitute, and it's just an abstraction layer for the programmer.
-
-One allocation technique that can used by the manager is the bump-pointer. It's basically first-fit; a pointer starts at the start of the heap, and it is fast-forwarded after an allocated block. Reusing freed blocks is not considered.
-
-Another allocation technique is another free list with one of the fit algorithms (typically best-fit). A free block is divided into: pointer to the next free block (embedded free list), size of itself, and the usable space for the user.
+<!-- TODO: where are these pages allocated? are they just put into frames? -->
+Looking into the process itself, its heap is managed by its runtime system (e.g., Java Virtual Machine or `malloc()`'s handler). The entire virtual address space isn't initially unlocked, so the runtime system must request pages from the OS. 
 
 {{< subtext >}}
-    When splitting, allocate the later portion.
-
-    Free list is the only option for explicit memory managers.
+    Free blocks are typically coalesced before a request more pages.
 {{< /subtext >}}
 
-Since searching for the best free block is slow, binning based on size is used. Exact fit has a bin for every size and a final bin for too-big blocks, and range binning has a bin for each range of size. Each utilizes an array of free lists.
-
-Automatic memory managers implement garbage collection to handle deallocation. It consists of three parts: allocation, identification (of what's not in use), and reclamation. Garbage collection is evaluated on:
-- Space efficiency
-- Allocator efficiency: time to allocate and spatial locality of contemporaneously allocated objects
-- Reclamation efficiency
-
-Garbage are unreachable objects. One method of determination is reference counting, including from the register and heap. That latter point makes this method moot because of, think, circular linked lists. Tracing marks objects that are not reachable starting from the program roots (i.e., registers, stack, globals). 
+*Explicit memory managers* gives the programmer great discretion over the heap (think C). Programmer burden can be high but so is efficiency and exposes virtual addresses to programmers. The runtime system can allocate by using a binned free list or *bump-pointer*. The only benefit of the latter is that it is fast and has great spatial locality of contemporaneously allocated objects; it allocates the block starting from where it is currently pointing then fast-forwards itself past this new block. It can't even reuse blocks that are eventually freed.
 
 {{< subtext >}}
-    Dead objects are objects the program will certainly never reference again. Impossible for the runtime system to identify.
+    There are two binning strategies for the free list: exact fit has a bin for every size up to a point, where the final bin takes the rest of the blocks. Range binning has each bin take a range of sizes.
 
-    In tracing, noting reachable objects by references from other objects is called performing of the transitive closure.
+    With a free list, if a free block needs to be split, the later portion is allocated.
 {{< /subtext >}}
 
-Reclamation algorithms can be either non-copying or copying. A non-copying garbage collector is like deallocation of an explicit memory manager. Copying divides the heap into two spaces: 'to space' and 'from space'. Data is allocated in the 'from space' via bump-allocator until it is full. The garbage collector will then copy the reachable objects to the 'to space' and coalesce the entire 'from space'. 
 
-Mark-Sweep is one reclamation algorithm. It uses free lists with binning. When there's not enough space for a request, a collection is triggered. The mark phase is through tracing. The sweep phase reclaims unreachable objects in a non-copying manner. This algorithm has good space efficiency (i.e., no external fragmentation), slower allocation time, poor locality of contemporaneously allocated objects. 
+## {{< heading "Automatic Memory Managers" >}}
+*Automatic memory managers* manage the heap itself (think Java). To do this, explicit pointers are taken away from programmers, and instead *safe pointers* wrap them and given to the programmer.
 
-Mark-Compact uses a bump-pointer and tracing. After tracing, every reachable object is copied to the front of the heap. Then the bump-pointer is placed after the allocated objects. It has great locality because objects are allocated next to each other. It's also space efficient. However, Mark-Compact has poor reclamation efficiency because there's one traversal for tracing and another for copying.
+Since there's no such `free()` function, these memory managers implement **garbage collectors**. This results in a cycle of ==allocation, identification (of what's not in use), and reclamation==. 
 
-Semi-Space is like Mark-Compact, but an object is copied immediately after being traced. There's also two spaces. Fast allocation and superb locality but terrible space efficiency.  
+{{< subtext >}}
+    Allocation efficiency also includes spatial locality of contemporaneously allocated objects
+{{< /subtext >}}
 
-To deal with wasted space, we refer to the generational hypothesis: young objects are likely to die before older ones. To use this, the heap is further divided into young (nursery) and old. When the nursery is full, reachable objects are copied into the old space and the nursery is cleared. When the old space is full, both generations are traced and copied to the next space (either the next generation or the 'to space');
+Garbage is *unreachable objects*. One method of identification is *reference counting*, which includes from the register and heap. That latter source makes this method moot because of cyclical references (e.g., circular linked lists). Instead, *tracing* starts from the program roots (i.e., registers, stack, SDS) and marks objects reachable. 
+
+{{< subtext >}}
+    Dead objects will *certainly* never be referenced by the program ever again. They're impossible for the runtime system to identify.
+
+    In tracing, performing of the transitive closure describes traversing further links from the program roots.
+{{< /subtext >}}
+
+<!-- TODO: how does mark-sweep not have external fragmentation -->
+Reclamation algorithms fall into either non-copying or copying categories. **Mark-Sweep** is a non-copying reclamation algorithm. Since it uses binned free lists, reclaimed blocks must be tediously coalesced and put into the free list. It uses tracing for identification. Unexpectedly, Mark-Sweep has ==good space efficiency since it doesn't have external fragmentation==. However, it does have bad allocation efficiency. 
+
+<!-- TODO: why is copying so prominent? -->
+The remaining reclamation algorithms are of the copying type. **Mark-Compact** uses a bump-pointer and tracing. After tracing, every reachable object is copied to the start of the heap, and the bump-pointer is put after this chunk. This is space efficient, but it does have poor reclamation efficiency. 
+
+<!-- TODO: benefits of coalescing the entire 'from space'? is reclamation also faster because copying happens after being marked? -->
+**Semi-Space** is like Mark-Compact, but an object is copied immediately after being traced. More crucially, the heap is divided into two parts: 'from space' and 'to space'. Which partition gets what name alternate, but data gets allocated into the 'from space'. When the 'from space' is full, it is traced and the reachable objects are copied into the 'to space'. By coalescing the entire 'from space'... However, since one part must always be left alone, there is terrible space efficiency.
+
+<!-- nursery is reaped? -->
+The generational hypothesis states that young objects are likely to become obsolete before older ones. **Generational collectors** rely on this idea to improve space efficiency. The heap will be divided into at least three spaces: nursery, the generations older, and a 'to space' for the final generation. When the nursery is full, reachable objects are copied into the next generation, and the nursery is cleared. When an old generation is full, all generations up to this one, inclusive, are traced and copied to the next generation or the 'to space'.
 
 {{< subtext >}}
     Modern day garbage collectors are generation collectors.
