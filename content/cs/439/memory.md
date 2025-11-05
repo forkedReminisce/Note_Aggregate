@@ -65,19 +65,9 @@ Virtual addresses are a $(p, o)$ pair bit string. The high-order $p$ bits repres
 ## {{< heading "Optimization" >}}
 In general, accessing data requires going to memory twice: one to get to the page table and another to the data. The former can be less frequent with the use of the *TLB* (Translation Lookaside Buffer) cache, which resides in the MMU. It stores the most recently accessed page table entries. During address translation, both the TLB and page table will be queried *in parallel*. If there is a TLB hit, then the page table access is terminated. If there is a TLB miss, the page table entry is put into the TLB.
 
-{{< subtext >}}
-    <!-- TODO: mapped data or address? is TLB between virtually and physically?-->
-    There can be additional caches. A virtually addressed cache maps the most recently accessed virtual addresses to data. There is a similar physically addressed cache. 
-{{< /subtext >}}
-
 Space is another concern because page tables can be very big and are also per process. *Multi-level page tables* address this by first cutting the $p$ bits into parts. The highest-order part indexes into the first-level page table... The final-level page table has the frame numbers. Since most processes don't actually use all the virtual address space, some lower-level page tables can be pruned. This is made possible with a sort of lazy allocation strategy for the lower-level page tables.
 
-{{< subtext >}}
-    A forward-mapped page table is the stock one.
-{{< /subtext >}}
-
-<!-- TODO: what are you hashing? -->
-However, navigating through the multi-level page table is bad for time. *Inverted page tables* are an alternative that use frame numbers as the index. This means that there is only one kept throughout the entire system. An entry will contain the PID, page number, and flags. In address translation, hashing is used to figure out which frame the page is in. 
+However, navigating through the multi-level page table is bad for time. *Inverted page tables*, opposite to the forward-mapped page table, are an alternative that hashes frame numbers to index into. This means that there is only one kept throughout the entire system. An entry will contain the PID, page number, and flags. In address translation, hashing is used to figure out which frame the page is in. 
 
 {{< subtext >}}
     Inverted page tables are so complicated that multi-level page tables are the convention.
@@ -85,7 +75,7 @@ However, navigating through the multi-level page table is bad for time. *Inverte
 
 
 ## {{< heading "Loading" >}}
-There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated data will cause an exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory. 
+There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated page will cause a memory exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory. 
 
 {{< subtext >}}
     Demand paging is more popular due to the principle of locality.
@@ -103,7 +93,7 @@ However, there may not be a free frame. Therefore, page replacement algorithms a
     Pages of the code section are typically not seen in swap. They're pulled from the file system and, on eviction, its data in frame is simply discarded.
 {{< /subtext >}}
 
-Since it's cheaper to simply replace an unmodified page and not write it back to swap, **second chance** may be preferred. It adds the dirty bit, which is only checked if the reference bit is `0`. If the dirty bit is `0`, it replaces the page. If it's `1`, the OS could make an I/O request to write *in parallel* with it clearing the dirty bit and continuing to search for a `0`-`0`. Another option is to clear the dirty bit and continue searching, making sure to actually write back if the page does get evicted.
+Since it's cheaper to simply replace an unmodified page and not write it back to swap, **second chance** may be preferred. It adds the dirty bit, which is only checked if the reference bit is `0`. If the dirty bit is `0`, it replaces the page. If it's `1`, the OS could make an I/O request to write *in parallel* with it clearing the dirty bit and continuing to search for a `0`-`0`. Another option is to clear the dirty bit and continue searching, making sure to actually write back if the page does get evicted. Make sure to have a true dirty bit.
 
 Page replacement is still relatively expensive, so it would be great if true page faults could be reduced. The **working set model** strives to do this by evicting pages that haven't been referenced in the last $T$ seconds, the window size. Eviction is handled by a daemon—background process or thread that perform system maintenance during a period of light workload.
 
@@ -118,8 +108,7 @@ Too small a window size can lead to **thrashing**, eviction of pages that are st
 
 
 # {{< heading "Heap" >}}
-<!-- TODO: where are these pages allocated? are they just put into frames? -->
-Looking into the process itself, its heap is managed by its runtime system (e.g., Java Virtual Machine or `malloc()`'s handler). The entire virtual address space isn't initially unlocked, so the runtime system must request pages from the OS. 
+Looking into the process itself, its heap is managed by its runtime system (e.g., Java Virtual Machine or `malloc()`'s handler). The entire virtual address space isn't initially unlocked, so the runtime system must request pages from the OS. The OS will then create the page table entries for these allocated pages. 
 
 {{< subtext >}}
     Free blocks are typically coalesced before a request more pages.
@@ -151,14 +140,12 @@ Garbage is *unreachable objects*. One method of identification is *reference cou
     In tracing, performing of the transitive closure describes traversing further links from the program roots.
 {{< /subtext >}}
 
-<!-- TODO: how does mark-sweep not have external fragmentation -->
-Reclamation algorithms fall into either non-copying or copying categories. **Mark-Sweep** is a non-copying reclamation algorithm. Since it uses binned free lists, reclaimed blocks must be tediously coalesced and put into the free list. It uses tracing for identification. Unexpectedly, Mark-Sweep has ==good space efficiency since it doesn't have external fragmentation==. However, it does have bad allocation efficiency. 
+<!-- TODO: does sweeping handle unreachable objects at once (i.e., after tracing) -->
+Reclamation algorithms fall into either non-copying or copying categories. **Mark-Sweep** is a non-copying reclamation algorithm. Since it uses binned free lists, reclaimed blocks must be tediously coalesced and put into the free list. It uses tracing for identification. Unexpectedly, Mark-Sweep has ==good space efficiency since it has little external fragmentation==. However, it does have bad allocation efficiency. 
 
-<!-- TODO: why is copying so prominent? -->
-The remaining reclamation algorithms are of the copying type. **Mark-Compact** uses a bump-pointer and tracing. After tracing, every reachable object is copied to the start of the heap, and the bump-pointer is put after this chunk. This is space efficient, but it does have poor reclamation efficiency. 
+The remaining reclamation algorithms are of the copying type. **Mark-Compact** uses a bump-pointer and tracing. After tracing, every reachable object is copied to the start of the heap, and the bump-pointer is put after this chunk. This is space ==and time== efficient, but it does have poor reclamation efficiency. 
 
-<!-- TODO: benefits of coalescing the entire 'from space'? is reclamation also faster because copying happens after being marked? -->
-**Semi-Space** is like Mark-Compact, but an object is copied immediately after being traced. More crucially, the heap is divided into two parts: 'from space' and 'to space'. Which partition gets what name alternate, but data gets allocated into the 'from space'. When the 'from space' is full, it is traced and the reachable objects are copied into the 'to space'. By coalescing the entire 'from space'... However, since one part must always be left alone, there is terrible space efficiency.
+**Semi-Space** is like Mark-Compact, but an object is copied immediately after being traced. More crucially, the heap is divided into two parts: 'from space' and 'to space'. Which partition gets what name alternate, but data gets allocated into the 'from space'. When the 'from space' is full, it is traced and the reachable objects are copied into the 'to space'. Having a dedicated 'to space' makes it so that the memory manager does not have to check for any allocated data there. However, since one part must always be left alone, there is terrible space efficiency.
 
 <!-- nursery is reaped? -->
 The generational hypothesis states that young objects are likely to become obsolete before older ones. **Generational collectors** rely on this idea to improve space efficiency. The heap will be divided into at least three spaces: nursery, the generations older, and a 'to space' for the final generation. When the nursery is full, reachable objects are copied into the next generation, and the nursery is cleared. When an old generation is full, all generations up to this one, inclusive, are traced and copied to the next generation or the 'to space'.
