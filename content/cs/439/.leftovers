@@ -59,10 +59,11 @@ Local page replacement algorithm only consider the pages owned by the process. T
 
 
 # Storage
-The file system API doesn't require knowledge of headers and everything for streamlining and also portability.
-
 `link()` just adds another entry to an existing file. Hard link. Basically an alternate name. The file has link count. If `unlink()` brings the link count to zero, the file is deleted.
 
 `fsync()` does not return until all the all data is written and flushes the buffer cache. Actually, not really. Maybe.
 
-FAT does not support transactional updates.
+
+
+# Networks
+Parallel programming has two paradigms: shared memory (threads) and message passing (connections). In shared memory, communication is very fast and implicit. However, synchronization is explicit. The processes and threads must also be executing on the same computer.

@@ -25,7 +25,7 @@ Politics is conflictual. Topics of economy, culture, demographics, and ideology 
 # {{< heading "Collective Action" >}}
 Collective action allows a group to achieve greater things than they would have individually. However, there are two ideas that cast doubt on its success.
 
-**Free riders** don't contribute but reap the same rewards as everyone else. One countermeasure is by offering selective or material benefits—exclusive incentives. However, this is not a foolproof solution as the incentive could just simply not be appealing. A better solution is to play into the fact that people want to be with similar people, or have a goal everyone is excited to work towards.
+**Free riders** don't contribute but reap the same rewards as everyone else. One countermeasure is by offering selective or material benefits—exclusive incentives. However, this is not a foolproof solution as the incentive could just simply not be appealing. A better solution is to play into the fact that people want to be with similar people (solidary benefits). Purposive benefits is being able to work towards a desired goal. Coercion is requiring participation.
 
 **The Tragedy of the Commons** is an issue of resource overuse. The resource will eventually deplete, which could spell the end of the population. Privatization can help by putting a paywall, blocking out the poor. Another solution is the government regulating the use of the resource. 
 
