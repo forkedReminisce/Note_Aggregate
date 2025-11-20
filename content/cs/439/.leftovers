@@ -67,3 +67,13 @@ Local page replacement algorithm only consider the pages owned by the process. T
 
 # Networks
 Parallel programming has two paradigms: shared memory (threads) and message passing (connections). In shared memory, communication is very fast and implicit. However, synchronization is explicit. The processes and threads must also be executing on the same computer.
+
+mb -> b, s -> μs
+
+
+
+# Parallel and Distributed
+Happened-Before Relation (letters are events):
+- A and B are of the same process and A executed first, A → B
+- A is a message send and B is a message receive, A → B
+- A → B and B → C, A → C
