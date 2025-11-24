@@ -68,6 +68,7 @@ The 14th Amendment was a Civil War Amendment, and it offered:
 - Double citizenship: state and national citizenship is linked
 - Due Process Clause: states must also protect life, liberty, and property
 - Remedial legislation: overwrite discriminatory state laws
+- Privileges and Immunities Clause: state cannot make laws stripping away privileges and immunities
 
 There are even more things that set the national government apart from state governments. Preemption allows it to overrule the laws of a state (that don't conflict with national laws) with its own, all judges must follow the Constitution, and the national government must protect the states from invasion and violence. 
 
