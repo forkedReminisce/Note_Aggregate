@@ -4,14 +4,19 @@ title: Scheduling Policies
 
 params: 
     desc: Schedulers implement a scheduling policy to decide what process will get the CPU next.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
 
 
-<!-- TODO: what is interactivity? how do preemptive schedulers provide it? -->
 The scheduler works to support the OS in its illusionist role. To pick a process, it will follow a **scheduling policy**. *Preemptive* schedulers will stop a process even if it isn't finished. *Non-preemptive* schedulers wait for the process to finish or get blocked before scheduling another process.
+
+{{< subtext >}}
+    The scheduler is not a process but actually a code segment that running processes will execute when its time.
+{{< /subtext >}}
+
+
 
 # {{< heading "Evaluating" >}}
 Scheduling policies are evaluated on these criteria.

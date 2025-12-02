@@ -4,7 +4,7 @@ title: Memory Management
 
 params: 
     desc: The OS has to manage the memory of a process. A process has to manage its own heap. 
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -63,6 +63,7 @@ Virtual addresses are a $(p, o)$ pair bit string. The high-order $p$ bits repres
 
 
 ## {{< heading "Optimization" >}}
+<!-- TODO: TLB must be flushed on a context switch; the contents are not saved for some reason??? -->
 In general, accessing data requires going to memory twice: one to get to the page table and another to the data. The former can be less frequent with the use of the *TLB* (Translation Lookaside Buffer) cache, which resides in the MMU. It stores the most recently accessed page table entries. During address translation, both the TLB and page table will be queried *in parallel*. If there is a TLB hit, then the page table access is terminated. If there is a TLB miss, the page table entry is put into the TLB.
 
 Space is another concern because page tables can be very big and are also per process. *Multi-level page tables* address this by first cutting the $p$ bits into parts. The highest-order part indexes into the first-level page table... The final-level page table has the frame numbers. Since most processes don't actually use all the virtual address space, some lower-level page tables can be pruned. This is made possible with a sort of lazy allocation strategy for the lower-level page tables.
@@ -75,7 +76,7 @@ However, navigating through the multi-level page table is bad for time. *Inverte
 
 
 ## {{< heading "Loading" >}}
-There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated page will cause a memory exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory. 
+There are two policies to loading pages of a process for the first time. Demand paging loads a page upon reference. Pre-paging will see the OS predict and load pages the process will likely immediately need. If the process tries to access an unmapped virtual address, the OS will execute the **page fault handler**. This handler will figure figure out why its being called: unallocated page will cause a memory exception, while a nonresident page means true page fault. The latter requires bringing the page into physical memory, which blocks the process. 
 
 {{< subtext >}}
     Demand paging is more popular due to the principle of locality.

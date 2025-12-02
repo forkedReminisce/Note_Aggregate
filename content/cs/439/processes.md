@@ -4,7 +4,7 @@ title: Processes
 
 params: 
     desc: A process is an instance of an executing program. The OS oversees them.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -17,7 +17,6 @@ The OS tracks every process' state with Process Control Blocks (PCB). They are a
 3. Running: could go back to ready because of time-sharing
 4. Blocked: waiting for an external event (e.g., I/O)
 5. Terminated: finished; the OS needs to deallocate the resources
-
 
 
 ## {{< heading "Dual Mode Execution" >}}
@@ -33,3 +32,17 @@ A process can enter the kernel in three ways: exceptions, interrupts, or system 
 {{< subtext >}}
     Signals don't have a key in the interrupt vector. Instead, the OS forwards it to the process, who has already defined a signal handler for it. The process executes the process handler.
 {{< /subtext >}}
+
+
+
+<!-- TODO: -->
+# {{< heading "Deadlock: Revisited" >}}
+There will be a slight modification from the conditions of deadlock for threads: mutual exclusion is loosened up to become *bounded resources*: resources are finite. As a result, the four conditions become necessary ==but not sufficient==. This means that if all four conditions are present, it must be investigated to truly determine deadlock.
+
+So far, deadlock has been mitigated through *deadlock prevention*—breaking one of the four conditions. In the OS, this would be **resource ordering**. However, this may force a process to grab a resource earlier than it needs it, tying it up for longer than necessary.
+
+*Deadlock avoidance* relies on an active algorithm that checks resources requests for any potential deadlock. It also ends up breaking a condition. **Banker's Algorithm** will accept more resource requests than is actually available. It achieves this by staying in a safe state—that there exists a schedule where the maximum possible request of each process can be eventually fulfilled. If a resource request leads to an unsafe state (but not necessarily deadlock), the request is denied. This algorithm is weak, though, because it's like predicting the future, cannot handle additional requests, nor can it handle resource failures.
+
+*Deadlock detection* will allow deadlock to occur and try to recover from it. **Resource Allocation Graphs** model requests and allocations of resources and processes. If there's a cycle, there might be deadlock. The deadlock is broken by killing processes of the cycle or pre-empting resources. However, detecting cycles is very expensive.
+
+In reality, though, deadlock doesn't really happen all too often. This results in the Ostrich Algorithm—ignoring it.

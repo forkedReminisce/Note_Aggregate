@@ -1,74 +1,87 @@
 ---
-draft: true
-title: 
+draft: false
+title: Networks
 
 params: 
-    desc: 
-    author: FREEZURN 
-
-# TODO: indexes MUST specify weight. the later the section, the higher the weight
+    desc: Networks rely on various components for the purposes of efficiency, correctness, and robustness. 
+    author: Andrew Nguyen 
 ---
 
 
 
-Networks are a system of lines that interconnect. It's a hierarchical system organized by geographical proximity. It requires complex software because efficiency, correctness, and robustness matter. 
-
-The OS treats networks like another device. The Network Interface Controller (NIC) is on the bus. 
-
-
-# {{< heading "Communication" >}}
-A symbolic name are Internet domain names. They are mapped to IP addresses, which the computer understands. Of the symbolic name, the first string (delimited by `.`) is the most specific part (i.e., the remote computer). It maps to the final number of the IP address. 
-
-Each continent has its IP addresses isolated from the others. Despite this, though, continents are running out of 32-bit addresses, IPv4 (e.g., 128.83.139.82). IPv6 is replacing it (e.g., fe80::46a8::42ff:fe44:a726), but most traffic still occurs on IPv4. 
-
-The Internet maintains the mappings in a huge worldwide distributed database called Domain Naming System (DNS). It's organized as a trie from the first-level domain names (`com`). Our computers are the resolver, and they send symbolic links it doesn't recognize through a system call that queries the local DNS server. This local DNS server will make requests to each level of domain names, starting at the root DNS, to construct more precise IP addresses. ==Like the resolver, the local DNS server caches responses==.
-
-Information is transmitted through Gateways. Which Gateways are determined by the destination IP address, starting from the left number. Transmission is through units called *packets*, the size of which (Maximum Translation Units) determined by the networks.
-
-<!-- layers 2 and 3. layer 1 is hardware (wires or the machines themselves) -->
-Because there's multiple different, incompatible networks (e.g., ethernet and wireless), internet protocols serve to get to the right network of the destination machine. When data enters the internet layer, it gets a packet header of metadata (e.g., relevant IP addresses). Local internet protocols are specific to the network and get to the destination machine itself. When the packet is here, it gets a frame header tacked on and becomes a frame. Routers connect networks to each other, and they replace frame headers. This is the essence of internet. 
+People are most familiar with symbolic names (e.g., `bbc.co.uk`). In the Global IP Internet (hereafter referred to as "Internet"), has a distributed database called **Domain Naming System** (DNS). This is how symbolic names are mapped to IP addresses. 
+1. Resolver queries its local DNS server with a symbolic name through a *system call*
+2. Local DNS server queries the root DNS with the final token of the symbolic name (e.g., `uk`).
+3. Root DNS returns the IP address of the DNS server of the token
+4. Local DNS server queries this server with the previous token (e.g., `co`).
+5. Repeat steps 3 and 4 until the IP address for the first token is reached
 
 {{< subtext >}}
-    Global IP Internet is the most famous example of an internet and what we typically think of (IP addresses).
+    The resolver and local DNS server do cache responses.
+
+    The first numbers of an IP address is used to geographically group IP addresses. This speeds up data routing.
 {{< /subtext >}}
 
-Networks can be classified as:
-- System Area Network (SAN): for connecting a machine room; fast (fibre)
-- Local Area Network (LAN): computers in a single building; reliable (ethernet)
-- Wide Area Network (WAN): computers across state, country, or planet
-
-There are a number of time costs associated with networks. Latency is the time it takes for one byte to go from one place to another physically. Bandwidth is basically the capacity that can be sent through the network at a time. There's also overhead: the time it takes for the source and destination machines to prepare or pull data from the packet.
+Networks do have their issues. 
+- Latency: time it takes for one byte to go from one place to physically make it to the other. 
+- Bandwidth: capacity that can be out in network at a time. 
+- Overhead: Time for machines to prepare or retrieve data 
 
 
-<!-- layer 4 -->
+
+# {{< heading "Seven Layers" >}}
+Layer 1 is hardware. The Network Interface Controller (NIC) is the device that handles network communication. It shares the same bus as many other devices, like HDDs. 
+
+There are multiple different, incompatible networks (e.g., ethernet and wireless). These are physically connected with routers. Internet protocols are responsible for getting a message to the destination machine, which may be on a different network. This is the essence of internet.
+
+Layer 3 is network. When data enters the internet layer, it gets a packet header attached to it. This is metadata about the transmission. Here, the data is known as a *packet*. 
+
+{{< subtext >}}
+    Each network defines a Maximum Transmission Unit for the maximum size of a packet.
+{{< /subtext >}}
+
+Layer 2 is data link. After getting a packet header attached, the data then gets a frame header of the network. When it passes through a router, the frame header gets replaced with one appropriate for the other network. The data is called a *frame*.
+
+
 ## {{< heading "Transport" >}}
-The TCP/IP Protocol Family concerns reliable transport. User Datagram Protocol (UDP) provides unreliable delivery, meaning if a packet gets lost (e.g., full buffer) or corrupted, UDP doesn't care and makes the application detect it. It sends datagrams. Transmission Control Protocol (TCP) tries to mask unreliability of the network. It sends segments. To do what it does, it will set up a session between the client and server through the Three-Step Handshake. Either way, another header is added on top of the packet and frame headers.
+Layer 4 is transport. This is how processes send and receive data. The *User Datagram Protocol* (UDP) provides unreliable delivery. This puts the responsibility on the sender if a datagram gets lost or corrupted.
+
+**Transmission Control Protocol** (TCP) approaches things differently by handling unretrieved segments itself. First, a session must be set up between the client and server through a *Three-Step Handshake*.
 1. Client sends an `SYN` message for a synchronous connection
 2. Server responds with `SYN`/`ACK` to acknowledge and accept the request
-3. Client sends back an `ACK`
-
-The sender will now send a segment and start a timer. The receiver will receive the segment and return an `ACK`. If the sender doesn't get this `ACK` before the timer goes off, it resends the data. Senders and receivers are processes, and `ACK`s are not handled until the process gets the data that resides in the TCP's buffer. When the sender has multiple outstanding segments, an `ACK` for segment $i$ will serve for segments $i$ and below. `NACK` allows the receiver to specify which segments in that range was not received, which allows the sender to resend only those segments. This is cumulative acks.
+3. Client returns an `ACK`
 
 {{< subtext >}}
-    Delayed acts use application response as implicit `ACK`.
-
-    Packets can be reordered.
+    Datagrams and segments are the results of attaching another header.
 {{< /subtext >}}
 
-*TCP Flow Control* is about sending most amount of segments without overwhelming the receiver. Overwhelming as in overflowing its buffer. The sender knows the size of the buffer thanks to the handshake. It also knows how much data it sent and how much of it was `ACK`'ed, allowing the TCP protocol to optimize the number of segments to send. 
+<!-- TODO: whats the point of NACK if the sender can just resend segments there's not an ACK for -->
+The sender will now send a segment and start a timer. When the receiver retrieves the segment from the TCP buffer, it will send back an `ACK`. If the sender doesn't get this `ACK` before the timer goes off, it resends the segment. When the sender has multiple outstanding segments, an `ACK` for segment $i$ will serve for segments $i$ and below (cumulative ack). `NACK` allows the receiver to specify which segments in that range was not received, which allows the sender to resend only those segments. 
 
-The *TCP Congestion Window* sets the maximum number of bytes that can be sent without an `ACK`. This is to avoid congestive collapse, where the network is already congested but data keeps getting sent through it, bringing the network down further and potentially leading to packet loss. The Congestion Control algorithm tries to figure out the size of the window based on:
-- Additive increase, multiplicative decrease: window will grow by 1 every cumulative ack but halves at loss event (no `ACK` or `NACK`)
+{{< subtext >}}
+    Delayed acks use application response as implicit `ACK`.
+
+    Segments can be received out of order.
+{{< /subtext >}}
+
+<!-- TODO: is the TCP buffer per process -->
+*TCP Flow Control* is about sending most amount of segments without overwhelming the receiver (i.e., overflowing its TCP buffer). The sender already knows the size of the buffer thanks to the handshake. It also knows how much of the receiver's TCP buffer is filled based on how many segments were sent versus how many have been `ACK`'d. 
+
+The *TCP Congestion Window* sets the maximum number of bytes that can be sent without an `ACK`. This is to avoid congestive collapse, where the network is already congested but data keeps getting sent through it, bringing the network down further and potentially leading to packet loss. The Congestion Control algorithm tries to optimize the size of the window based on:
+- Additive increase, multiplicative decrease: window will grow by 1 every cumulative ack but halves at loss event 
 - Slow start: window starts 1, and for each `ACK` the window doubles, until the first loss event
-- Reaction to timeout events: if the timer runs out without an `ACK`, the window is set to 1 and slow mode mode until the window reaches some threshold
+- Reaction to timeout events: when the timer runs out, the window is set to 1 and goes into slow start until the window reaches some threshold
 - Round trip variance estimation: initially set timer to estimated round trip time plus quadruple the average deviation of round trip time
 - Exponential retransmit timer backoff: if the timer runs out, it is doubled
 
-TCP is implemented by the OS. It manages its metadata in a Protocol Control Block (PCB). There is one for each connection, so a process may hold multiple PCBs. It does have to decide when to start sending/returning data (i.e., if it's small, should it wait for more).
+TCP is implemented by the OS. Metadata is stored in a Protocol Control Block (PCB). There is one for each connection, so a process may hold multiple PCBs.
 
-<!-- sockets are per connection -->
-Processes are identified with a port, a 16-bit integer. Well-known ports are for common services (e.g., web), while ephemeral ports are assigned automatically and what a process would typically have. The endpoints of a connection are called sockets. Its address is `IPAddress:Port`. To an application, sockets are just somewhere to read or write to regarding networks.
+# {{< heading "Sockets" >}}
+In a particular system on the network, a process is identified by a *port*, a 16-bit integer. Well-known ports are reserved for common services, while ephemeral ports are assigned automatically. The endpoints of a connection are called **sockets**. Its address is `IPAddress:Port`. To an application, sockets behave like file descriptors.
 
-When the client wants to communicate with a server, it must `getaddrinfo()` the server to query the DNS. It will then create a socket descriptor. On the kernel side, a data structure is created that includes the pointer to the protocol control block. Then it will connect to the server, which is blocking (until `connect()` returns).
+When the client wants to connect to a server, it must `getaddrinfo()` the server. It will then create a socket descriptor with `socket()`. Then it will connect to the server, which is blocking (until `connect()` returns).
 
-The server will also `getaddrinfo()` on itself if it doesn't already know and create a socket descriptor. However, it must then call `bind()` to make this socket discoverable over the network. `listen()` will then make this socket serve the purpose of taking in connection requests from clients. Finally, it will call `accept()` to block until a connection request is made. This function will create a new thread and returns to it a connected descriptor, which is what the client and server will use to communicate; the listening descriptor continues to handle new connection requests. When the client disconnects, it signals the server to do the same.
+<!-- TODO: is listen() blocking -->
+If it doesn't already know itself, the server will `getaddrinfo()`. It will then create a socket descriptor and call `bind()` to make the socket discoverable over the network. `listen()` will make the running thread block until a connection request comes in. At which, `accept()` makes a new thread and *connected descriptor*, which is the socket the server will use to communicate with this client. The older socket is the *listening descriptor*. 
+
+When the client disconnects, it signals the server to do the same.

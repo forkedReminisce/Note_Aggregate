@@ -7,7 +7,7 @@ disableKinds = ['taxonomy']
 
 # separate from page.Params ; for custom parameters
 [params]
-    owner = 'FREEZURN'
+    owner = 'Andrew Nguyen'
 
 
 

@@ -37,11 +37,9 @@ The semantics are about which thread should get the lock after `signal()` is cal
 1. CPU loads boot program (e.g., UEFI)
 2. Boot program puts hardware information into a data structure
 3. Boot program loads the OS' kernel and gives it the hardware data structure
-4. OS initializes kernel data structures (e.g., ready queue) and hardware, and creates basic processes
-5. After basic processes finish, the OS will run any user programs
-   - If there aren't any, enter the idle loop and do some system management and profiling tasks
-6. OS puts the computer to sleep
-7. When it receives a hardware interrupt, the OS will wake up
+4. OS initializes kernel data structures (e.g., ready queue) and hardware devices (to ready) and starts basic processes
+5. OS will run user programs (double-click)
+   - If there aren't any, enter the idle loop and do some system management and profiling tasks. Might halt the processor and enter low-power mode after some time, waking up when a hardware interrupt is received
 
 
 
@@ -63,6 +61,10 @@ Local page replacement algorithm only consider the pages owned by the process. T
 
 `fsync()` does not return until all the all data is written and flushes the buffer cache. Actually, not really. Maybe.
 
+SSDs have a no-op scheduler—serve requests in the order they come in. This is not FIFO because it doesn't guarantee it performs the requests in the order they're generated (too much work).
+
+OS checks permissions as inodes come in.
+
 
 
 # Networks
@@ -73,7 +75,20 @@ mb -> b, s -> μs
 
 
 # Parallel and Distributed
+Since parallel systems have multiple CPUs, each CPU does have their own caches (plus a shared one).
+
+Symmetric Multi Processor (SMP) is a system with a motherboard of multiple CPUs.
+
+Virtualization allows multiple OSs to run on the same machine at the same time. This is through the hypervisor, that intercept and handle hardware requests from the OS.
+
 Happened-Before Relation (letters are events):
 - A and B are of the same process and A executed first, A → B
 - A is a message send and B is a message receive, A → B
 - A → B and B → C, A → C
+
+
+
+# Security
+There are five types of rootkits depending on where they hide: firmware, hypervisor, kernel, library, application.
+
+Steganography is hiding a message in plain sight (e.g., an image). 

@@ -4,7 +4,7 @@ title: Handling Files
 
 params: 
     desc: There's a lot of data that needs to be durable. Therefore, they're put into stable storage. A file system facilitates working with these files in a simpler way.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -40,11 +40,8 @@ Stable storage is persistent and cheap. **Magnetic disks** are one such stable s
 
 Since SSDs are not as resilient as disk, it has to use some tricks. It marks blocks defective, wear-level (spreading updates to frequently used pages across erasure blocks), and reserving space to sustain these tricks.
 
+<!-- TODO: does DMA write the entire data to pages or just a page size? -->
 The CPU and the stable storage device need to communicate. **Polling** is when the OS checks whether the stable storage device is finished with the operation. If not, the OS will reschedule it to the ready queue. **Interrupts** will let the CPU do other work until it is alerted by the device for completion. ==Both of these operate in a word at a time==. **Direct Memory Access** expands on interrupts by introducing DMA controllers that are able to write to memory. Not only does this decrease the burden on the CPU, but the CPU is also only interrupted when the ==entire transfer is complete==. 
-
-{{< subtext >}}
-    DMA controllers and the CPU compete for the memory bus, but its partially negligible.
-{{< /subtext >}}
 
 
 
@@ -55,6 +52,7 @@ The goals when designing a file system are:
 - Efficiency
 - Usability: easy interface for programmers and users
 - Reliability: writes can be interrupted and protection against corruption
+
 Free space is kept track with a free list or bitmap (of each block; `1` means allocated).
 
 
@@ -89,13 +87,14 @@ Most file systems use extents with SSDs. This is because there's less overhead a
 
 
 # {{< heading "Usability" >}}
-<!-- TODO: is current working directory (CWD) only an idea? its not like an actual thing? -->
 **Directories** are files that map file names to file numbers. This is a directory entry. For example, `.` and `..` are mapped to the current directory's file number and the previous directory's file number respectively. The **file number** indexes into the data structure of file header pointers.
 
 {{< subtext >}}
     Each directory creates a name space.
 
-    Directories can only be modified in kernel mode.
+    CWD is stored in the PCB.
+
+    There's some overhead in that anything that is read can only be processed once it's made its way into memory.
 {{< /subtext >}}
 
 The Make-It-Work Strategy only had a single directory (not necessarily folder) for the entire system. The Simple User-Based Strategy then gave each user their own directory. Multi-level Directories, which is what is used today, has the root directory and directories for basically every folder.
@@ -112,6 +111,7 @@ UNIX updates structures, including data, in a particular order. For example, dat
 
 <!-- no log means the changes made it to disk -->
 If a set of files need to be modified as a unit, atomicity is necessary. Therefore, *journaling file systems* use write-ahead logging for metadata changes. This happens before actually modifying metadata. This makes `fsck` a liability. Because of **disk head scheduling**, `Commit` can be prematurely written before the entire transaction is written. Therefore, `Barrier` is placed before `Commit` to say that the previous data must be written before writing the rest.
+<!-- TODO: there's a disk queue -->
 - FIFO: a queue of requests
 - Shortest Seek Time: handle the nearest track
 - Elevator: handle the requests in one direction, turn around at the end, handle requests in the other direction
