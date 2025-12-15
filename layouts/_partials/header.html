@@ -8,22 +8,22 @@
 
     {{/* since results is not initially computed, search == input */}}
     <div id="search">
-        <input type="search" placeholder="Search">
+        <input type="search" placeholder="Search" spellcheck="true">
         <div></div>
     </div>
 
     <nav>
         {{/* cs, other */}}
-        {{- range site.Sections.ByTitle -}}
+        {{ range site.Sections.ByTitle }}
             <div class="category">
-                {{- .Title -}}
+                {{ .Title }}
                 <div>
                     {{/* the sections of the top-level sections */}}
-                    {{- range .Sections.ByWeight.Reverse -}}
+                    {{ range .Sections.ByWeight.Reverse }}
                         <a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
-                    {{- end -}}
+                    {{ end }}
                 </div>
             </div>
-        {{- end -}}
+        {{ end }}
     </nav>
 </header> 

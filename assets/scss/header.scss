@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'fonts';
 
 
@@ -8,6 +9,55 @@ header {
     height: 80px;
     display: flex;
     align-items: center; // only vertically
-    border-bottom: 1px solid #F1F1F1;
+    top: 0px; // makes sticky work
+    justify-content: center;
+    background: linear-gradient(180deg,rgba(28, 23, 19, 1) 75%, rgba(28, 23, 19, 0.9) 80%, rgba(28, 23, 19, 0) 100%);
+
+    a {
+        height: 68%;
+        margin-left: 8px;
+        margin-right: auto;
+        img {
+            height: 100%;
+        }
+    }
+
+    #search {
+        position: absolute;
+        
+        input[type=search] {
+            background: none;
+            font-size: 1rem;
+            color: inherit;
+
+            padding: math.div(1.78 - 1em, 2) 1.78 - 1em;
+            border: 2px solid hsl(from #1C1713 h calc(s - 1) calc(l + 5)); // TODO: make darker
+            border-radius: math.div(1.78 - 1em, 2);
+
+            &:focus {
+                background-color: hsl(from #1C1713 calc(h - 1) s calc(l + 2));
+                outline: none;
+            }
+
+            &::placeholder {
+                color:#c7baab;
+            }
+        }
+    }
+
+    nav {
+        margin-left: auto;
+        margin-right: 2em;
+        column-gap: 5em;
+        display: flex;
+        font: 112 1.8rem "Jabin";
+        
+        .category {
+            padding: 0.4em;
+
+            &::first-letter {
+                font-variation-settings: "XXXX" 100; // XXXX is the tag for swashes
+            }
+        }
+    }
 }
-// TODO: explicitly define font sizes

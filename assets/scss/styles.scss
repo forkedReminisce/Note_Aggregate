@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 // file extension not needed
-@use 'header'; // TODO: does order matter (does header rely on html appearing before)
+@use 'header'; 
 
 
 
@@ -22,7 +22,7 @@ html {
     // weight size/height family
     font: 300 medium/$line_height "IBM Plex Sans JP"; // medium (or 1rem) is user's preferred font size
     color: $text_color;
-    text-align: justify; // TODO: ?
+    text-align: justify; 
 
     body {
         margin: 0; // browser adds margin by default
@@ -33,7 +33,7 @@ html {
 main {
     box-sizing: border-box;
     // top,bottom left,right
-    padding: 0 30%;
+    padding: 0 29%;
 }
 
 
@@ -83,7 +83,8 @@ em {
 }
 
 mark {
-    // TODO:
+    background-color: #29c2fff8;
+    color: #050200;
 }
 
 
