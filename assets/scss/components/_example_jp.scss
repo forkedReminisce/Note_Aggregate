@@ -1,0 +1,27 @@
+@use '../library';
+
+$line_height: library.$line_height * 1rem;
+$subtext_line_height: library.$subtext_line_height * 1rem;
+
+
+
+.example_jp {
+    // space the <span> correctly
+    padding-top: library.div($line_height - $subtext_line_height, 2);
+    // idek; i trust
+    padding-bottom: library.div(
+        ($line_height - $subtext_line_height) - 
+        ($subtext_line_height - library.$subtext_font_size), 2); 
+}
+
+.example_jp > p {
+    text-align: center;
+    // acute control over spacing of lines
+    margin: 0;
+    line-height: $subtext_line_height; 
+}
+
+.example_jp > p:last-child {
+    font-size: library.$subtext_font_size;
+    color: library.$subtext_color;
+}

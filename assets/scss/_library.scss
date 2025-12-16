@@ -1,0 +1,25 @@
+@forward 'sass:math';
+
+@use 'sass:math';
+
+
+
+$base_color: #1C1713; // hsb(27, 32, 11)
+$text_color: #FAF1E3; // hsb(37, 9, 98)
+$line_height: 2.1;
+$p_margin: 1.6rem;
+
+
+// subtext (and example_jp) specific
+$subtext_font_size: 0.92rem;
+$subtext_line_height: 1.42; 
+$subtext_color: color-mix(in xyz-d50, $base_color 84%, $text_color); // TODO:
+
+
+// table (and header) specific
+$td_line_height: 1.78em;
+$td_padding: math.div($td_line_height - 1, 2) $td_line_height - 1;
+$table_border_color: hsl(from $base_color h calc(s - 1) calc(l + 5)); // TODO: make darker
+$table_border: 2px solid $table_border_color;
+$table_radius: math.div($td_line_height - 1, 2);
+$odd_column_color: hsl(from $base_color calc(h - 1) s calc(l + 2));

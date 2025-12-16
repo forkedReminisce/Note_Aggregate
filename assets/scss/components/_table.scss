@@ -1,0 +1,70 @@
+@use '../library';
+
+$line_height: library.$line_height * 1rem;
+
+
+
+.table {
+    padding: library.div($line_height - 1, 2) 0; // same spacing as <p>
+}
+
+table {
+    margin: 0 auto; // .table handles spacing
+
+    border-spacing: 0;
+    // TODO: handle overflow when it happens
+    
+    th {
+        font-weight: 700;
+    }
+
+    // nth-child() is 1-indexed
+    th:nth-child(odd), td:nth-child(odd) {
+        // brighter shade
+        // background-color: #241F19; 
+        background-color: library.$odd_column_color;
+    }
+
+
+    box-shadow: #17120E 0 0 2px 2px;
+    border-radius: library.$table_radius; // to shadow
+
+    th, td {
+        line-height: library.$td_line_height;
+        /* vertical: give edges the line height
+         * horizontal: extra padding for style
+         */
+        padding: library.$td_padding;
+
+        text-align: center;
+        vertical-align: middle;
+
+
+    // border business from here on out
+        border-right: library.$table_border;
+        border-bottom: library.$table_border;
+
+        &:first-child {
+            border-left: library.$table_border;
+        }
+    }
+
+    th {
+        border-top: library.$table_border;
+        &:first-child {
+            border-top-left-radius: library.$table_radius;
+        }
+        &:last-child {
+            border-top-right-radius: library.$table_radius;
+        }
+    }
+    
+    tr:last-child {
+        td:first-child {
+            border-bottom-left-radius: library.$table_radius;
+        }
+        td:last-child {
+            border-bottom-right-radius: library.$table_radius;
+        }
+    }
+}

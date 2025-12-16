@@ -1,0 +1,43 @@
+@use '../library';
+
+
+
+// the root element (referenced by rem)
+html {
+    background-color: library.$base_color;
+
+    // weight size/height family
+    // medium (or 1rem) is user's preferred font size
+    font: 300 medium/library.$line_height "IBM Plex Sans JP"; 
+    color: library.$text_color;
+    text-align: justify; 
+}
+
+body {
+    // replace browser margin
+    margin: 0 0 18vh; // top left&right bottom
+}
+
+main {
+    // top,bottom left,right
+    padding: 0 29%;
+    overflow: visible; // for tables 
+}
+
+
+
+// text formatting
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-family: "IBM Plex Sans"; // usually JP
+}
+
+mark {
+    background-color: #29c2fff8;
+    color: #050200;
+}
+
+// TODO: code

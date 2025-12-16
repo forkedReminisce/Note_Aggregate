@@ -1,0 +1,34 @@
+@use '../library';
+
+
+
+h1, h2 {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 0;
+
+    font: 98 2.96rem/1.11 "Jabin";
+    word-spacing: 0.6ch;
+
+    .heading_word {
+        display: inline-block; // necessary for ::first-letter
+
+        &::first-letter {
+            font-variation-settings: "XXXX" 100; // XXXX is the tag for swashes
+        }
+    }
+}
+
+// special <h1>
+#title {
+    margin-top: 6.2rem;
+    margin-bottom: 2.26rem;
+
+    font-size: 4.2rem;
+    font-weight: 106;
+}
+
+h2 {
+    margin-top: 3.2rem;
+    font-size: 2.6rem;
+}

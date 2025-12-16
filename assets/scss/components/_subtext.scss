@@ -1,0 +1,31 @@
+@use '../library';
+
+$line_height: library.$line_height * 1rem;
+
+
+
+.subtext {
+    font-size: library.$subtext_font_size;
+    color: library.$subtext_color;
+}
+
+.subtext > p {
+    line-height: library.$subtext_line_height; 
+    margin: 0.33em 0; 
+}
+
+
+// corrections
+.subtext > p:first-child {
+    margin-top: -1 * library.$p_margin; // was getting pushed down by <p>
+    // positioned on the next line of <p>
+    padding-top: library.div($line_height - 
+            (library.$subtext_font_size * library.$subtext_line_height), 2);
+}
+
+.subtext > p:last-child {
+    // size subtext line like a <p> line
+    margin-bottom: 0;
+    padding-bottom: library.div($line_height - 
+            (library.$subtext_font_size * library.$subtext_line_height), 2);
+}
