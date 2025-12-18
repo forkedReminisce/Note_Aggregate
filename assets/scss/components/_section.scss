@@ -1,0 +1,41 @@
+@use '../library';
+
+
+
+// similar styling to a table, scaled
+#section {
+    padding: library.$table_container_padding;
+}
+
+#section > div {
+    margin: 0 auto;
+
+    // line height and vertical padding of <td>
+    line-height: library.$td_line_height + (library.$td_line_height - 1);
+    border: library.$table_border;
+    box-shadow: library.$table_shadow;
+    border-radius: library.$table_radius; 
+
+    a {
+        display: block;
+        text-align: center;
+
+        // override default styling
+        color: library.$search_placeholder_color;
+        text-decoration: none;
+        &:hover {
+            background-color: library.$odd_column_color;
+            color: library.$text_color;
+        }
+
+        // round top and bottom subpages
+        &:first-child {
+            border-top-left-radius: library.$table_radius;
+            border-top-right-radius: library.$table_radius;
+        }
+        &:last-child {
+            border-bottom-left-radius: library.$table_radius;
+            border-bottom-right-radius: library.$table_radius;
+        }
+    }
+}

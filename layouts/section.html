@@ -1,7 +1,9 @@
 {{- define "差分" -}}
-    <div id="table">
+    <div id="section">
+        <div>
         {{- range .Pages -}}
-            <a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
+            <a href="{{- .RelPermalink -}}"><b>{{- .Title -}}</b></a>
         {{- end -}}
+        </div>
     </div>
 {{- end -}}

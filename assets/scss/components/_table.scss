@@ -1,15 +1,20 @@
 @use '../library';
 
+
+// changing any styling here requires updating the search box styling
+
+
+
 $line_height: library.$line_height * 1rem;
 
 
 
 .table {
-    padding: library.div($line_height - 1, 2) 0; // same spacing as <p>
+    padding: library.$table_container_padding;
 }
 
 table {
-    margin: 0 auto; // .table handles spacing
+    margin: 0 auto; // center align
 
     border-spacing: 0;
     // TODO: handle overflow when it happens
@@ -26,7 +31,7 @@ table {
     }
 
 
-    box-shadow: #17120E 0 0 2px 2px;
+    box-shadow: library.$table_shadow;
     border-radius: library.$table_radius; // to shadow
 
     th, td {

@@ -4,6 +4,6 @@
 @use 'src';
 
 // keep consistent spacing between block elements
-p, ul, ol, .example_jp, .table {
+p, ul, ol, .example_jp, .table, #section {
     margin: library.$p_margin 0;
 }

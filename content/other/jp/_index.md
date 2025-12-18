@@ -1,10 +1,10 @@
 ---
-draft: true
+draft: false
 title: Japanese
 
 params: 
-    desc: An aggregate of likely Japanese grammar notes.
-    author: FREEZURN
+    desc: Mostly Japanese grammar notes.
+    author: Andrew Nguyen
 
 weight: 999 # japanese will always be first
 ---

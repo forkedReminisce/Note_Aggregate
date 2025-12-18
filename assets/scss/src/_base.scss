@@ -27,11 +27,11 @@ main {
 
 
 // text formatting
-strong {
+strong, b {
     font-weight: 700;
 }
 
-em {
+em, i {
     font-family: "IBM Plex Sans"; // usually JP
 }
 

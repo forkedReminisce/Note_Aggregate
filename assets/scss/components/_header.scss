@@ -41,7 +41,7 @@ header {
             border-radius: library.$table_radius;
 
             &::placeholder {
-                color:#ADA190E6; // TODO:
+                color:library.$search_placeholder_color;
             }
 
             &:focus {
