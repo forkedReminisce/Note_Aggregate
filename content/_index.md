@@ -1,11 +1,10 @@
 ---
-draft: true
+draft: false
 title: Note Aggregate
 # this map is for custom fields
 params: 
-    desc: 
-    author: FREEZURN 
-# TODO: indexes MUST specify weight. the later the section, the higher the weight
+    desc: Note Aggregate is Andrew Nguyen's collection of notes through his time at the University of Texas at Austin.
+    author: Andrew Nguyen 
 ---
 
 

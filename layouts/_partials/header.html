@@ -17,11 +17,15 @@
         {{/* cs, other */}}
         {{ range site.Sections.ByTitle }}
             <div class="category">
-                {{ .Title }}
+                <p>{{ .Title }}</p>
+
+                {{/* default invisible, until above is hovered */}}
                 <div>
+                    {{/* repeated since the outer <p> becomes invisible */}}
+                    <p>{{ .Title }}</p>
                     {{/* the sections of the top-level sections */}}
                     {{ range .Sections.ByWeight.Reverse }}
-                        <a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
+                        <a href="{{- .RelPermalink -}}"><b><i>{{- .Title -}}</i></b></a>
                     {{ end }}
                 </div>
             </div>

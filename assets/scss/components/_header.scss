@@ -55,18 +55,82 @@ header {
 
     nav {
         margin-left: auto; // position right
-        margin-right: 2em;
+        margin-right: 2ch; // displace from scrollbar
 
         display: flex;
-        column-gap: 4.8em; // between items
+        column-gap: 10ch; // between items
         font: 112 1.8rem "Jabin";
-        
-        .category {
-            padding: 0.4em; // create grace space for hover
+    }
+}
 
-            &::first-letter {
-                font-variation-settings: "XXXX" 100; 
-            }
+
+
+// dropdown business
+.category {
+    $v_padding: 1ch; // vertical grace space for hover
+    width: 11ch;
+    position: relative; // for child div with absolute positioning
+
+    // the title
+    p {
+        padding: $v_padding 0;
+        margin: 0; // clear from base
+
+        text-align: center;
+        &::first-letter {
+            font-variation-settings: "XXXX" 100;
         }
+    }
+
+
+    // duplicate with dropdown
+    div {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+
+        border: library.$table_border;
+        border-radius: library.$table_radius;
+        box-sizing: border-box; // border exceeds .category box
+
+        a {
+            display: block;
+            padding-left: 0.6ch; // indent
+            line-height: library.$td_line_height + (library.$td_line_height - 1);
+
+            color: library.$search_placeholder_color;
+            text-decoration: none;
+            &:hover {
+                background-color: library.$odd_column_color;
+                color: library.$text_color;
+            }
+            &:last-child {
+                border-bottom-left-radius: library.$table_radius;
+                border-bottom-right-radius: library.$table_radius;
+            }
+
+            text-align: left;
+            font-size: 0.76em;
+        }
+    }
+
+    // invisible border for no movement on hover
+    & > p {
+        border: library.$table_border_size solid transparent;
+        border-bottom: none;
+    }
+
+}
+
+
+.category:hover {
+    // specifically top level one
+    & > p {
+        display: none;
+    }
+
+    div {
+        display: block;
     }
 }

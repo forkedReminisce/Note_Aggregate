@@ -25,8 +25,9 @@ $subtext_color: color-mix(in xyz-d50, $base_color 84%, $text_color); // TODO:
 $table_container_padding: math.div($line_height - 1rem, 2) 0;
 $td_line_height: 1.78em;
 $td_padding: math.div($td_line_height - 1, 2) $td_line_height - 1;
+$table_border_size: 2px;
 $table_border_color: hsl(from $base_color h calc(s - 1) calc(l + 5)); // TODO: make darker
-$table_border: 2px solid $table_border_color;
+$table_border: $table_border_size solid $table_border_color;
 $table_radius: math.div($td_line_height - 1, 2);
 $table_shadow: #17120E 0 0 2px 2px;
 $odd_column_color: hsl(from $base_color calc(h - 1) s calc(l + 2));
