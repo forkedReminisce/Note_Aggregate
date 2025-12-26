@@ -1,11 +1,12 @@
 ---
-draft: true
-title: 
-# this map is for custom fields
+draft: false
+title: CS 429
+
 params: 
-    desc: 
-    author: FREEZURN 
-# TODO: indexes MUST specify weight. the later the section, the higher the weight
+    desc: Notes for UT Austin's CS 429 course.
+    author: Andrew Nguyen 
+
+weight: 1
 ---
 
 

@@ -4,7 +4,7 @@ title: Topic, Contrast Marker
 
 params: 
     desc: は marks the topic of the sentence.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -20,7 +20,7 @@ params:
     If the topic is also the subject, は absorbs が.
 {{< /subtext >}}
 
-は may also carry the meaning of **"at least."** ～くらい or ～ぐらい may immediately attach onto the entity to emphasize.
+は may also carry the meaning of **"at least."** ～くらい or ～ぐらい may immediately attach onto the entity to emphasize this purpose.
 
 
 
@@ -28,5 +28,5 @@ Fundamentally, は **emphasizes the entity over other related options**. Multipl
 
 {{% example_jp
     jp="「本当**は**嬉しいです。」"
-    en="\"*I'm actually happy* **(, no matter how I appear)**.\""
+    en="\"*I'm actually happy **(, no matter how I appear)***.\""
 %}}

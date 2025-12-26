@@ -4,7 +4,7 @@ title: Demonstratives
 
 params: 
     desc: '"This," "that," "here," and "there" have Japanese equivalents built on top of the morae こ, そ, and あ'
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -28,7 +28,7 @@ This set of demonstratives correspond to the words "**this**" and "**that**." Be
     Replacing ～れ with ～いつ is a very casual way of referring specifically to people.
 {{< /subtext >}}
 
-These *pronouns* already have a plural function. However, attaching ～ら can highlight each item's individuality. この, その, あの are the standard *attributive forms*. With ～ら is like これらの…….
+These *pronouns* already have a plural function. However, attaching ～ら can highlight each item's individuality. この, その, あの are the standard *attributive forms*. With ～ら is like これらの….
 
 {{< subtext >}}
     あれら is most particularly used to declare that the listener is also aware of the entity.
@@ -51,10 +51,10 @@ These *pronouns* already have a plural function. However, attaching ～ら can h
 - **あそこ**: far from the speaker and listener or acutely aware by both
 
 {{< subtext >}}
-    Put ～ら辺 onto the *pronouns* serves to mean "around (place)."
+    Appending ～ら辺 onto the nominal form serves to mean "around (place)."
 {{< /subtext >}}
 
 {{% example_jp
     jp="「**そこのお姉さん**、財布を落としましたよ。」"
-    en="\"***Miss there**, you dropped your wallet*\""
+    en="\"***Miss there**, you dropped your wallet*.\""
 %}}

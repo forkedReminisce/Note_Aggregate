@@ -4,7 +4,7 @@ title: Subject Marker
 
 params: 
     desc: が marks the subject of the sentence.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -22,7 +22,7 @@ params:
 
 
 
-Beyond neutral sentences, が ***gains* a function of exhaustive listing**. This means that ==*the speaker's* other options do not satisfy the sentence==: exclusivity. 
+Beyond neutral sentences, が ***gains* a function of exhaustive listing**. This means that ==*the speaker's* other options do not satisfy the sentence== (i.e., exclusivity). 
 
 {{< subtext >}}
     To make the exclusivity clear to the listener, append ～のほう to the subject.

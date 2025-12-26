@@ -4,7 +4,7 @@ title: Verbs
 
 params: 
     desc: Verbs conjugate differently depending on whether it is classified as an ichidan or godan verb.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 

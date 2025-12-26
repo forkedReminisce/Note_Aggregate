@@ -1,10 +1,10 @@
 ---
 draft: false
-title: Marking The Objects
+title: Objects
 
 params: 
     desc: Verbs frequently bring objects. Depending on the kind of object will dictate whether を, が, or に is used to mark it.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -25,7 +25,7 @@ With verbs come objects. There are three types of objects:
 
 
 # {{< heading "Object" >}}
-Clauses that describe a *state or condition* of the subject may sometimes have **an object that narrows the state**. This is marked with **が**. The *attribute* thus described is interpreted out the subject's control. 
+Clauses that describe a *state or condition* of the subject may sometimes have **an object that narrows the state**. This is marked with **が**. The attribute thus described is interpreted out the subject's control. 
 
 {{< subtext >}}
     が can also be paired with an adjectival predicate. Just be wary as *it is also valid to interpret it as the subject marker as well*.

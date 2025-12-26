@@ -4,7 +4,7 @@ title: Adjectives
 
 params: 
     desc: Pure adjectives end in ～い. There's also adjectival nouns and using pure nouns attributively. 
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -39,9 +39,25 @@ These conjugations do not have an attributive form.
 
 
 # {{< heading "Akin" >}}
-Adjectival nouns are another way to modify a noun. *Not all adjectival nouns are nouns*. To commence the modification, ==attach the appropriate copula verb to the adjectival noun==. This may be performed in attributive or predicative form. The only exception is ==basic, non-past attributive==, where ==な== prevails over だ.  
+Adjectival nouns are another way to modify a noun. *Not all adjectival nouns are nouns*. To commence the modification, ==attach the appropriate copula verb to the adjectival noun==. This may be performed in attributive or predicative form. 
 
-An outright noun that modifies uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. 
+{{% example_jp
+    jp="「**綺麗**だったあたし。」"
+    en="\"*My once **pretty** self*.\""
+%}}
+
+The only exception is ==basic, non-past attributive==, where ==な== prevails over だ. Convolutedly, however, if the adjectival noun is part of a modifying clause's predicate, ==である== is often the only option. な may replace it only if the entire sentence is existential.
+
+{{< subtext >}}
+    である, in predicative form of the sentence, can be formal.
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「**データが安全でないことが原因である場**合がある。」"
+    en="\"*There are cases **in which the cause is that the data is not safe***.\""
+%}}
+
+である is also the only option for noun predicates. However, an attributive noun uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. 
 
 <!-- why is の sometimes omitted??? -->
 {{< subtext >}}

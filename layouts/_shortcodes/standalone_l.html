@@ -1,0 +1,26 @@
+{{/*
+    Proper renderer for a list that is without an associated paragraph. 
+    Use standard notation.
+    `type`: named argument that's either "ol" or "ul"
+*/}}
+
+{{- $type := .Get "type" -}}
+
+{{- if compare.Eq $type "ul" -}}
+<ul class="standalone_l">
+{{- else if eq $type "ol" -}}
+<ol class="standalone_l">
+{{- end -}}
+
+    {{- range split .Inner "\n" -}}
+        {{- if . -}}
+            {{- $s := strings.Split . "- " -}}
+            <li>{{- $.Page.RenderString (collections.Index $s 1) -}}</li>
+        {{ end }}
+    {{- end -}}
+
+{{- if eq $type "ul" -}}
+</ul>
+{{- else if eq $type "ol" -}}
+</ol>
+{{- end -}}

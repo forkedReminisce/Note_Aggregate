@@ -4,7 +4,7 @@ title: Conjoining Affirmative Clauses
 
 params: 
     desc: て-form allows one to conjoin clauses. With affirmative clauses, there are particular uses of て-form over separate sentences. 
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -39,9 +39,11 @@ Not a nuance, but if the clauses have an *identical structure with the same verb
 
 
 # {{< heading "Basic" >}}
-- **Copula verb**: で
-- **Adjectives**: ～くて
-- **Verbs**: with basic past, replace ～た (or ～だ) with ～て (or ～で) 
+{{< standalone_l type="ul" >}}
+    - **Copula verb**: で
+    - **Adjectives**: ～くて
+    - **Verbs**: with basic past, replace ～た (or ～だ) with ～て (or ～で) 
+{{< /standalone_l >}}
 
 If a verb is immediately followed by another verb, both will share the same "inputs" (e.g., subject and objects). This can create some emphatic statements.
 

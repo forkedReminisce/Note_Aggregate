@@ -3,8 +3,9 @@
 
 
 ul, ol {
-    margin-top: -1 * library.$p_margin !important; // override ../styles
-    padding-left: 4ch;
+    margin-top: -1 * library.$p_margin; // like another line of <p>
+    margin-bottom: library.$p_margin;
+    padding-left: 4ch; // indent
 
     li::marker {
         font-weight: 700;
@@ -17,4 +18,8 @@ ul {
 
 li {
     padding-left: 1ch;
+}
+
+.standalone_l {
+    margin-top: library.$p_margin; // just another block element
 }
