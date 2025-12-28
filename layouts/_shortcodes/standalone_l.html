@@ -2,6 +2,7 @@
     Proper renderer for a list that is without an associated paragraph. 
     Use standard notation.
     `type`: named argument that's either "ol" or "ul"
+    Do not format `Inner` like a list
 */}}
 
 {{- $type := .Get "type" -}}
@@ -14,8 +15,7 @@
 
     {{- range split .Inner "\n" -}}
         {{- if . -}}
-            {{- $s := strings.Split . "- " -}}
-            <li>{{- $.Page.RenderString (collections.Index $s 1) -}}</li>
+            <li>{{- $.Page.RenderString (strings.TrimSpace .) -}}</li>
         {{ end }}
     {{- end -}}
 

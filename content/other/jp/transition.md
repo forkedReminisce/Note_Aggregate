@@ -4,12 +4,12 @@ title: Transition Marker
 
 params: 
     desc: を marks the medium of transition.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
 
-**を** is a case particle for the **medium of transition**. *Transition* is the current "movement" of the action. The transitivity of the action does not matter.
+**を** is a case particle for the **medium of transition**. *Transition* is the current "movement" of the action. 
 
 {{< subtext >}}
     Multiple を can appear in a sentence, each describing a separate medium. In this case, all but the final を are omitted.
@@ -27,7 +27,7 @@ The first dimension of transition is *physical location*. This includes **the sp
 
 {{% example_jp 
     jp="「家を出ました。」"
-    en="*I left home (to live independently?).*"
+    en="\"*I left home (to live independently, or just simply leaving)*.\""
 %}}
 
-***Time*** is another dimension. So too is *magnitude*—a **threshold** that is either exceeded or failed to be met. 
+***Time*** is another dimension. So too is magnitude—a **threshold** that is either exceeded or failed to be met. 

@@ -40,9 +40,9 @@ Not a nuance, but if the clauses have an *identical structure with the same verb
 
 # {{< heading "Basic" >}}
 {{< standalone_l type="ul" >}}
-    - **Copula verb**: で
-    - **Adjectives**: ～くて
-    - **Verbs**: with basic past, replace ～た (or ～だ) with ～て (or ～で) 
+    **Copula verb**: で
+    **Adjectives**: ～くて
+    **Verbs**: with basic past, replace ～た (or ～だ) with ～て (or ～で) 
 {{< /standalone_l >}}
 
 If a verb is immediately followed by another verb, both will share the same "inputs" (e.g., subject and objects). This can create some emphatic statements.

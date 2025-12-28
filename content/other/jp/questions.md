@@ -4,7 +4,7 @@ title: Questions
 
 params: 
     desc: Questions are created with a raising intonation or か, and there are several ways to nuance them to convey certain signals.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -20,7 +20,7 @@ Asking a *binary question* is very simple. In the *basic register*, a raised int
     en="\"*You alright?*\""
 %}}
 
-Binary questions with a *negative predicate* are not actually negative. In fact, the speaker believes that they know the answer is affirmative. ==To ask about the negative, insert の before the politeness marker==, if present anyway. On another note, じゃない may have の～ or ん～ precede it entirely. The question will remain affirmative, but some uncertainty is introduced.
+Binary questions with a *negative predicate* are not actually negative. In fact, the speaker believes that they know the answer is affirmative. ==To ask about the negative, insert ん or の before the politeness marker==, if present anyway. On another note, じゃない may have の～ or ん～ precede it entirely. The question will remain affirmative, but some uncertainty is introduced.
 
 {{< subtext >}}
     For verbs, ～ませんか is often used to invite someone to do something. 
@@ -40,8 +40,6 @@ Binary questions with a *negative predicate* are not actually negative. In fact,
 
 {{< subtext >}}
     The basic register does not use the copula verb unless the intention is a stern tone.
-
-    何です is pronounced なんです.
 
     The final particle よ makes the question more expressive.
 {{< /subtext >}}
