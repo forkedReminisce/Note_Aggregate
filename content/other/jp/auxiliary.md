@@ -4,7 +4,7 @@ title: Auxiliary Verbs
 
 params: 
     desc: Auxiliary verbs are totally different from their standalone counterparts. However, its usefulness is not to be taken lightly. One use is to turn a sentence into a command.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
@@ -17,7 +17,7 @@ Auxiliary verbs are entirely separate from their standalone counterparts. They a
 # {{< heading "Commands" >}}
 Instructing someone to do something makes use of **auxiliary verbs meaning "to give."** Negative verbs are conjugated with ～ないで.  
 
-**Basic** commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for **polite** commands.
+*Basic* commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for *polite* commands.
 
 {{< subtext >}}
     Styling the command as a question adds politeness.
@@ -33,7 +33,7 @@ Instructing someone to do something makes use of **auxiliary verbs meaning "to g
 
 
 # {{< heading "States" >}}
-Although **～いる** does not share definitions with いる, ==it do possess its conjugations==. Applicable parts of speech are the coupla verb and verbs. *Tenses, politeness, and negativity* are handled by this auxiliary verb.
+Although **～いる** does not share definitions with いる, ==it does possess its conjugations==. Applicable parts of speech are the coupla verb and verbs. *Tenses, politeness, and negativity* are handled by this auxiliary verb.
 
 <!-- TODO: ～てて is for conjunctive or command purposes ? -->
 {{< subtext >}}
