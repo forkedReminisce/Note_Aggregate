@@ -1,0 +1,22 @@
+—
+
+
+
+Moore's law stated that the number of transistors on a chip double every generation. This was falsely perceived that processor frequency doubling.
+Amdahl's law: most of a program must be optimized or else the unoptimized portions will be a severe bottleneck, preventing the realization of much gain.
+
+
+
+# Compilers
+x-86 has two assembly formats: AT&T and Intel. AT&T is the assumption.
+
+x-86 is little-endian
+
+`ebp` points to a frame record, which is formatted very similarly to that of AArch64: pointer caller's frame record and return address in that order from lowest memory address. Traverse through the stack record using `ebp`.
+
+`l` suffix on the opcode (e.g., `addl`) means an instruction on longs
+
+Function labels are typically prefixed with an `_`. 
+
+<!-- TODO: is it some separate stack?? -->
+When `call` is executed, the instruction after it (i.e., return address) will be pushed on (some) stack. `ret` will pop and write this value onto `PC`. 
