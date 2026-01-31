@@ -1,1 +1,18 @@
 —
+
+
+
+# Bitwise Operations
+Little-endian has the LSB stored in the lowest memory address; big-endian puts the MSB there. 
+
+ASR copies the MSB into the holes. This is particularly useful for signed values.
+
+Rotation is when the fallen off bits are cycled into the holes.
+
+For unsigned, the *additive inverse* of a number `⊖(n, u)` is the other number that generates a sum of 0 via unsigned carry (i.e., loops to 0 on the number wheel). In signed, `⊖(n, s)` is simply the negation. 0 and \[-2^{n-1}\] are themselves. Alternatively, `NOT` the number and add 1 also finds the additive inverse. Subtraction uses the additive inverse of the second argument.
+
+Signed overflow is if x and y have a different sign to the sum or difference.
+
+Multiplication is iterated addition; however, strength reduction speeds this up by breaking the multiplier into sums of powers of 2. Use each exponent in a LSL then sum these results to get the final product.
+
+Do `x + (1 << k) - 1` before dividing to get the ceiling `⎡x / 2^k⎤` of a signed quotient.
