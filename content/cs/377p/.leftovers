@@ -20,3 +20,5 @@ Function labels are typically prefixed with an `_`.
 
 <!-- TODO: is it some separate stack?? -->
 When `call` is executed, the instruction after it (i.e., return address) will be pushed on (some) stack. `ret` will pop and write this value onto `PC`. 
+
+Loop optimizations are important and effective because most execution time is spent in loops (90/10 is typical).
