@@ -21,4 +21,19 @@ Function labels are typically prefixed with an `_`.
 <!-- TODO: is it some separate stack?? -->
 When `call` is executed, the instruction after it (i.e., return address) will be pushed on (some) stack. `ret` will pop and write this value onto `PC`. 
 
+The compiler only needs to implement a front-end for each ISA, and only one back-end in total.
+
 Loop optimizations are important and effective because most execution time is spent in loops (90/10 is typical).
+
+
+
+# Algorithms
+A clique is a dense graph, but every node is connected to every other node.
+
+Diameter of graph: average distance between every pair of nodes.
+
+Sparse graphs:
+- Uniform-degree graphs: nodes have roughly same degree. High diameter graph.
+- Power-law graphs: small number of very high degree nodes. Low diameter.
+
+Six degrees of freedom. Experiment was mailing a letter, and having its recipients give it to people they know until it reached the target. Low diameter example.

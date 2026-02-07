@@ -102,3 +102,49 @@ However, Congress does not always lay backwards to the president. This is thanks
 {{< /subtext >}}
 
 The national security council coordinates foreign policy agencies. This includes making sure the agencies communicate with each other, share information, and do not work at cross purposes with each other. Since these agencies are not homogenous and potentially have different goals, building influence matters to get one's voice heard. In a similar vein, agencies will devise methods to maximize the allotment of power or resources over competing agencies.
+
+
+
+<!-- TODO: new -->
+# {{< heading "Congress" >}}
+Again, Congress the power to declare war, funding the military, and the Senate (dis)approves treaties. However, this last power greatly limits the ability of the U.S. to engage in multilateral efforts to solve global issues (e.g., climate change). This is known as blanket rejectionism, and it keeps the U.S. from international agreements and undermine its ability to lead in the global order.
+
+Presidents do have options to go around the need for a supermajority (2/3s vote) in the Senate. For example, they can just simply follow the provisions of the would-be treaty. However, these are not perfect bypasses because they do not provide binding commitments for other states (i.e., the U.S. can be volatile). 
+
+The War Powers Resolution (or War Powers Act) is an attempt by Congress to limit the president's role of Commander in Chief and reel back power to Congress. Moreover, Congress argued that the necessary and proper clause justified the act, and this interpretation gave them broad power over foreign policy. It passed over President Nixon's veto, and he and every president after has argued that it is unconstitutional because it violates the separation of powers.
+
+The War Powers Resolution lays out rules for when the president must seek authorization from Congress, limits the president's ability to deploy troops abroad without a declaration of war or congressional authorization, that the president must notify Congress within 48 hours of deploying troops.
+
+{{< subtext >}}
+    Congressional authorization is the Authorization for Use of Military Force (AUMF), which allows military force for longer than 60 days. Presidents may reuse seemingly finished AUMFs.
+{{< /subtext >}}
+
+Divided government is more likely to generate greater Congressional oversight of foreign policy. This is because of electoral incentives (for the minority party; can bad-mouth and harm the legitimacy of the president's party). Forms of Congressional oversight include hearings, ==going on the news to alter the public debate==, legislation that restricts the president, and setting guidelines on how money should be spent on the military.
+
+{{< subtext >}}
+    Divided government is when the president's party does not hold both chambers of Congress. This is the opposite of unified government.
+{{< /subtext >}}
+
+However, since 9/11, Congress has been inactive on the foreign policy front, instead deferring to the president. This is because they do not want to pay any political costs. If Congress wants any chance at re-entering foreign policy discussions, it should be aggressive. Congress can do this by retaking the power to negotiate trade deals and tariffs with other countries, replace the 2001 AUMF, and passing legislation that was reassure allies of U.S. commitment to international agreements (e.g., bar the president from withdrawing from NATO).
+
+{{< subtext >}}
+    Riders can be inserted into the regular Defense Authorization bills to gain concessions.
+{{< /subtext >}}
+
+
+
+# {{< heading "Citizens" >}}
+<!-- TODO: this paragraph should oversee the three sections -->
+One can better understand international interactions by looking at domestic politics, specifically distribution of political interests, regime type, and economic factors. These can be analyzed more thoroughly through the lense of *interests*, how people feel about them, or *institutions*, what happens in response.
+
+Domestic politics is different from international politics thanks to *institutionalized enforcement mechanisms*. Domestic institutions settle all kinds of disagreements (i.e., over political power, tax money, military power). On the contrary, international politics relies on the self-enforcement of contracts in order to make deals. What this means is that states must be willing to defend deals and act accordingly if the other state violates it. Domestic conflicts can influence international outcomes (i.e., how the U.S. interacts with other states) through public goods provision (how much the U.S. spends on various public goods like the military), the winning set of national interests, and state administrative capacity (influences how much public officials can sustain the costs of policy).
+
+In the two level game, governments have two political pressures: domestic and international. These two levels interact. The international level can be shown through the bargaining model of war. It starts with how much each side wants, and judging the probability of each side in winning a war and the costs of war for each side will determine if peace can be found or war is necessary. 
+
+However, this model does not operate in a vacuum; the domestic level can affect it too. Governments must combine the competing foreign policy interests of different domestic groups to create a national interest. How well the people are taxed shapes bargaining leverage in the international game. The successfulness of any foreign policy depends on how well the bureaucracy is controlled. Because there are conflicting interests, opposition is likely to arise, the sitting government must have the capacity to absorb it and stay in office so it can continue pursuing its foreign policy agenda. 
+
+The Principal-Agent problem is when the principal delegates to agents, and the agents begin to do what they want over the principal's wishes, which is known is shirking. This can be seen in U.S. elections where the voters are principals and politicians are agents. Politicians actually have some flexibility that allows shirking, so there are mechanisms to counter it. Responsiveness is the willingness of politicians to learn and take into account the views of voters when making a policy decision. This is motivated by them themselves and their party trying to stay in office. Selection is when voters select politicians that share their foreign policy views.
+
+When the U.S. engages in military intervention, there are two phenomena that occurs. The rally around the flag effect occurs at the start, and the public overwhelmingly supports the intervention and the president. This happens because of nationalism, voters can be easily swayed (because they're generally uninformed about foreign policy), and the foreign policy crises are dramatic (e.g., 9/11). Support declines in what is known as war fatigue. This is because the support is weakly rooted and Americans don't like American casualties. There is a long-term effect in that the U.S. public is less willing to engage in military interventions after a long war with high casualties. 
+
+Voters interests are typically centered around material concerns (e.g., protecting income) and ideational sources (i.e., their identity). In foreign policy, these interests are typical expressed over globalization and trade, use of military force abroad, internationalism, and opinions on foreign groups. With a variety of interests, the domestic political competition is structured by institutions (e.g., elections) and the ability for groups to engage in collective action. This sets the U.S. foreign policy.
