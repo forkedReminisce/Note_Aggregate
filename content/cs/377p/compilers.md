@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Compilers
 
 params: 
-    desc: 
+    desc: Compilers turn source code into assembly language. But not before performing some optimizations.
     author: Andrew Nguyen 
 ---
 
@@ -32,11 +32,10 @@ There is a way to declare constants so that its address is known at compilation.
 
 
 
-<!-- TODO: new -->
 # {{< heading "Compiler Optimizations" >}}
-The front-end eventually produces an abstract syntax tree. The optimization phase has a high intermediate representation (IR) (trees) and low IR (closer to assembly) phases. The code is cycled through each phase multiple times.
+The front-end (i.e., lexing and parsing) produces an abstract syntax tree. This gets passed to the optimizer in the high intermediate representation (IR) phase. When the optimizer gets to low IR, it's working with something close to assembly. In each phase, the optimizer cycles through the code multiple times.
 
-Space or time optimizations must be safe. But even then, the compiler must figure out the right balance between space and time in the right context. 
+Optimizations must be safe. But even then, the compiler must figure out the right balance between space and time in the right context. 
 - Constant propagation: if a variable acts like a constant, replace it with the constant
 - Constant folding: evaluate an expression if operands are known at compile time
 - Algebraic simplification: constant folding with chaining (if present)
@@ -46,13 +45,12 @@ Space or time optimizations must be safe. But even then, the compiler must figur
 - Dead code elimination: if the effect of a statement is never observed, omit it
 - **Loop-invariant code motion**: hoist the computation of an expression out of a loop if it's the same every iteration
 - **Strength reduction**: generally the act of replacing expensive operations with cheap ones
-<!-- - Induction variable elimination: if there are multiple induction variables, eliminate the ones used only in the test condition (to continue looping) and rewrite it with the remaining induction variables -->
 - **Loop unrolling**: modify loop to perform the body multiple times in a single iteration (of potentially multiple)
 - Function inlining: replace a function call with that function's body
 - Function cloning: create specialized versions of functions that reflects the particular call site's arguments
 
 {{< subtext >}}
-    Induction variables are variables in loops whose value depends on the iteration number.
+    Loop optimizations are important and effective because most execution time is spent in loops (90/10 is typical).
 
     Loop unrolling eliminates a lot of condition branches, which isn't really relevant nowadays because branch predictors are very good.
 {{< /subtext >}}

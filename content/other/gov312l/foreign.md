@@ -1,9 +1,9 @@
 ---
-draft: true
+draft: false
 title: Foreign Policy
 
 params: 
-    desc: 
+    desc: U.S. foreign policy is guided by grand strategy, which is typically dictated by the president. The president has a wide control over foreign policy, with Congress losing its grip. However, citizens can serve as mediators.
     author: Andrew Nguyen 
 ---
 

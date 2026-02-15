@@ -9,70 +9,79 @@ params:
 
 
 
-Adjacency matrices explicitly note that two nodes are not connected. For large graphs, this is bad for space and increases processing overhead.
+# {{< heading "Compressing Graphs" >}}
+Adjacency matrices explicitly note that two nodes are not connected. For large graphs, this is bad for space and increases processing overhead. So instead:
+- Coordinate storage: 2d array, where each column represents an edge of source node, destination, and edge weight
+- Compressed sparse row (CSR): every source node is mapped to an index of a 1d array. The value is an index into a 2d array of destinations and edge weight. 
+- Compressed sparse column (CSC): like CSR, but destinations map to the 1d array and the 2d array is source nodes and edge weights
+- Adjacency list
 
-There are three alternate ways to represent a graph. 
-- Coordinate storage: 2d array, where each column corresponds to an edge. the first row is the source node, second is destination, and third is the edge weight.
-- Compressed sparse row (CSR): take coordinate storage and coalesce the source nodes into a new array. this new array consists of pointers to the rest of the information. from one source node's pointer to the next source node's pointer all belong to that source node.
-<!-- TODO: -->
-- Compressed sparse column (CSC): ???
-- Adjacency list: for deletion, easier to just mark a node as deleted then handle it later
+{{< subtext >}}
+    Deleting edges in adjacency lists is as simple as marking the edge and handling it later.
+{{< /subtext >}}
 
 
 
 # {{< heading "Algorithms" >}}
-Instead of giving pseudocode, an algorithm will be defined with **operator formulation**. An algorithm is made up of an *operator* and *schedule*. Operator is what is done at the selected node. Schedule is which active node gets selected next. This makes comparing different algorithms simple and possible to pick and choose (schedules) from different algorithms to create the best algorithm. 
+One way to define an algorithm is with **operator formulation**. An algorithm has an operator and schedule. In graphs, the *operator* is the computation performed at a selected node. *Schedule* decides which active node gets selected next. This makes comparing algorithms simpler, and makes it possible to pick and choose an operator or schedule from different possible to create the best algorithm.
 
 {{< subtext >}}
     A schedule might seem bad, but it might better support parallelism.
 {{< /subtext >}}
 
-There is a notion of active nodes. Active nodes are nodes that are available to process. Topology-driven algorithms execute in rounds, and in each round, all nodes are active. Data-driven algorithms will have some nodes active, and performing the operation on one may create more active nodes.
+Active nodes are the subset of nodes ready to be processed. *Data-driven algorithms* are what we are most familiar with, and it creates active nodes as it processes a node. *Topology-driven algorithms* execute in rounds, and in each round, all nodes are active. 
 
 
 
-# {{< heading "Machine Learning" >}}
-Many ML algorithm are sparse graph algorithms. 
-
-Page rank is related to a web search, and the webpages should be returned in some order. There's an offline part with crawlers, which adds an index from keywords to webpages. The online part will use the index to find pages that contain the most keywords of the search. There are multiple approaches to ranking pages:
+## {{< heading "Machine Learning" >}}
+When making a web search, the webpages should be in some order. There's an offline part with crawlers, which adds an index from keywords to webpages. The online part will use the index to find pages that contain the most keywords of the search. There are multiple approaches to ranking pages:
 - Manual ranking
-- Word counts: most occurrences of keywords, easy to game
-- Citations: most webpages pointing to it, game it by creating useless pages
+- Word counts: most occurrences of keywords (easy to exploit)
+- Citations: most number of webpages linking to it (exploit with useless pages)
 - **Page rank**: citations but every page has an importance weight
 
-The iterative version will calculate the weights in rounds. The first iteration will assume all vertices are equally important, \[1/N\]. For every other iteration, \[\frac{1-d}{N} + d \times \sum_{u \ein in_neighbors(v)} \frac{PR_{i-1}}{out-degree(u)}\]. 
+Imagine a web graph where the nodes are webpages and edges are links. In the iterative version, all nodes will start with the weight \(\frac{1}{N}\). The operator that follows is:
+
+\[
+    \frac{1 - d}{N} + d \times \sum_{u \in \textrm{in_neighbors(v)}} \frac{\mathnormal{PR}_i}{\textrm{out_degree(u)}}
+\]
+
+Where \(d\) is the damping factor. It is a fraction that corrects the importance of nodes with no outgoing edges.  
+
+A recommender system solves a problem where with a database of users, items, and ratings given by each user to some of the items, it must be predicted how each user would rate items they have not rated yet. One way this is achieved is with **non-negative matrix factorization**.
+
+Two representations of the database will be maintained. The sparse matrix has rows as users, columns for items, and the value be the user's rating. The bipartite graph will have one side be users and the other be movies, and the edge between a node from each set has a label matching the rating. The goal is to either predict the missing entries or missing edges.
+
+<!-- i hate this -->
+For the matrix, decompose it such that \(A \approx WH\). In the graph, a user node will be given a label of a row in \(W\). Likewise, an item node will get a column of \(H\). *Stochastic gradient descent* will then predict the values. It is a topology-driven algorithm that visits edges instead of nodes. The operator at a selected edge is to dot product the labels of its endpoints to calculate the residual. This residual is used to adjust the nodes' labels. 
 
 {{< subtext >}}
-    \[d\] is the damping factor, and it's necessary to handle nodes with no outgoing edges. It's typically 0.85.
-{{< /subtext >}}
-
-**Recommender system** solves a problem where a database of users, items, and ratings given by each user to some of the items, and that it must be predicted how each user would rate items they have not rated yet. 
-
-Non-negative matrix factorization has two views of the problem: sparse matrix view has rows as users, columns for movies, and the cell contain the rating the user gave the movie; graph view is a bipartite graph with the user set and movie set, and an edge between the two represents the rating given. The goal is to either predict the missing entires or missing edges.
-
-For the matrix, decompose it such that \(A = WH\). H (kxn) and W (mxk) are dense so all missing values are predicted via dot product. The graph will have labels, where a user node is a vector corresponding to a row in W. Same for a movie node and H. Then use stochastic gradient descent (SGD) on the graph. Initialize all node labels to some arbitrary values. In one round, visit all edges in some order, dot product the labels, and use the residual to adjust the labels. Do it for some more rounds. Finally, predict by finding the dot products between labels.
-
-{{< subtext >}}
-    k = k << min(m, n).
+    \(W\) is size \(m \times k\), while \(H\) is \(k \times n\). \(k\) is a number.
 {{< /subtext >}}
 
 
 
-# {{< heading "Computational Science" >}}
-Basically simulations; trying to model things on the computer. These require continuous models (e.g., differential equations) or discrete models. However, differential equations cannot be solved exactly (requires **discretization**—convert calculus problem to matrix computations). This issue persists with all continuous models.
+## {{< heading "Computational Science" >}}
+Computational science is the backbone to simulations. These require continuous and discrete models. 
 
-One way to solve continuous models is with linear systems. \(Ax = b\), where \(A\) is a matrix and \(x\) and \(b\) are vectors. Direct methods (e.g., LU decomposition) doesn't produce useful information until the end. On the other hand, iterative methods will start with a guessed approximation \(x_0\). The error is \(Ax_0 - b\), which is called the residual. This is used to correct the approximation. Loop.
+Differential equations are one kind of continuous model. However, they cannot be solved exactly. Therefore, **discretization** converts calculus to matrix computations. One way to go about this is solving linear systems. Imagine \(Ax = b\), where \(A\) is a matrix and \(x\) and \(b\) are vectors. Direct methods (e.g., LU decomposition) do not produce useful information until it finishes, so iterative methods are preferred. 
 
-Jacobi: guess the 0 matrix. for each equation in the system, solve for a different variable. This is how we update the approximate matrix. \(x_{x+1} = x_i - M^{-1}(Ax_i - b)\), where \(M\) is the diagonal of A. This does not always converge, and if it does, it does very slowly. However, the operation is Matrix Vector Multiply (MVM).
+The basic premise of iterative methods is to start with an initial guess, calculate a residual, use that to correct the guess, and loop. *Jacobi* uses the formula \(x_{x+1} = x_i - M^{-1}(Ax_i - b)\), where \(M\) is the diagonal of \(A\), for the residual of any variable. This does not always converge, and if it does, it does very slowly. However, it does use Matrix Vector Multiply (MVM).
 
-MVM can be imagined as a graph. Each node has two labels x and y. y is set by retrieving the x of each neighbor and multiplying it by the edge weight, and summing it all up. Alternatively, coordinate storage will store the cell's value, row number, and column number. Or CRS will coalesce rows that point to column numbers and the values.
+<!-- TODO: MVM can be imagined as a graph. Each node has two labels x and y. y is set by retrieving the x of each neighbor and multiplying it by the edge weight, and summing it all up. Alternatively, there's some formulas with coordinate storage or CSR. -->
 
-Finite differences concerns the initial value problem: figuring out the closed form of a recursive equation. This requires calculus the computer cannot do. Therefore, algorithms like Forward-Euler uses the difference definition of derivatives. \(h\) is the step size, and the smaller it is makes it more accurate at the cost of more computations. Backward-Euler steps backwards instead of forward. Picking a discretization scheme depends on *stability*, can it blow up, and *accuracy*, how small \(h\) has to be for a good estimate. 
+Finite differences concerns the initial value problem: figuring out how a recursive equation grows. This requires calculus the computer cannot do. Therefore, algorithms like Forward-Euler uses the difference definition of derivatives. 
 
-{{< subtext >}}
-    Backward-Euler is unconditionally stable, meaning it won't go crazy with a large \(h\), unlike Forward-Euler. 
+\[
+    \frac{f(nh + h) - f(nh)}{h}
+\]
 
-    Centralized scheme is always stable.
-{{< /subtext >}}
+\(h\) is the step size, and the smaller it is makes it more accurate at the cost of more computations. \(n\) is the step amount. Backward-Euler steps backwards instead of forward, so the terms of the numerator are flipped and \(f(nh + h)\) becomes \(f(nh - h)\). Alternatively, centered differences:
 
-Solving partial differential equations is the same idea. It is implemented with two matrices, `current` and `next`. Basically using the five-point stencil.
+\[
+    \frac{f(nh + h) - f(nh - h)}{2h}
+\]
+
+Picking a discretization scheme depends on *stability*, can it blow up, and *accuracy*, how small \(h\) has to be for a good estimate. Backward-Euler and Centered differences are always stable.
+
+Solving partial differential equations is the same idea. An iterated derivative will find the difference between a Forward-Euler and Backward-Euler and divide that by \(h\). 

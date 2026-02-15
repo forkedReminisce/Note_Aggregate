@@ -23,7 +23,10 @@ When `call` is executed, the instruction after it (i.e., return address) will be
 
 The compiler only needs to implement a front-end for each ISA, and only one back-end in total.
 
-Loop optimizations are important and effective because most execution time is spent in loops (90/10 is typical).
+
+
+# Measurements
+Precision is consistency of the measurements. To counteract random error, do a bunch of trials and take the mean. Accuracy is the other dimension, and it can be undermined by systematic error.
 
 
 
