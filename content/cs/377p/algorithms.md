@@ -66,7 +66,7 @@ Computational science is the backbone to simulations. These require continuous a
 
 Differential equations are one kind of continuous model. However, they cannot be solved exactly. Therefore, **discretization** converts calculus to matrix computations. One way to go about this is solving linear systems. Imagine \(Ax = b\), where \(A\) is a matrix and \(x\) and \(b\) are vectors. Direct methods (e.g., LU decomposition) do not produce useful information until it finishes, so iterative methods are preferred. 
 
-The basic premise of iterative methods is to start with an initial guess, calculate a residual, use that to correct the guess, and loop. *Jacobi* uses the formula \(x_{x+1} = x_i - M^{-1}(Ax_i - b)\), where \(M\) is the diagonal of \(A\), for the residual of any variable. This does not always converge, and if it does, it does very slowly. However, it does use Matrix Vector Multiply (MVM).
+The basic premise of iterative methods is to start with an initial guess, calculate a residual \(x\), use that to correct the guess, and loop. *Jacobi* uses the formula \(x_{x+1} = x_i - M^{-1}(Ax_i - b)\), where \(M\) is the diagonal of \(A\), for the residual of any variable. This does not always converge, and if it does, it does very slowly. However, it does use Matrix Vector Multiply (MVM).
 
 <!-- TODO: MVM can be imagined as a graph. Each node has two labels x and y. y is set by retrieving the x of each neighbor and multiplying it by the edge weight, and summing it all up. Alternatively, there's some formulas with coordinate storage or CSR. -->
 
@@ -85,3 +85,10 @@ Finite differences concerns the initial value problem: figuring out how a recurs
 Picking a discretization scheme depends on *stability*, can it blow up, and *accuracy*, how small \(h\) has to be for a good estimate. Backward-Euler and Centered differences are always stable.
 
 Solving partial differential equations is the same idea. An iterated derivative will find the difference between a Forward-Euler and Backward-Euler and divide that by \(h\). 
+
+<!-- TODO: new -->
+Discrete models simulate physical systems. These have \(n\) bodies that interact with one another through, say, gravitational pull. Computing this would require O(\(n^2\)). One discrete model is the **Barnes Hut algorithm**.
+
+This algorithm approximates forces by combining far away bodies. This is because it is assumed that force decreases rapidly with distance. This algorithm runs on O(\(n log n\)).
+1. Subdivide a space until at most one body per cell: build a tree where the levels are subdivision level and leaves correspond to a cell
+2. Find the center of mass of each "parent" cell: sum the mass and find the center of mass (position) of the internal nodes
