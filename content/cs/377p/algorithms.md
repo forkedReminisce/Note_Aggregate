@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Algorithms
 
 params: 
-    desc: 
+    desc: A lot of high performance computing relies on algorithms for what are essentially graph problems.
     author: Andrew Nguyen 
 ---
 
@@ -86,9 +86,9 @@ Picking a discretization scheme depends on *stability*, can it blow up, and *acc
 
 Solving partial differential equations is the same idea. An iterated derivative will find the difference between a Forward-Euler and Backward-Euler and divide that by \(h\). 
 
-<!-- TODO: new -->
-Discrete models simulate physical systems. These have \(n\) bodies that interact with one another through, say, gravitational pull. Computing this would require O(\(n^2\)). One discrete model is the **Barnes Hut algorithm**.
+Discrete models are used for the simulation of physical systems. In these systems, \(n\) bodies interact with one another through some force. Precisely computing this would be \(O(n^2)\), but approximations is faster. 
 
-This algorithm approximates forces by combining far away bodies. This is because it is assumed that force decreases rapidly with distance. This algorithm runs on O(\(n log n\)).
-1. Subdivide a space until at most one body per cell: build a tree where the levels are subdivision level and leaves correspond to a cell
-2. Find the center of mass of each "parent" cell: sum the mass and find the center of mass (position) of the internal nodes
+The **Barnes Hut algorithm** does it in \(O(n log n)\) by exploiting the idea that force rapidly decreases as distance increases. As in, far away bodies are combined into a single body.  
+1. Recursively subdivide a space until at most one body per cell: build a tree where the levels are subdivision level and leaves correspond to a cell
+2. Find the center of mass of each "parent" cell: sum the mass and find weighted average of position of each internal node
+3. Compute net force acting on a body: traverse tree, but don't go deep down an internal node if its center of mass is far enough away 
