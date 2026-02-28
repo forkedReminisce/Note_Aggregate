@@ -43,7 +43,7 @@ When making a web search, the webpages should be in some order. There's an offli
 Imagine a web graph where the nodes are webpages and edges are links. In the iterative version, all nodes will start with the weight \(\frac{1}{N}\). The operator that follows is:
 
 \[
-    \frac{1 - d}{N} + d \times \sum_{u \in \textrm{in_neighbors(v)}} \frac{\mathnormal{PR}_i}{\textrm{out_degree(u)}}
+    \frac{1 - d}{N} + d \times \sum_{u \in \textrm{in\_neighbors(v)}} \frac{\mathnormal{PR}_i}{\textrm{out\_degree(u)}}
 \]
 
 Where \(d\) is the damping factor. It is a fraction that corrects the importance of nodes with no outgoing edges.  
