@@ -37,51 +37,39 @@ The **commitment problem** is when a party thinks any peace deal with the other 
 Institutional mechanisms can solve the commitment problem by making increased demands by the other party less attractive. Arms control agreements stabilizes distribution of power. Democracy also does through the people voting, thereby controlling military spending. Additionally, membership in international organizations can convey to the other side some set of expectations (e.g., being in NATO implies no plan to go to war).
 
 
-## {{< heading "Global Consequences" >}}
-<!-- by the great powers; great power war -->
-Settlements to long wars transform the structures of the international systems. One of these changes is the creation of new states, which is important because it means the older states must respect the sovereignty of a new state. The great powers can then influence the regime type of the new state. Another change can be applied to the distribution of military power, establishment of enforcement mechanisms of the status quo, or territorial boundaries. 
+## {{< heading "Great Powers" >}}
+Settlements to great power wars transform the structures of the international system. It creates new states that existing states must respect the sovereignty of, and who the great powers can influence the regime type of. Enforcement mechanisms of the status quo are established. Finally, the distribution of military power and territorial boundaries can change, which determines every state's satisfaction level and the longevity of the status quo.
+
+**Polarity** is the number of great powers in the current international system. There are three types:
+- Unipolar: one great power who shapes the international system and who no state can challenge
+- Bipolar
+- Multipolar: competing coalitions between great powers, where transitions have strong implications
 
 {{< subtext >}}
-    The last structure can determine the longevity of status quo as it rests on every state's satisfaction level.
+    In a multipolar system, great powers can coerce a member of a rival coalition into dissent.
 {{< /subtext >}}
 
-*Polarity* is the number of great powers in the current international system. they affect the international system by influencing the dynamics and stability of alliances and sets the level of threat great power coalitions pose to each other. There are three types:
-- Unipolar: one dominant great power, who no state can challenge and who shapes the international system 
-- Bipolar: two great powers
-- Multipolar: multiple great powers, who each fear an ally leaving them for another great power
+After the Cold War, Russia experienced many loses. Territorially, new states were established. In terms of distribution of power, Russia lost its status of great power, giving way to a unipolar system under the U.S. There was also institutional change in the collapse of the Warsaw Pact, and many of its former members joining the opposing NATO. 
 
-{{< subtext >}}
-    Great powers can exploit the uncertainty of alliance agreements by coercing a member of a rival coalition into dissent. 
-{{< /subtext >}}
+On the flip side, western hegemony expanded across Eastern Europe with NATO, free trade, and democracy. NATO expansion was a controversial topic in the U.S., but many argue that it is still in line with NATO's original goal: keep Russia out, maintain deep U.S. integration in European security, and check Germany. Opponents viewed that NATO had accomplished its mission and that such expansion would antagonize Russia, inevitability turning it into an enemy. 
 
-Since World War II, great powers have figured out how to avoid large war with each other. Sources of great power peace are globalization (mutual benefit outweighs potential reward of war), mutual possession of secure second-strike capabilities, and U.S. unipolarity.
+The opponents were somewhat right as Russia interpreted NATO expansion as containment. The situation for Russia became even more dire when President Bush endorsed NATO membership for Georgia and Ukraine. As a result, Russia militarily intervened in these two countries.
 
-{{< subtext >}}
-    Benefits of globalization can be intentionally reoriented away.
-
-    Great powers won't fight each other because the U.S. might intervene.
-{{< /subtext >}}
-
-After the Cold War, Russia had to take over after the collapsed Soviet Union. Territorially, Many new states were established. There was a change in distribution of power as Russia lost its status of great power. Institutional change in the form of the collapse of the Warsaw Pact, and many such members moving to opposing NATO. 
-
-On the flip side, western hegemony expanded across Eastern Europe. Spread of NATO, free trade, and democracy. Additionally, the international system shifted from bipolar to unipolar under the U.S. NATO expansion was a controversial topic in the U.S., but many argue that it is still in line with NATO's original goal: keep Russia out, maintain deep U.S. integration in European security, and watch Germany. NATO would also allow the U.S. to use multilateralism to enforce liberal internationalism. Opponents argued that NATO had accomplished its mission and that expansion of NATO would antagonize Russia, inevitability turning it into an enemy. 
-
-NATO expansion was interpreted by Russia as a form of containment. A new dividing line was drawn, leaving Ukraine and Georgia, who were not admitted, vulnerable to Russia. The situation for Russia became even more dire when President Bush endorsed NATO membership for these two countries. Russia would militarily intervene in these two countries, especially so in the Ukrainian Civil War (2014). 
-
-This war started because Ukraine was about to sign an agreement with the European Union. The Ukrainian president then turned around and insisted on aligning closer with Russia, sparking protests and putting him in exile in Russia. Russia saw an opportunity to meddle and annex Crimea. The U.S. did impose sanctions on Russia, but it didn't do much and soured relations.
+Today's Russia-Ukraine conflict stems from the goals of Putin:
+- Keep Ukraine out of NATO: guaranteed with Russian control over Ukraine
+- Reestablish Russia's sphere of influence
+- Create a "greater Russia"
+- Push NATO away from Eastern Europe
+- Sow divisions among NATO members 
 
 {{< subtext >}}
     The Eastern part of Ukraine is comprised of Russian speakers who prefer to align closer with Russia.
 {{< /subtext >}}
 
-<!-- putin's goals: keep ukraine out of nato (agreements are volatile), reestablish russia' sphere of influence (hae ukraine be dependent), creating "greater russia" -->
-The current conflict revolves around Putin demanding that Ukraine remain neutral and never enter NATO. Most experts predicted a quick Russian victory given its enormous military advantages over Ukraine, but Western military aid has helped sustain Ukraine's effort. Russia did hope this conflict would push NATO away from Eastern Europe, sow divisions among its members, and open the door to expanding its sphere of influence beyond Ukraine, but instead it has done the opposite. The reason the West is supporting Ukraine is to demonstrate their strength towards Russia, uphold international liberalism, and deter other authoritarian regimes.
+None of these came true, though, thanks to Western military aid. The reason the West is supporting Ukraine is to demonstrate their will against Russia, uphold international liberalism, and deter other authoritarian regimes.
 
-<!-- Ukraine can manufacture its own drones, which might be great news after the war -->
-The current state of the war is stalemate. Russia has seem dramatic losses in personnel and military equipment. This is thanks to poor military management in Russia, the ability of the Ukrainian president to galvanize most of the world to the side of Ukraine, Western unity, and Western military aid. Likewise, Ukraine suffers from uncertainty over American military aid and shortage of soldiers. That last point is not a result of war; the number of young men in prime fighting age is low because WWI and WWII resulted in smaller generations and the collapse of the Soviet Union especially ripple now.
+The war is currently in stalemate. Russia has seem dramatic losses in personnel and military equipment. Likewise, Ukraine suffers from uncertainty over American military aid and shortage of soldiers. President Trump is insistent on a peace deal, but the deals had greatly favored Russia. He believed that assisting Ukraine was not worth it to the U.S. because the country would lose the war without U.S. aid. However, he did a 180 when Russia rejected a ceasefire that Ukraine accepted. The puzzle here is that both sides maintain maximal positions.
 
-President Trump instead want peace now. This has often seen him advocate for concessions that greatly favored Russia. Ukraine-U.S. relations hit an all time low. Trump thinks that Ukraine can't sustain the war without U.S. aid, and that is simply not worth it to the U.S. 
+The economic growth of China has allowed it to spend more on military, ultimately catching up to the U.S. **Power Transition Theory** states that such shifts in the distribution of power between great powers can destabilize international politics, potentially triggering a great power war. This is through the rising power wanting to renegotiate agreements, and declining great powers wanting to launch a preventative war. China's claims of the South China Sea (nine-dash line) is an example of this. 
 
-The U.S. then paused military aid and intelligence sharing with Ukraine while also improving relations with Russia. This took a sharp 180, though, when Russia rejected a ceasefire that Ukraine accepted. Fundamentally, the problem is that Russia and Ukraine maintain maximal positions. The initiation of negotiations has exacerbated this issue as it escalates fighting (both nations trying to achieve the better negotiating position).
-
-The economic growth of China has allowed it to spend more on military, thus allowing it to exert its political influence throughout East Asia and the world. **Power Transition Theory** is that shifts in the distribution of power between great powers can destabilize international politics, potentially triggering a great power war. This rising power will want to renegotiate agreements, and declining great powers will launch a preventative war. China's claims of the South China Sea (nine-dash line) is an example of this as China feels emboldened as the distribution of power shifts in favor of them. War could potentially arise among neighbors through a series of miscalculations. Although current Chinese leaders have benefitted from current international politics, future leaders may decide to rewrite.
+A great power war doesn't exactly seem imminent in the near future. This great power peace is thanks to globalization (mutual benefit outweighs the potential reward of war), mutual possession of secure second-strike capabilities, and U.S. unipolarity.

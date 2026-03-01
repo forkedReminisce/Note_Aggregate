@@ -9,32 +9,25 @@ params:
 
 
 
-<!-- TODO: address this -->
-<!-- if stackDistance is constant, the variable likely sees capacity misses -->
-<!-- stackDistance is useful for determining the type of misses. typically comparing references to the same object -->
-stackDistance (r_1, r_2) == number of distinct cache lines referenced between r_1 and r_2. In this model, we will ignore conflict misses and only retain cold/compulsory and capacity misses. A capacity miss is when stackDistance is greater than the size of the cache. A conflict miss is when stackDistance is not larger. 
+`stackDistance` measures the number of distinct cache lines referenced between two references. This notation makes it easy to define the types of misses; a capacity miss is when `stackDistance` is greater than the cache size, and a conflict miss is otherwise. 
 
-<!-- large cache model: lots of reuse -->
-Large cache model is when there are only cold misses, and the transition to small cache model happens when capacity misses start occurring. When capacity misses start happening depends on the cache replacement policy. Optimal replacement is knowing the future to evict an object that won't be used again. In reality, LRU is used.
+To understand how the miss ratio changes as the problem size increases, it good to think about the situation in two ways. In the **large cache model** the problem size is small relative to cache size, so it only experiences cold misses. The **small cache model** shrinks this gap, adding in capacity misses. Here is where `stackDistance` comes in handy, where if it is constant for two references to the same object, that implies a capacity miss. 
 
-There are a couple of transformations that improve locality:
+Locality is the key to optimizing cache operations. There are a couple of transformations for maximizing locality:
 - Loop permutations: interchange loop order
-- Strip-mining: cut loop into parts
+- Strip-mining: cut the loop into parts (i.e., blocking)
 - Loop tiling: combines strip-mining and loop permutations
 - Manipulate the data structure (e.g., turn a row-major matrix into column-major)
 
 {{< subtext >}}
+    Blocking exploits the fact that the large cache model has no capacity misses by only working with an amount of data that can all fit in the cache one at a time.
+
     Compilers can make these optimizations.
 {{< /subtext >}}
 
 
 
 # {{< heading "ATLAS" >}}
-There must be blocking in each level of memory hierarchy (e.g., registers and L1 cache). ATLAS eases this process by serving as a library generator for MMM and other BLAS with blocking for registers and L1 cache. The way it works is that it completes a template ready to be compiled. 
+It's possible to take blocking a step further by implementing it for multiple levels of the memory hierarchy. ATLAS is a library generator that can do this for registers and L1 cache. Square tiles of size `NB` are stored in *cache* in mini-MMM. *Registers* store nested blocks of size `MU` or `NU` for micro-MMM. There is an addition `KU` optimization parameter to keeping the loop unrolling here from generating capacity misses in the I-cache.
 
-The cache-level clocking only works with square tiles. This part is known as a mini-MMM. The size of a tile is specified by the optimization parameter `NB`. Inside each tile is register-level blocking (micro-MMM). The height of the window in \(A\) is determined by parameter `MU`, whereas the width of the window in \(B\) is `NU`. `KU` helps with loop unrolling by making sure the I-cache does not evict looped instructions, leading to cache misses. 
-
-<!-- not really important thanks to OOO execution -->
-Scheduling is also optimized by alternating load operations with computations, effectively masking that overhead with useful work. 
-
-Optimizing the parameters can use something known as *orthogonal line search*. This optimizes one variable at a time, using dummy values for parameters not yet optimized. This doesn't always work, but it is frequently close. Search is also robust, whereas smarter strategies suffers from a lack of empirical evidence. 
+The optimization parameters are not set by the programmer but are rather optimized for. A model approach is way too closed-minded, so *orthogonal line search* is used. It works by optimizing one variable at a time, using dummy values for parameters not yet optimized.  
