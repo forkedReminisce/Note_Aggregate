@@ -73,3 +73,18 @@ The war is currently in stalemate. Russia has seem dramatic losses in personnel 
 The economic growth of China has allowed it to spend more on military, ultimately catching up to the U.S. **Power Transition Theory** states that such shifts in the distribution of power between great powers can destabilize international politics, potentially triggering a great power war. This is through the rising power wanting to renegotiate agreements, and declining great powers wanting to launch a preventative war. China's claims of the South China Sea (nine-dash line) is an example of this. 
 
 A great power war doesn't exactly seem imminent in the near future. This great power peace is thanks to globalization (mutual benefit outweighs the potential reward of war), mutual possession of secure second-strike capabilities, and U.S. unipolarity.
+
+
+## {< heading "Civil War" >}
+The causes of civil war take from the Bargaining Model of War. 
+
+After a civil war, the losing side has to disarm themselves and return to life in the state. The issue is that they become easy to punish by the winners, which can be a commitment problem. Therefore, international intervention helps give the losers a sense of protection; though, the third party must be willing to stay for however necessary. On the flip side, international intervention, especially the kind that only provides aid to one side and is rivaled, can embolden armies to just keep on fighting.
+
+
+
+## {< heading "Nuclear Revolution" >}
+Nuclear weapons are incredibly destructive, shift power dynamics in a war (e.g., a non-nuclear power cannot possibly win against a nuclear power), and shifted the way in which to protect citizens. 
+
+Nuclear weapons can cause a lot of destruction in a matter of days. This shuts the door for reconsidering the costs of war. Additionally, ballistic missiles make it easy to strike civilians without defeating the adversary's military. This comes with the added bonus of allowing a militarily weaker state to challenge significantly stronger states. One other effect is that a victor in a nuclear war would likely not even exist because of second-strike capabilities.
+
+Defense was about using conventional weapons to block out enemies from reaching the citizens. However, all missiles cannot be blocked. Therefore, *deterrence* is used. It is the threat of retaliation to dissuade attacks. This requires the state to have *secure second-strike capability*—be able to withstand a strike and then make a counterstrike. This ties into *mutually assured destruction*, which implies that nuclear war leads to the destruction of both sides.

@@ -40,3 +40,8 @@ Sparse graphs:
 - Power-law graphs: small number of very high degree nodes. Low diameter.
 
 Six degrees of freedom. Experiment was mailing a letter, and having its recipients give it to people they know until it reached the target. Low diameter example.
+
+
+
+# Caches 
+The arbitration unit only allows one core to use the bus at a time. Therefore, if multiple caches have the cache line, only one core can actually send the cache line.
