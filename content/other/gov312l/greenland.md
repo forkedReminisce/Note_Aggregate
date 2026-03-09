@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Greenland Crisis
 
 params: 
-    desc: 
+    desc: President Trump has suggested that the U.S. will take over Greenland. Although this did not end up happening, there is now distrust in the international order towards the U.S.
     author: Andrew Nguyen 
 ---
 

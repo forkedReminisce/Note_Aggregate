@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: War
 
 params: 
-    desc: 
+    desc: War is a result of bargaining breakdown, but surprisingly, no great power war has happened in nearly a century. 
     author: Andrew Nguyen 
 ---
 
@@ -37,7 +37,7 @@ The **commitment problem** is when a party thinks any peace deal with the other 
 Institutional mechanisms can solve the commitment problem by making increased demands by the other party less attractive. Arms control agreements stabilizes distribution of power. Democracy also does through the people voting, thereby controlling military spending. Additionally, membership in international organizations can convey to the other side some set of expectations (e.g., being in NATO implies no plan to go to war).
 
 
-## {{< heading "Great Powers" >}}
+## {{< heading "Great Power War" >}}
 Settlements to great power wars transform the structures of the international system. It creates new states that existing states must respect the sovereignty of, and who the great powers can influence the regime type of. Enforcement mechanisms of the status quo are established. Finally, the distribution of military power and territorial boundaries can change, which determines every state's satisfaction level and the longevity of the status quo.
 
 **Polarity** is the number of great powers in the current international system. There are three types:
@@ -76,15 +76,15 @@ A great power war doesn't exactly seem imminent in the near future. This great p
 
 
 ## {< heading "Civil War" >}
-The causes of civil war take from the Bargaining Model of War. 
+The longevity of a war lies on a commitment problem. Because the losers must disarm themselves and return to life in the state, they become very easy targets for the winners. Therefore, international intervention can give the losers a sense of protection. On the flip side, if there are separate aid and rival aid, the armies can be emboldened to just keep on fighting.
 
-After a civil war, the losing side has to disarm themselves and return to life in the state. The issue is that they become easy to punish by the winners, which can be a commitment problem. Therefore, international intervention helps give the losers a sense of protection; though, the third party must be willing to stay for however necessary. On the flip side, international intervention, especially the kind that only provides aid to one side and is rivaled, can embolden armies to just keep on fighting.
+{{< subtext >}}
+    Positive international intervention is only effective if it's present for long enough.
+{{< /subtext >}}
 
 
 
 ## {< heading "Nuclear Revolution" >}
-Nuclear weapons are incredibly destructive, shift power dynamics in a war (e.g., a non-nuclear power cannot possibly win against a nuclear power), and shifted the way in which to protect citizens. 
+Nuclear weapons can cause a lot of destruction in a matter of days. This prevents time to take its course to open opportunities of renegotiation. Additionally, civilians become the target of attacks and weaker states on paper can challenge stronger states by obtaining nuclear weapons. Finally, it becomes hard to imagine a victor in a nuclear war if they too would be severely damaged.
 
-Nuclear weapons can cause a lot of destruction in a matter of days. This shuts the door for reconsidering the costs of war. Additionally, ballistic missiles make it easy to strike civilians without defeating the adversary's military. This comes with the added bonus of allowing a militarily weaker state to challenge significantly stronger states. One other effect is that a victor in a nuclear war would likely not even exist because of second-strike capabilities.
-
-Defense was about using conventional weapons to block out enemies from reaching the citizens. However, all missiles cannot be blocked. Therefore, *deterrence* is used. It is the threat of retaliation to dissuade attacks. This requires the state to have *secure second-strike capability*—be able to withstand a strike and then make a counterstrike. This ties into *mutually assured destruction*, which implies that nuclear war leads to the destruction of both sides.
+Defense was about using conventional weapons to block enemies from reaching the citizens. However, in today's environment, not all missiles can be blocked. Therefore, *deterrence* is used. With *secure second-strike capabilities*, another state will think twice before striking and likely activating *mutually assured destruction*.
