@@ -87,4 +87,22 @@ The longevity of a war lies on a commitment problem. Because the losers must dis
 ## {< heading "Nuclear Revolution" >}
 Nuclear weapons can cause a lot of destruction in a matter of days. This prevents time to take its course to open opportunities of renegotiation. Additionally, civilians become the target of attacks and weaker states on paper can challenge stronger states by obtaining nuclear weapons. Finally, it becomes hard to imagine a victor in a nuclear war if they too would be severely damaged.
 
-Defense was about using conventional weapons to block enemies from reaching the citizens. However, in today's environment, not all missiles can be blocked. Therefore, *deterrence* is used. With *secure second-strike capabilities*, another state will think twice before striking and likely activating *mutually assured destruction*.
+Defense was about using conventional weapons to block enemies from reaching the citizens. However, in today's environment, not all missiles can be blocked. Therefore, **deterrence** is used. With *secure second-strike capabilities*, another state will think twice before striking and likely activating *mutually assured destruction* (MAD).
+
+{{< subtext >}}
+    Extended deterrence is extending the policy of deterrence on behalf of allies.
+{{< /subtext >}}
+
+However, there are three factors that undermine deterrence. The *problem of credibility* centers around the paradox that MAD makes threats unbelievable. Capabilities help improve the credibility of a threat, as does resolve—the will to carry out threats. Like costly signals, resolve can be demonstrated by risking political careers by going public or making "the threat that leaves something to chance." The latter proves risk acceptance of their threats and the following ramifications. Another way to signal resolve is with tripwire forces, small military units stationed at global hotspots. If there's an attack and they die, there is good reason for the state to retaliate.
+
+{{< subtext >}}
+    Tripwire forces can deter enemies and reassure allies.
+{{< /subtext >}}
+
+*National Missile Defense* (NMD) are the defense system against nuclear weapons. It should come as no surprise then that NMD undermines MAD. This could make deterrence moot as states with NMD may become less cautious, and states without it build up their nuclear arsenals to overwhelm NMDs or launch a preventative strike. However, NMDs are basically infeasible. Limited NMD are more attainable, shifting the focus away from established nuclear powers and towards new nuclear powers.  
+
+*Nuclear proliferation* describes non-nuclear states obtaining nuclear weapons. These states engage in this behavior for national security. Or they may not due to domestic politics or international pressure. The reasons established nuclear powers are wary of new nuclear powers are:
+- New nuclear power possess few nukes and, thus, does not possess secure second-strike capabilities
+- Unstable nuclear prolifereators are more likely to have accidents and may provide access to nuclear weapons to terrorists
+- A new nuclear power in a region might spark a regional nuclear arms race
+- Propels the political standing of the nuclear proliferator at the expense of its neighbors and established nuclear powers

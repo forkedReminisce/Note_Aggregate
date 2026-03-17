@@ -45,3 +45,10 @@ Six degrees of freedom. Experiment was mailing a letter, and having its recipien
 
 # Caches 
 The arbitration unit only allows one core to use the bus at a time. Therefore, if multiple caches have the cache line, only one core can actually send the cache line.
+
+
+
+# Parallelism
+When the main thread calls `pthread_exit`, other threads continue to execute. 
+
+Barriers require all threads to reach it before letting any threads pass.

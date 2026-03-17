@@ -54,3 +54,19 @@ The **MESI Protocol** implements write invalidate. Cache lines in each cache hav
 The MESI Protocol introduces a fourth type of C miss: **coherence misses**. This is because a cache line can become invalid, resulting in a cache miss when it is referenced again by that particular processor. This tends to pop up in the ping-ponging of cache lines between cores.
 - True-sharing: multiple cores are reading and writing to the same memory address
 - False-sharing: multiple cores are reading and writing to what happens to be the same cache line
+
+
+
+# {{< heading "Atomic Instructions" >}}
+Interleaving of memory instructions leads to a *data-race*. These can "bypass" the MESI Protocol because they work with memory, not registers (or cache lines? cache miss?). Atomic instructions solve this issue. They operate on the size of a cache line.
+
+Atomic instructions rest on ==pinning the cache line==. This allows operations to not fear the cache line getting evicted. The cache line is unpinned when the instruction finishes. If the operation is not implemented in the ISA, loop the operation and `compare-and-swap` until CAS succeeds. `compare-and-swap(addr, reg1, reg2)` checks if the value in `addr` is equal to the value in `reg1`, and if it is, it swaps the value in `addr` with `reg2`. However, if the size is too big for a cache line, a lock is used.
+
+
+
+# {{< heading "Threads" >}}
+If there are more threads than cores, the runtime system will time-slice threads on cores. In high performance computing, this overhead is undesirable, so the number of threads is equal to the number of cores so they each core only worries about one thread.
+
+Threads have essentially an id (opaque handle), pThread name, and a given nickname, short name. 
+
+We are familiar with mutex-locks. *Spin-locks* (or trylocks) instead do not block the thread when a busy error code is returned, but require manual retry to acquire the lock. These types of locks are implemented with the `swap` instruction. For acquire, a register with value `1` is swapped with the value of the lock. If the register still reads `1`, the lock wasn't acquired (and `1` was written to it regardless). The problem is that the `swap` will invalidate the cache line of `L`. With many threads trying to acquire, ping-ponging will occur, causing busy-waiting. A solution is test-and-test-and-set, where the value of the lock is checked in a separate loop before all this. Due to MESI Protocol, if the cache line is invalid, another thread will be able to acquire the lock.
