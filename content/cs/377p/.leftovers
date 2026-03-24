@@ -49,6 +49,8 @@ The arbitration unit only allows one core to use the bus at a time. Therefore, i
 
 
 # Parallelism
+In high performance computing, the overhead of context switching is undesirable. Therefore, the rule is to keep the number of threads equal to the number of cores.
+
 When the main thread calls `pthread_exit`, other threads continue to execute. 
 
 Barriers require all threads to reach it before letting any threads pass.
