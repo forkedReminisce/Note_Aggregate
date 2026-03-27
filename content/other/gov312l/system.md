@@ -67,3 +67,22 @@ IOs help with cooperation by addressing the collective action problem, reducing 
 The United Nations is involved in peacekeeping, the protection of human rights, and more. Every member is part of the General Assembly, but the US, UK, China, Russia, France, and ten other rotating members are also in the Security Council. The named states also have veto power. Due to the size of the General Assembly, UN approval provides legitimacy for states' controversial foreign policy actions.
 
 NATO suffers from some struggles: European shirking sees Europe not investing as much into their military as the US, and the US has had periods when it has been unwilling to accept the burden and contribute. However, NATO still offers really powerful allies to the US.
+
+
+
+# {{< heading "Democracy" >}}
+The preconditions to be considered a democracy are:
+- Public Contestation: competitive elections and freedom of expression
+- Inclusion: Universal suffrage
+- Democratic Sovereignty: the important decisions must be made by elected officials
+
+A lack of inclusion undermines the principle of democracy. Greater inclusion, therefore, creates greater legitimacy. Greater legitimacy produces more acceptance of decisions because everyone chose the leader. Additionally, inclusion increases loyalty. Greater inclusion also has the effect of descriptive representation, which is that voters elect people that look like them and share their life experiences, increasing the diversity within the government. This helps with legitimacy and promotion of policies important to the community among all officials. However, diversity in government has not caught up to diversity in society. Inclusion also affects national election outcomes.
+
+The **Democratic Peace Theory** claims that democracies are relatively unlikely to go to war with each other. However, democracies are still as likely to fight with authoritarian states as authoritarian states are to each other. Elections create political costs, institutional checks and balances address the commitment problem as the benefits of an international status quo can be felt at home, and there's a shared democratic identity that promotes peaceful negotiation over military force. 
+
+However, states in a transition to democracy are war-prone. Therefore, if a number of democracies began to emerge, the world might experience a period of increased conflict. There are also alternative explanations for democratic peace: the Soviet Union was a common enemy in the Cold War that kept Western Europe in peace, or great power settlements of the Cold War maintained peace as neither alliance wanted to fight each other.
+
+U.S. presidents have either tried to transform dictatorships into liberal democracies or demonstrate the success of U.S. democracy. The first tendency uses too much resources and is often unsuccessful, and the second ignores foreign threats so they can foster and attack the U.S. Good enough governance instead designates separate approaches towards states depending on which of three groups they fall into. 
+- Consolidated democracies: maintain alliance and trade commitments to help sustain that country's democracy
+- Transitional countries: work with other democracies to nudge this country towards greater democracy 
+- Despotic regimes: since democracy is probably not possible in the short-term, promote good local leaders, regardless of whether they are for democracy

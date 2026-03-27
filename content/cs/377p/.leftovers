@@ -53,4 +53,10 @@ In high performance computing, the overhead of context switching is undesirable.
 
 When the main thread calls `pthread_exit`, other threads continue to execute. 
 
-Barriers require all threads to reach it before letting any threads pass.
+Atomic operations expense depends on contention (dependencies and competition over resources like bus). No contention is as expensive as a write. Contention requires overhead to serialize the atomic operations.
+
+The bus arbitration unit achieves mutual exclusion with atomic instructions. 
+
+Barriers need to be reentrant, meaning the same threads can reach it an arbitrary amount of times.
+
+The best number of threads can be found as \[p = \sqrt{\frac{c}{o}}\], where \[c\] is the total computation cost with just one thread and \[o\] is the time to create, join, and close a thread.

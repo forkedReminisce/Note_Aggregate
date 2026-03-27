@@ -58,8 +58,13 @@ The MESI Protocol introduces a fourth type of C miss: **coherence misses**. This
 
 
 # {{< heading "Synchronization" >}}
+<!-- data-races is about order, or lack thereof -->
 Interleaving of memory instructions leads to a *data-race*. These can "bypass" the MESI Protocol because they work with memory, not registers (or cache lines? cache miss?). Atomic instructions solve this issue. They operate on the size of a cache line.
 
 Atomic instructions rest on ==pinning the cache line==. This allows operations to not fear the cache line getting evicted. The cache line is unpinned when the instruction finishes. If the operation is not implemented in the ISA, loop the operation and `compare-and-swap` until CAS succeeds. `compare-and-swap(addr, reg1, reg2)` checks if the value in `addr` is equal to the value in `reg1`, and if it is, it swaps the value in `addr` with `reg2`. However, if the size is too big for a cache line, a lock is used.
 
 What we are familiar with are mutex-locks. *Spin-locks* (or trylocks) instead do not block the thread when a busy error code is returned; they require the thread to manually retry. These types of locks are implemented with the `swap` instruction. For an acquire, a register with value `1` is swapped with the value of the lock. If the register still reads `1`, the lock wasn't acquired. ==However, the cache line of the lock is technically modified, invalidating every other cache's line==. This will lead to busy-waiting by ping-ponging. A solution is test-and-test-and-set, where a single `swap` is after a perpetual loop of just the check.
+
+Barriers require all threads to reach it before letting any threads pass. It's a struct that contains a arrive count, leave count, flag, and a lock for incrementing count. The flag is `true` if all threads have reached the barrier. This is set when the last thread reads arrive count to be one less than the number of threads, and arrive count is also reset to `0`. The first thread entering resets flag to `false`. The first thread leaving sets the leave count to `1`. 
+
+Other than lock ordering, another way to address deadlock is self-preemption. In this scheme, if a thread cannot acquire a lock, it releases all the locks it holds. However, this introduces livelock—still making no progress despite "doing work." Exponential backoff does address this. 
