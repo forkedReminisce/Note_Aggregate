@@ -96,15 +96,13 @@ U.S. presidents historically have either tried to transform dictatorships into d
 
 
 # {{< heading "Globalization" >}}
-**Globalization** is the integration of many national economies into a single global economy. It makes a state wealthier through *comparative advantage*: specialization minimizes inefficiencies. The goods they don't make are imported from other states that specialize in them. 
+**Globalization** is the integration of many national economies into a single global economy. It makes states wealthier through *comparative advantage*: specialization to minimize inefficiencies; the goods they don't make are imported from other states that specialize in them. 
 
-However, most countries still apply trade barriers that limit globalization. Comparative advantages misses what the *Heckscher-Ohlin framework* catches: some groups see an increase in wages while other groups see it fall. The (would-be) losers thus lobby for trade barriers to protect themselves. Abundant factor endowments are cheap and bring down the products of which they serve as inputs to. Scarce factor endowments are jeopardized by globalization as a state that has it in abundance can beat it out. 
+However, most countries still apply trade barriers that limit globalization. Comparative advantages misses what the *Heckscher-Ohlin framework* catches: some groups will see an increase in wages while other groups' fall. The winners possess abundant factor endowments, which allows the products they serve as inputs to to get cheaper. On the other hand, the losers with scarce factor endowments are threatened by other states that have the resource in abundance. They, thus, lobby for trade barriers to protect themselves. 
 
-When a currency appreciates, imports increase. This hurts domestic firms. Depreciation can make domestic goods more enticing in foreign markets. 
+*Trade deficit* (or current account deficit) is often cited for unfair trade practices by a trading partner. A trade deficit can theoretically prevent a domestic firm from employing or even cause it to lay off employees. However, reality is different; there is a **capital account** surplus that compensates as foreigners invest into the state. 
 
-Trade deficit (or current account deficit) is often cited for unfair trade practices by a trading partner. This may prevent a domestic firm from employing or may even eliminate jobs if that firm must lay off. However, reality is different; there is a capital account surplus that compensates as foreigners invest into the state. 
-
-The USD is the global reserve currency. Not only do U.S. Treasury Bonds back central banks around the world, but they also serve as the currency of international exchange. This relies on the U.S. to run a budget deficit; the U.S. takes loans through bonds. However, a reliance on foreign investors gives political power to them. If the investors become unconfident that the state will repay the bonds, they will demand higher interest rates. The state must then raise taxes.
+The USD is the global reserve currency. Not only do U.S. Treasury Bonds back central banks around the world, but they also serve as the currency of international exchange. This relies on the U.S. to run a budget deficit so that the U.S. takes loans through bonds. However, a reliance on foreign investors gives political power to them. If the investors become unconfident that the U.S. will repay the bonds, they will demand higher interest rates. The U.S. must then raise taxes.
 
 {{< subtext >}}
     The USD as the global reserve currency happened over many decades of work.

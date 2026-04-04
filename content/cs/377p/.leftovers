@@ -65,4 +65,6 @@ Barriers need to be reentrant, meaning the same threads can reach it an arbitrar
 
 The reason why the data-parallelism functions are not implemented in a library is because it's hard to think of a solution in terms of these primitives. Additionally, these generalized implementations suffer from materialization—the creation of many intermediate arrays. 
 
+Store operations must wait in the store buffer, while loads can bypass because they don't have an equivalent buffer. 
+
 Atomic instructions serve as a fence.

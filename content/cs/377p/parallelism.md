@@ -70,34 +70,42 @@ Other than lock ordering, another way to address deadlock is self-preemption. In
 
 
 # {{< heading "Data-Parallelism" >}}
-`map` performs an operation on each item in the passed in array. `reduce` applies an associative function on each item with everything before. `reduce-by-key` does `reduce` on values with matching keys. `filter` returns a subarray that satisfies a decision function. `scan` returns an array where `reduce` has been run up to that point. 
+Many algorithms can be parallelized with simple constructs.
+- `map`: perform a function on each item of the array
+- `reduce`: returns the final result of applying an associative function on each item and all those before it grouped together
+- `reduce-by-key`: `reduce` values with matching keys
+- `filter`: returns a subarray of items that satisfy the decision function
+- `scan`: returns an array where `reduce` has been run up to that point
 
-Parallelism of `reduce` and `reduce-by-key` uses divide-and-conquer, with each thread processing a subarray and writing the result to an array. Tree reduction is a strategy of starting from the root building a binary tree of threads until the leaves become manageable. Then the internal threads combine the partial sums from their children. 
+Parallelism of `reduce` and `reduce-by-key` uses divide-and-conquer, with each thread processing a subarray. *Tree reduction* is a strategy of building a binary tree where the leaves are a manageable amount of divided work. The partial results are then combined by the parent thread.
 
 {{< subtext >}}
+    Associativity of the function comes in handy here.
+
     Tree reduction can turn algorithms into \[log(n)\].
 {{< /subtext >}}
 
-`scan` introduces the notion of the result of the previous index (`fromLeft`). There will be two passes. In the up-sweep, each thread performs `reduce` on their subarray and only write their final result to an auxiliary array. `scan` is run on this array. In the down-sweep, each thread then grabs its respective value and then calculates its output array. In tree reduction, the `fromLeft` of internal nodes is the the `fromleft` of the leftmost leaf. Therefore, the `fromLeft` of the right child is the sum of the left child plus the `fromLeft` of this node. Sums of nodes are from up-sweep. 
+Since `scan` returns an array instead of a single value, a thread will keep track of the result of everything before with `fromLeft`. To do this, there will be two passes. 
+1. Up-sweep: each thread performs `reduce` on their subarray and write the partial result to an auxiliary array
+2. Run `scan` on the auxiliary array
+3. Down-sweep: each thread grabs its `fromLeft` from the auxiliary array and can now begin computing the resultant array
 
-{{< subtext >}}
-    This relies on the associativity of the function.
-{{< /subtext >}}
+In tree reduction, the `fromLeft` of the internal nodes is propagated from the leftmost leaf it can reach. To get the `fromLeft` of the right child, add this `fromLeft` with the partial result of the left child. 
 
-Since `filter` produces an output array with unknown size, `map` it with the decision function, `scan` it with addition, then `map` it again into an output array. The size of the array is from the final value of the `scan`.
+To work around the fact that the size of the array `filter` produces is unknown: 
+1. `map` it with the decision function
+2. `scan` the resultant array with addition; final value is `filter` resultant array size
+3. Separate `map` that adds an item to the array if the respective item of the `scan` array differs from the previous item
 
-The best number of threads can be found as \[p = \sqrt{\frac{c}{o}}\], where \[c\] is the total computation cost with just one thread and \[o\] is the time to create, join, and close a thread.
+The best number of threads to divide an algorithm is \(\sqrt{\frac{c}{o}}\), where \(c\) is the serial computation cost and \(o\) is the time to create, join, and close a single thread.
 
 
 
 # {{< heading "Memory Consistency Models" >}}
-Reordering may change the order of stores or loads because of a lack of dependencies between them, which may affect the semantics for another thread. One reason this reordering happens because store operations must wait in the store buffer, while loads don't have an equivalent buffer, so they bypass. But although dependencies are not presents, multithreaded programs possess implicit dependencies.
-<!-- only reason about program order since the interleavings are fine -->
-- Sequential Consistency: don't reorder operations on shared-memory (but can reorder stack), but it prohibits store buffer optimizations and all global variable operation is slowed
-<!-- dont interpret laymans definition strictly; sequential would put fences after every data operation -->
-- Weak consistency: Fence instruction require all data operations before to be complete in program order, and data operations after must wait until instructions before complete. Fence is implemented with a count that is implemented when the operation is issued, and decremented when the operation returns
-- Release consistency: just another relaxed consistency model
+If there aren't any dependencies, stores or loads may be reordered. This may affect the intention for another thread. To retain these implicit dependencies, **memory consistency models** are employed. Do note that they do not guarantee deterministic behavior.
+- Sequential Consistency: thread cannot reorder operations on shared-memory (but they may be interleaved between threads), but all global memory operations are slowed
+- Weak consistency: fence instruction require all prior data operations complete, and data operations after must wait
 
-This is concerned with data operations within a core. It basically allows the enforcement that data operations are done in a potentially desired order by that particular core. However, these do not ensure deterministicity.
-
-What was described was memory consistency models at the architecture level, but programming languages also have their own memory models.
+{{< subtext >}}
+    The fence instruction waits for a particular count to hit 0. This count is incremented when a memory operation is issued, and decremented when it returns.
+{{< /subtext >}}
