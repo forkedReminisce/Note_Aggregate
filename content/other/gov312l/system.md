@@ -92,3 +92,20 @@ U.S. presidents historically have either tried to transform dictatorships into d
 - Consolidated democracies: maintain alliances to help sustain that country's democracy
 - Transitional countries: work with other democracies to nudge this country towards greater democracy 
 - Despotic regimes: since democracy is probably not possible in the short-term, promote good local leaders, regardless of whether they are for democracy
+
+
+
+# {{< heading "Globalization" >}}
+**Globalization** is the integration of many national economies into a single global economy. It makes a state wealthier through *comparative advantage*: specialization minimizes inefficiencies. The goods they don't make are imported from other states that specialize in them. 
+
+However, most countries still apply trade barriers that limit globalization. Comparative advantages misses what the *Heckscher-Ohlin framework* catches: some groups see an increase in wages while other groups see it fall. The (would-be) losers thus lobby for trade barriers to protect themselves. Abundant factor endowments are cheap and bring down the products of which they serve as inputs to. Scarce factor endowments are jeopardized by globalization as a state that has it in abundance can beat it out. 
+
+When a currency appreciates, imports increase. This hurts domestic firms. Depreciation can make domestic goods more enticing in foreign markets. 
+
+Trade deficit (or current account deficit) is often cited for unfair trade practices by a trading partner. This may prevent a domestic firm from employing or may even eliminate jobs if that firm must lay off. However, reality is different; there is a capital account surplus that compensates as foreigners invest into the state. 
+
+The USD is the global reserve currency. Not only do U.S. Treasury Bonds back central banks around the world, but they also serve as the currency of international exchange. This relies on the U.S. to run a budget deficit; the U.S. takes loans through bonds. However, a reliance on foreign investors gives political power to them. If the investors become unconfident that the state will repay the bonds, they will demand higher interest rates. The state must then raise taxes.
+
+{{< subtext >}}
+    The USD as the global reserve currency happened over many decades of work.
+{{< /subtext >}}

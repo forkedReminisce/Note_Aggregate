@@ -5,6 +5,10 @@
 Moore's law stated that the number of transistors on a chip double every generation. This was falsely perceived that processor frequency doubling.
 Amdahl's law: most of a program must be optimized or else the unoptimized portions will be a severe bottleneck, preventing the realization of much gain.
 
+Floating point addition and multiplication are commutative but not associative.
+
+Simula first OOP language.
+
 
 
 # Compilers
@@ -59,4 +63,6 @@ The bus arbitration unit achieves mutual exclusion with atomic instructions.
 
 Barriers need to be reentrant, meaning the same threads can reach it an arbitrary amount of times.
 
-The best number of threads can be found as \[p = \sqrt{\frac{c}{o}}\], where \[c\] is the total computation cost with just one thread and \[o\] is the time to create, join, and close a thread.
+The reason why the data-parallelism functions are not implemented in a library is because it's hard to think of a solution in terms of these primitives. Additionally, these generalized implementations suffer from materialization—the creation of many intermediate arrays. 
+
+Atomic instructions serve as a fence.
