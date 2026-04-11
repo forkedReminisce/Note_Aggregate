@@ -28,18 +28,16 @@ Iran's main goal is for the current regime to survive. To survive against the st
 
 Currently, the U.S.' biggest priority is reopening the Strait of Hormuz. However, options are limited, risky, and slow. Kharg Island, Iran's vital oil export hub, does seem like a viable option. Therefore, the U.S. destroyed military assets on the island but intentionally left oil infrastructure. If U.S. troops can then capture the island, that would grant a lot of leverage, but that would be difficult to achieve. 
 
+However, reality is that Trump made an ultimatum with a deadline that threatened to destroy Iran's energy and transportation infrastructure. There is a trend that Trump walks back threats, but at some point he has to follow through. 
+
+Since most of Asia's oil comes from the Middle East, energy in the region has gotten more expensive. This risks energy shortages and even recession. This may harm US-Asia relations and further worsen global inflation. Globally, the energy crisis may push countries to invest in clean energy. This could propel China's leading position.
+
+Member states of NATO have prohibited the U.S. from using their bases and airspace. This is because they perceive this as a war of choice by the U.S. and the war is unpopular with European voters. However, they still have to manage the energy crisis and antagonizing Trump too much to the point he pulls support for Europe. Regardless, the U.S. may reconsider its relationship with NATO, which Russia and China see to benefit from.
+
+Throughout Trump's election campaigns, America First has always included isolationism. There are two ways to interpret this shift in aggression:
+- Departure: the campaign promise has been broken
+- Evolution: *short-term* intervention is still not a forever war
+
+Most Republican supporters and elected officials are of the evolution camp, but some have spoken out for departure. In general, war in Iran is unpopular. Most Americans don't believe Trump's claim that Iran was a threat and reject the government's claim of winning the war.  However, most of these opinions reside with Democrats and Independents, as Republicans are still supportive of the war. 
+
 The U.S. could just end its campaign and declare victory. This avoids a long war and *may* stop economic conditions from worsening. However, the current regime would be left in place and Iran can still continue with its nuclear program. Continuing the war can achieve the goals, but there would be more casualties, global economic conditions would worsen, and it would undermine the Republican Party. 
-
-Six weeks into the war and reopening the Strait of Hormuz is still the priority. Trump has made an ultimatum with a deadline that could destroy Iran's energy and transportation infrastructure. There is a trend that Trump tends to retreat from threats, but at some point he has to follow through. 
-
-The energy crisis may push countries to invest in clean energy. This could propel China's leading position in clean position.
-
-Member states of NATO have prohibited the U.S. from using their bases and airspace. This is because this is a war of choice by the U.S. Additionally, the war is unpopular with European voters. However, they do have to balance this with the energy crisis and potentially antagonizing Trump too much to the point he pulls support for Europe. The U.S. may reconsider its relationship with NATO. Clearly, Russia and China could benefit. 
-
-Most of the oil that goes through the Strait of Hormuz goes to Asia. Asia also imports most of their oil from the Middle East. In Asia, energy is more expensive, energy shortages and rationing, and may face recession (because they're manufacturing-based). This may contribute to global inflation, which can lead to global recession. This may ultimately harm U.S.-Asia relations.
-
-Throughout his election campaigns, Trump's America First foreign policy has always included isolationism. There are two ways to interpret this shift:
-- Departure: this war has broken the campaign promise
-- Evolution: simply being more aggressive with *short-term* intervention (no forever wars)
-
-Most Republican supporters and elected officials are of the evolution camp, but some have spoken out for departure. In general, war in Iran is unpopular. Most Americans see it as a war of choice, suggesting that the public doesn't accept Trump's claim that Iran was a threat to U.S. security. Most also think the war is going badly, rejecting government's claim of winning. However, most of these effects are seem with Democrats and Independents, as Republicans are still supportive of the war. 

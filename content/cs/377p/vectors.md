@@ -1,39 +1,33 @@
 ---
 draft: true
-title: 
+title: Vector Registers
 
 params: 
-    desc: 
+    desc: Vector registers require another set of hardware. But when they are supported, programs can be vectorized in such a way that improves performance.
     author: Andrew Nguyen 
 ---
 
 
 
-The way a vector unit works is it places the modules in parallel (e.g., a number of adders side by side dedicated to a specific part of the vector). This is known as lanes. This increases data-parallelism and reduces power draw. However, depending on the number of lanes, latency may increase for less lanes. But more lanes takes up valuable space.
+# {{< heading "Hardware" >}}
+Lanes are how vector registers can be operated on in parallel. It is a line of modules for each separate item. This increases data-parallelism and reduces power draw. However, too little lanes will increase latency, but more will take up physical space.
 
-The Vector Length Register (VLR) is essentially a constant that sets the number of elements every vector register contains. Instructions then only work on those elements. This reduces power draw. There are instructions for overwriting VLR.
+The Vector Length Register (VLR) dictates the number of elements every vector register contains. Instructions then work on that number. This reduces power draw. Mask registers are another useful tool, consisting of booleans that designate indexes to operate on. This is great for loops with a patterned conditional. 
 
-Mask registers contains booleans that designate indexes to operate on. Masked vector operations is also called predicated execution. This is great for loops with a conditional. 
-
-Vector memory operations has three modes:
+Vector memory operations have three modes:
 - Stride 1: row-wise access
 - Stride k: column-wise access, width of row must also be specified
-- Scatter/gather: row-wise access into/from non-sequential indices, a separate vector specifies the indices and the order
+- Scatter/gather: row-wise access of memory for non-sequential indices of the vector register, a separate vector specifies the indices and the order
 
-Banked memory has a set of banks that can operate independently. For example, if a request is made to one bank, it's still possible to access other locations as long as they're in another bank. Interleaving will assign addresses to banks round-robin style (i.e., 0 goes to the first bank, 1 goes to the next bank, etc. and loop around if necessary). Stride 1 is fastest since all banks operate in parallel. 
+Banked memory has a set of banks that can operate independently. For example, if a request is made to one bank, it is still possible to access locations belonging in another bank. Interleaving will assign addresses to banks round-robin style (i.e., 0 goes to the first bank, 1 goes to the next bank, etc. and loop around).
 
 
 
 # {{< heading "Vectorization" >}}
 Scalar code in loops can be vectorized. Some strategies include: 
-- Stripmining: when the vector size is larger than the vector register length
-- Loop distribution: if legal, put each statement in a shared loop its own loop
+- Stripmining: if the size is larger than the VLR, loop as many times as necessary
+- Loop distribution: if legal, put each statement in the shared loop its own loop
 
-<!-- semantically: a node has a dependence on a node from any iteration -->
-To determine whether loop distribution is legal, dependence graphs are employed. Unroll the loop and graphing dependencies per and between iterations then collapse it all into a single graph. This single graph will add a distance to the edge the indicates how much iterations before this dependency emerges from.
+To determine whether loop distribution is legal, *loop dependence graphs* are employed. If nodes represent statements, then a directed edge from one to another is a dependence from this or earlier iterations. By decomposing the graph into strongly connected components, those with only a single statement may be vectorized, but only if it doesn't have a self-loop. 
 
-By decomposing the graph into strongly connected components, vectorize the components that contain just one statement. However, if this statement has a self-loop, you cannot vectorize. 
-
-Scalar expansion helps with how scalars mess with loop dependence graphs (can create large strongly connect components). Instead, turn the scalar variable into a vector variable. This uses more storage and less locality. 
-
-Reductions help with self-loops. As long as the operation is associative, keep two vector registers: one that holds the results and another that is stripmining. Perform the operation between the two.
+Since scalars can create large strongly connected components, scalar expansion will turn the variable into a vector that separates its values of each iteration. This uses more storage and less locality, though. To handle self-loops, reductions will exploit associativity (if present) to perform the operation in a round-robin way. 
