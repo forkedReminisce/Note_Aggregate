@@ -107,3 +107,15 @@ The USD is the global reserve currency. Not only do U.S. Treasury Bonds back cen
 {{< subtext >}}
     The USD as the global reserve currency happened over many decades of work.
 {{< /subtext >}}
+
+After World War II, meetings between the Allied states at Bretton Woods sought to design methods to facilitate global economic cooperation. They made this their goal because they believed the collapse of economic cooperation lead to the rise of Nazism. The main idea that guided these discussions was globalization. 
+
+Economic cooperation suffers from a commitment problem. Additionally, it is hard to monitor compliance and there are distribution challenges where one side might benefit more from a deal. IOs offer enforcement mechanisms, convey the economic interests of member states, monitor compliance, and have ways to reduce distributional challenges.
+
+The *General Agreement on Tariffs and Trade* (GATT) hosted negotiating rounds that aimed to reduce trade barriers by everyone. However, it had no enforcement mechanism. Therefore, the *World Trade Organization* (WTO) succeeded the GATT, and it offered the dispute resolution mechanism. If the plantiff wins, they get a lot of freedom and can be strategic with how they apply their retaliation. Recently, though, the WTO hasn't been able to further trade liberalization due to limited support by the larger states.
+
+The *International Monetary Fund* (IMF) holds onto capital it was given by member states. One purpose is exchange rate stabilization. It used to do this by requiring states to get its approval to change the value of their currency, but now it is a lender of last resort. It only serves this role when a member faces a balance of payments crisis—cannot make its loan payments—which causes lenders to pull capital out and further depreciate the currency. The IMF attaches conditionality arrangements onto the loan aimed to ensure the state's is able to pay its debts in the future without the IMF. These often hurt economic growth. States accept these anyway because the IMF is the only body left willing to lend to them. By fulfilling the conditionality arrangements, other lenders will feel confident again in the state repaying its debts. However, since influence in the IMF is proportional to the member's contribution to the fund, larger donors can favor states by relaxing the conditions for them.
+
+{{< subtext >}}
+    The U.S. is the largest donor to the IMF fund by a long shot.
+{{< /subtext >}}
