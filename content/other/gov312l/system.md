@@ -117,3 +117,31 @@ The *International Monetary Fund* (IMF) holds onto the capital it was given by m
 {{< subtext >}}
     The U.S. is the largest donor to the IMF fund by a long shot.
 {{< /subtext >}}
+
+
+
+# {{< heading "Climate Change" >}}
+A climate change denier is that way because they want to continue the production and consumption of fossil fuels. However, carbon dioxide is a greenhouse gas. The amount of carbon dioxide in the atmosphere has increased significantly since the Industrial Revolution. A warming Earth will result in worse heat waves, which will create more droughts, alter wind patterns, and intensify weather patterns. Additionally, ice sheets in Antarctica and Greenland are melting, raising ocean levels. With too much global warming, the melting will be irreversible and coastal communities will have to be relocated in decades time.
+
+One reason cooperation that address climate change is difficult is the *Tragedy of the Commons*. This is when it is difficult to restrict the use of a finite resource. This resource is then overused to the point of depletion. The difficulty comes from how to balance private costs and social costs so that neither side takes on more of the burden.
+
+Carbon dioxide cuts can be a free riding problem. One way to address this is for just the great powers to do the bidding unilaterally for everyone else. Alternatively, an international agreement with an enforcement mechanism. 
+
+A climate accord presents distributional challenges on several levels. Domestically, fossil fuel industries will lose to renewable energy sources. Internationally, there is a challenge on how to distribute responsibility—by total consumption or immediate consumption—and oil-producing states will lose a lot of revenue. Intergenerationally, the effects will not be felt now but future generations will deal with them.
+
+The *Paris Climate Accord* allowed states to share their voluntary emissions reductions. Since these commitments are public, domestic voters and other states can pressure states that don't end up following through. There is also a fund from developed countries to developing countries to help them transition and also compensate for the damage they did in their earlier industrialization. Unlike previous agreements, the Paris Climate Accord is able to include both developed and developing countries (broad collective agreement). However, states' emission targets are not enough to hit the collective target, nor are states hitting their own targets in the first place. 
+
+Republicans are hesitant towards environmental regulations because it is economically costly and the fear that other states will free ride off of U.S.' efforts. However, regulations can still allow the U.S. economy to grow and the comparative advantage in low-emission manufacturing would strengthen American companies' positions in the presence of regulations. Economically, cleaner energy is becoming more cost effective than fossil fuels, climate-saving technologies could bring revolutionary technology like how the internet was (and this benefits American companies since they're on the cutting edge), and lessen spending on disaster relief (which has recently risen a lot). In terms of national security, natural disasters can be toned down and the U.S. can claim a leading spot in the clean energy race.
+
+
+
+# {{< heading "Migration" >}}
+Voluntary migration is usually for personal gain, while forced migration is born out of war, repression, natural disasters, or human trafficking. International agreements and norms mandate states take in refugees of forced migration, but not voluntary migration. International migrants have increased dramatically over recent decades. Voluntary migration is usually to more developed countries, but forced migration is to neighboring states.
+
+Countries that receive the most immigration have a public opinion of decreased immigration. These states typically have open immigration policies. This can be explained with the collective action problem, which gives the edge to the voice that's most organized (i.e., industries that benefit from immigration). 
+
+Economically, immigration can push wages down, which hurt workers but benefit businesses. One solution is to exclude. This can be done by denying immigrations entry into the state entirely or just not give them citizenship. The latter is an appealing option because citizenship increases demand for public services and can give too much of a political voice (voting) to immigrants, at the cost of democratic ideals. 
+
+International migration is part of globalization. It's kind of another item comparative advantage covers; more developed countries import unskilled laborers, which can keep labor costs down (instead of rising due to scarcity). Immigration restrictions will push wages up. Obviously there are winners and losers depending on the immigration policy. Remittances act as a redistribution of wealth from wealthy countries to poorer ones. They do more than foreign aid in that they total more, more unconditional, avoid corruption and government overhead. 
+
+Immigration alter demographic and potentially even national identity. The majority has been concerned about losing their social status (as a majority). The public has also feared an open immigration policy may facilitate terrorism. 

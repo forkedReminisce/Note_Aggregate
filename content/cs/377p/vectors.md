@@ -19,7 +19,7 @@ Vector memory operations have three modes:
 - Stride k: column-wise access, width of row must also be specified
 - Scatter/gather: row-wise access of memory for non-sequential indices of the vector register, a separate vector specifies the indices and the order
 
-Banked memory has a set of banks that can operate independently. For example, if a request is made to one bank, it is still possible to access locations belonging in another bank. Interleaving will assign addresses to banks round-robin style (i.e., 0 goes to the first bank, 1 goes to the next bank, etc. and loop around).
+Banked memory has a set of banks that can operate independently. For example, if a request is made to one bank, it is still possible to access locations belonging in another bank. Interleaving will assign addresses to banks round-robin style (i.e., 0 goes to the first bank, 1 goes to the next bank, etc. and loop around). When loading, it does it by lines. That means if there needs to be a loop around, another line needs to be loaded regardless of it being stride-1.
 
 
 

@@ -4,7 +4,7 @@ title: What Is Government?
 
 params: 
     desc: Government is an abstract idea that serves to manage its people. Its jobs maintains the foundations of society while also making sure nothing goes bad.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 

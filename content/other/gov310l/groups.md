@@ -4,7 +4,7 @@ title: Interest Groups
 
 params: 
     desc: Interest groups are private groups that want to influence a particular type of public policy. They're everywhere, and they often resort to lobbying.
-    author: FREEZURN 
+    author: Andrew Nguyen 
 ---
 
 
