@@ -145,3 +145,17 @@ Economically, immigration can push wages down, which hurt workers but benefit bu
 International migration is part of globalization. It's kind of another item comparative advantage covers; more developed countries import unskilled laborers, which can keep labor costs down (instead of rising due to scarcity). Immigration restrictions will push wages up. Obviously there are winners and losers depending on the immigration policy. Remittances act as a redistribution of wealth from wealthy countries to poorer ones. They do more than foreign aid in that they total more, more unconditional, avoid corruption and government overhead. 
 
 Immigration alter demographic and potentially even national identity. The majority has been concerned about losing their social status (as a majority). The public has also feared an open immigration policy may facilitate terrorism. 
+
+
+
+# {{< heading "Development" >}}
+There are a number of measures of economic development such as national GDP, average income (i.e., GDP per capita), or average economic growth. 
+
+Extremities of poverty are measured by the amount earned per day. Since the Cold War, global poverty has greatly reduced. Much of this reduction came from China and India integrating their economies. Still, poverty is still primarily concentrated in Asia and Africa. 
+
+Foreign aid accounts for a very small portion of the U.S.' GDP. It is still the largest absolute amount in the world, though. Of the foreign aid it sends, much of it is for economic purposes (e.g., economic development and education) and spread out amongst many countries. The remaining amount is military aid, which is primarily sent to the top recipients—Afghanistan, Israel, Jordan, Egypt, and Iraq. However, foreign aid really doesn't do much. This is because it's not enough, it is misused and siphoned off through corruption, and donors are inefficient in delivering aid. The reason to provide aid in the first place is not just to be empathetic. 
+- Helps keep a friendly foreign government in power
+- Pay off countries to adopt certain policies
+- Cheaper than going into conflict (e.g., aid to Ukraine)
+
+Poverty is one of the main drivers of infant mortality, low life expectancy, crime and corruption, poor education, and gender and ethnic inequality. It's a positive reinforcement cycle of sorts as poverty requires the kids to work, which prevents them from getting education and limits them from better economic opportunities. Reinforcement theory says that stable democracy works in tandem with high income levels. 
