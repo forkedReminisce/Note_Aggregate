@@ -38,3 +38,47 @@
         "liga" normal;
     // use font-variation-settings in the main scss to mess with swashes
 }
+
+@font-face {
+    font-family: "Monaspace Neon";
+    src: 
+        local("Monaspace Neon"),
+        local("Moralerspace Neon"),
+        url("/fonts/MonaspaceNeon-Regular.woff2") format("woff2") tech(variations);
+    font-style: normal;
+    font-weight: normal;
+    font-feature-settings: "calt" on, "ss01" on, "ss02" on, "ss03" on, "ss06" on, "ss07" on, "ss08" on, "liga" on, "cv01" 2, "cv62" on;
+}
+
+@font-face {
+    font-family: "Monaspace Neon";
+    src: 
+        local("Monaspace Neon"),
+        local("Moralerspace Neon"),
+        url("/fonts/MonaspaceNeon-Bold.woff2") format("woff2") tech(variations);
+    font-style: normal;
+    font-weight: bold;
+    font-feature-settings: "calt" on, "ss01" on, "ss02" on, "ss03" on, "ss06" on, "ss07" on, "ss08" on, "liga" on, "cv01" 2, "cv62" on;
+}
+
+@font-face {
+    font-family: "Monaspace Neon";
+    src: 
+        local("Monaspace Neon"),
+        local("Moralerspace Neon"),
+        url("/fonts/MonaspaceNeon-Italic.woff2") format("woff2") tech(variations);
+    font-style: italic;
+    font-weight: normal;
+    font-feature-settings: "calt" on, "ss01" on, "ss02" on, "ss03" on, "ss06" on, "ss07" on, "ss08" on, "liga" on, "cv01" 2, "cv62" on;
+}
+
+@font-face {
+    font-family: "Monaspace Neon";
+    src: 
+        local("Monaspace Neon"),
+        local("Moralerspace Neon"),
+        url("/fonts/MonaspaceNeon-BoldItalic.woff2") format("woff2") tech(variations);
+    font-style: italic;
+    font-weight: bold;
+    font-feature-settings: "calt" on, "ss01" on, "ss02" on, "ss03" on, "ss06" on, "ss07" on, "ss08" on, "liga" on, "cv01" 2, "cv62" on;
+}

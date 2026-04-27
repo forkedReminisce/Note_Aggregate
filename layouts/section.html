@@ -1,9 +1,15 @@
 {{- define "差分" -}}
-    <div id="section">
-        <div>
-        {{- range .Pages -}}
-            <a href="{{- .RelPermalink -}}"><b>{{- .Title -}}</b></a>
+
+    <div id="section"><div>
+        {{/* read pages list from sequence with correct course name */}}
+        {{- range where hugo.Data.sections "course" .Title -}}{{- range where . "course" $.Title -}}
+        {{- range .pages -}}
+            {{/* relative path from the _index.md */}}
+            {{- with $.GetPage . -}}
+                <a href="{{- .RelPermalink -}}"><b>{{- .Title -}}</b></a>
+            {{- end -}}
         {{- end -}}
-        </div>
-    </div>
+        {{- end -}}{{- end -}}
+    </div></div>
+
 {{- end -}}
