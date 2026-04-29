@@ -1,0 +1,30 @@
+- course: CS 429
+  pages:
+    - representation
+    - circuits
+    - caches
+
+- course: CS 439 
+  pages:
+    - intro
+    - history
+    - processes
+    - threads
+    - scheduling
+    - memory
+    - storage
+    - security
+    - distributed
+    - networks
+
+- course: CS 377p
+  pages:
+    - pipelining
+    - measurements
+    - compilers
+    - algorithms
+    - caches
+    - parallelism
+    - vectors
+    - gpu
+    - distributed

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: International System
 
 params: 
@@ -121,41 +121,28 @@ The *International Monetary Fund* (IMF) holds onto the capital it was given by m
 
 
 # {{< heading "Climate Change" >}}
-A climate change denier is that way because they want to continue the production and consumption of fossil fuels. However, carbon dioxide is a greenhouse gas. The amount of carbon dioxide in the atmosphere has increased significantly since the Industrial Revolution. A warming Earth will result in worse heat waves, which will create more droughts, alter wind patterns, and intensify weather patterns. Additionally, ice sheets in Antarctica and Greenland are melting, raising ocean levels. With too much global warming, the melting will be irreversible and coastal communities will have to be relocated in decades time.
+The substantial rise in carbon dioxide levels ever since the Industrial Revolution suggests that humans are responsible. **Climate change** brings worse heat waves, which will cause more droughts, alter wind patterns, and intensify the weather. Additionally, ice sheets in Antarctica and Greenland melt, raising ocean levels. If taken too far, the melting will be unstoppable and irreversible, and coastal communities will have to be relocated.
 
-One reason cooperation that address climate change is difficult is the *Tragedy of the Commons*. This is when it is difficult to restrict the use of a finite resource. This resource is then overused to the point of depletion. The difficulty comes from how to balance private costs and social costs so that neither side takes on more of the burden.
+The climate change problem suffers from the Tragedy of the Commons. Even with some sort of authority, ==how will the costs be distributed fairly?== Domestically, preferential treatment will be given to renewable energy sources over fossil fuel industries. Internationally, there is a challenge on how to distribute responsibility and oil-producing states will lose a majority of their revenue. Intergenerationally, the effects will not be felt now but future generations will deal with them.
 
-Carbon dioxide cuts can be a free riding problem. One way to address this is for just the great powers to do the bidding unilaterally for everyone else. Alternatively, an international agreement with an enforcement mechanism. 
-
-A climate accord presents distributional challenges on several levels. Domestically, fossil fuel industries will lose to renewable energy sources. Internationally, there is a challenge on how to distribute responsibility—by total consumption or immediate consumption—and oil-producing states will lose a lot of revenue. Intergenerationally, the effects will not be felt now but future generations will deal with them.
-
-The *Paris Climate Accord* allowed states to share their voluntary emissions reductions. Since these commitments are public, domestic voters and other states can pressure states that don't end up following through. There is also a fund from developed countries to developing countries to help them transition and also compensate for the damage they did in their earlier industrialization. Unlike previous agreements, the Paris Climate Accord is able to include both developed and developing countries (broad collective agreement). However, states' emission targets are not enough to hit the collective target, nor are states hitting their own targets in the first place. 
-
-Republicans are hesitant towards environmental regulations because it is economically costly and the fear that other states will free ride off of U.S.' efforts. However, regulations can still allow the U.S. economy to grow and the comparative advantage in low-emission manufacturing would strengthen American companies' positions in the presence of regulations. Economically, cleaner energy is becoming more cost effective than fossil fuels, climate-saving technologies could bring revolutionary technology like how the internet was (and this benefits American companies since they're on the cutting edge), and lessen spending on disaster relief (which has recently risen a lot). In terms of national security, natural disasters can be toned down and the U.S. can claim a leading spot in the clean energy race.
+The *Paris Climate Accord* allowed states to share their voluntary emissions reductions. Since these commitments are public, voters and other states can pressure states that don't live up to their promises. There is also a fund from developed countries to developing countries to help them transition and also compensate for the damage they did in their earlier industrialization. Unlike previous agreements, the Paris Climate Accord is able to include both developed and developing countries (broad collective agreement). However, members' emission targets are not enough to hit the collective target, nor are states even hitting their own targets in the first place. 
 
 
 
 # {{< heading "Migration" >}}
-Voluntary migration is usually for personal gain, while forced migration is born out of war, repression, natural disasters, or human trafficking. International agreements and norms mandate states take in refugees of forced migration, but not voluntary migration. International migrants have increased dramatically over recent decades. Voluntary migration is usually to more developed countries, but forced migration is to neighboring states.
+Migration has increased dramatically over recent decades. *Voluntary migration* is usually for personal gain, while *forced migration* is born out of war, repression, natural disasters, or human trafficking. The former is usually to developed countries, but the latter goes to neighboring states. International agreements and norms mandate that states take in refugees of forced migration, but not of voluntary migration. 
 
-Countries that receive the most immigration have a public opinion of decreased immigration. These states typically have open immigration policies. This can be explained with the collective action problem, which gives the edge to the voice that's most organized (i.e., industries that benefit from immigration). 
+Countries that receive the most immigration have a strong public opinion opposed to it. This is because immigrants push wages down. However, these states still retain their open immigration policies. This is partly due to the collective action problem—greater organization produces a stronger political voice. Businesses are better organized than citizens, so they're louder. *Exclusion* can be a sufficient compromise, which can range from denying immigrants entry into the state entirely to not giving them citizenship. The latter retains demand for public services and avoids giving too much political leverage to immigrants.
 
-Economically, immigration can push wages down, which hurt workers but benefit businesses. One solution is to exclude. This can be done by denying immigrations entry into the state entirely or just not give them citizenship. The latter is an appealing option because citizenship increases demand for public services and can give too much of a political voice (voting) to immigrants, at the cost of democratic ideals. 
-
-International migration is part of globalization. It's kind of another item comparative advantage covers; more developed countries import unskilled laborers, which can keep labor costs down (instead of rising due to scarcity). Immigration restrictions will push wages up. Obviously there are winners and losers depending on the immigration policy. Remittances act as a redistribution of wealth from wealthy countries to poorer ones. They do more than foreign aid in that they total more, more unconditional, avoid corruption and government overhead. 
-
-Immigration alter demographic and potentially even national identity. The majority has been concerned about losing their social status (as a majority). The public has also feared an open immigration policy may facilitate terrorism. 
+Immigration does have its good points; they provide laborers for neglected industries. Additionally, the remittances immigrants send back to their family do more than foreign aid. Their aggregate value is more, they're unconditional, and they avoid corruption and government overhead. However, the majority demographic tends to fear losing their social status. There is also a fear of terrorism.
 
 
 
-# {{< heading "Development" >}}
-There are a number of measures of economic development such as national GDP, average income (i.e., GDP per capita), or average economic growth. 
+# {{< heading "Poverty" >}}
+Since the Cold War, global poverty has greatly reduced. Much of this reduction came from China and India integrating their economies. Still, poverty is concentrated in Asia and Africa. Poverty is one of the main drivers of infant mortality, low life expectancy, crime and corruption, poor education, and gender and ethnic inequality. It's a positive reinforcement cycle: the kids are taken out of school to work, limiting them from better economic opportunities down the road.
 
-Extremities of poverty are measured by the amount earned per day. Since the Cold War, global poverty has greatly reduced. Much of this reduction came from China and India integrating their economies. Still, poverty is still primarily concentrated in Asia and Africa. 
+Foreign aid makes up a very small portion of the U.S.' GDP. Of the foreign aid it does sends, much of it is for economic purposes (e.g., economic development and education) and spread out amongst many countries. The remaining amount is military aid, which primarily goes to the top recipients—Afghanistan, Israel, Jordan, Egypt, and Iraq. However, foreign aid doesn't do much; it's not enough, misused, and there are inefficiencies in delivering aid.
 
-Foreign aid accounts for a very small portion of the U.S.' GDP. It is still the largest absolute amount in the world, though. Of the foreign aid it sends, much of it is for economic purposes (e.g., economic development and education) and spread out amongst many countries. The remaining amount is military aid, which is primarily sent to the top recipients—Afghanistan, Israel, Jordan, Egypt, and Iraq. However, foreign aid really doesn't do much. This is because it's not enough, it is misused and siphoned off through corruption, and donors are inefficient in delivering aid. The reason to provide aid in the first place is not just to be empathetic. 
-- Helps keep a friendly foreign government in power
-- Pay off countries to adopt certain policies
-- Cheaper than going into conflict (e.g., aid to Ukraine)
-
-Poverty is one of the main drivers of infant mortality, low life expectancy, crime and corruption, poor education, and gender and ethnic inequality. It's a positive reinforcement cycle of sorts as poverty requires the kids to work, which prevents them from getting education and limits them from better economic opportunities. Reinforcement theory says that stable democracy works in tandem with high income levels. 
+{{< subtext >}}
+    Militarily, foreign aid keeps a friendly government in power, influence countries to adopt certain policies, and offers a cheaper route over conflict (e.g., aid to Ukraine).
+{{< /subtext >}}
