@@ -17,7 +17,7 @@
     - distributed
     - networks
 
-- course: CS 377p
+- course: CS 377P
   pages:
     - pipelining
     - measurements
@@ -26,5 +26,5 @@
     - caches
     - parallelism
     - vectors
-    - gpu
-    - distributed
+    - cuda
+    - mpi

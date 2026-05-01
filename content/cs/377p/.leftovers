@@ -85,3 +85,8 @@ Stride k will not query the same bank if the number of banks is not divisible by
 Distances in loop dependence graphs indicate how many iterations before is the dependence reliant on (e.g., 0 means this iteration).
 
 An arrow with a circle is an output dependence. Likewise, a perpendicular line is an anti dependence. Without marks is a flow dependence.
+
+
+
+# MPI
+Scaling out might be preferred over scaling up because adding more machines is cheaper than increasing the number of cores. Scaling out also have a higher aggregate memory ceiling.
