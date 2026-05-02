@@ -10,7 +10,7 @@ params:
 
 
 <!-- TODO: for the negative, must it be ～ないで ? -->
-Auxiliary verbs are entirely separate from their standalone counterparts. They attach to predicate verbs in てーform of the final clause.
+Auxiliary verbs are entirely separate from their standalone counterparts. They attach to predicate verbs in て-form of the final clause.
 
 
 

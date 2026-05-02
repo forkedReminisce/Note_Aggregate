@@ -18,8 +18,8 @@ Dependencies indicated an execution order that needed to be followed. Furthermor
 
 
 
-# {{heading "Out-of-order Execution"}}
-**Superscalar** introduces the idea of multiple parallel pipelines. However, dependencies present a challenge in that if one pipeline gets halted, all pipelines halt. Therefore, **out-of-order execution** (or in-order completion \\[commit/retire\\]) is required. 
+# {{< heading "Out-of-order Execution" >}}
+**Superscalar** introduces the idea of multiple parallel pipelines. However, dependencies present a challenge in that if one pipeline gets halted, all pipelines halt. Therefore, **out-of-order execution** (or in-order completion [commit/retire]) is required. 
 
 In order to maintain precise exceptions, an architectural and speculative state must be maintained. Instructions will be fetched and decoded in-order, but will then execute in the **reorder buffer** (ROB) out-of-order in the speculative state. Instructions will then retire from the ROB in order, updating the architectural state. 
 
@@ -28,7 +28,7 @@ There are also two sets of registers: architected and physical. Architected regi
 All together, when an instruction is let into the ROB, it will:
 1. Check the architected register file, indexing into each index it will read
    - If it is valid, no instruction in flight is writing to it, so the value can be read
-   - If it isn't valid, follow the stored index into the architected register file
+   - If it isn't valid, follow the stored index into the physical register file
      - If that is valid, read the value
      - If it isn't valid, join the consumers list
 2. Obtain a free physical register number

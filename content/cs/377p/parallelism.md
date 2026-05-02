@@ -1,25 +1,25 @@
 ---
-draft: true
-title: 
+draft: false
+title: Parallelism 
 
 params: 
-    desc: 
+    desc: Parallelizing processes is not a straight-forward ordeal. New problems get introduced and the solution itself may need to be rethought.
     author: Andrew Nguyen 
 ---
 
 
 
 # {{< heading "DAGs" >}}
-Programs want to exploit parallelism. Therefore, each program has a *DAG*, where the nodes are computations and edges represent dependencies (i.e., topological ordering). Each node has a weight for the amount of time it will require. Summing all the nodes gets *work* \(T_1\). The *critical path* (or span) \(T_\inf\) is the largest weight path. Any schedule cannot do better than this.
+Programs want to exploit parallelism. Therefore, each program has a *DAG*, where the nodes are computations and edges represent dependencies (i.e., topological ordering). Each node has a weight for the amount of time it will require. Summing all the nodes gets *work* \(T_1\). The *critical path* (or span) \(T_\infty\) is the largest weight path. Any schedule cannot do better than this.
 - Instantaneous parallelism: \(\operatorname{IP}(t)\), maximum number of processors that can be busy at \(t\)
 - Maximal parallelism: \(\operatorname{MP}\), highest instantaneous parallelism
-- Average parallelism: \(\mathnormal{AP} = \frac{T_1}{T_\inf}\).
+- Average parallelism: \(\mathnormal{AP} = \frac{T_1}{T_\infty}\).
 
 {{< subtext >}}
     \(T_1\) is the amount of time to run the program on one processor.
 {{< /subtext >}}
 
-The speed-up from adding parallel processors is limited by the fact that not all of the program can run in parallel. Let \(p\) be the fraction of the program that can be done in parallel. Then the speed-up with unlimited parallel processors is \(\leq \frac{1}{1 - p}\) (i.e., \(\frac{T_1}{T_\inf}\)).
+The speed-up from adding parallel processors is limited by the fact that not all of the program can run in parallel. Let \(p\) be the fraction of the program that can be done in parallel. Then the speed-up with unlimited parallel processors is \(\leq \frac{1}{1 - p}\) (i.e., \(\frac{T_1}{T_\infty}\)).
 
 Scheduling policies become very important in the presence of dependencies. A key idea is to make sure that a node on the critical path is always scheduled. If the DAG is a tree, the optimal schedule is to go level-by-level. Otherwise, a good heuristic give higher priorities the further a node is from the final node.
 
@@ -82,7 +82,7 @@ Parallelism of `reduce` and `reduce-by-key` uses divide-and-conquer, with each t
 {{< subtext >}}
     Associativity of the function comes in handy here.
 
-    Tree reduction can turn algorithms into \[log(n)\].
+    Tree reduction can turn algorithms into \(\log(n)\).
 {{< /subtext >}}
 
 Since `scan` returns an array instead of a single value, a thread will keep track of the result of everything before with `fromLeft`. To do this, there will be two passes. 
@@ -103,7 +103,7 @@ The best number of threads to divide an algorithm is \(\sqrt{\frac{c}{o}}\), whe
 
 # {{< heading "Memory Consistency Models" >}}
 If there aren't any dependencies, stores or loads may be reordered. This may affect the intention for another thread. To retain these implicit dependencies, **memory consistency models** are employed. Do note that they do not guarantee deterministic behavior.
-- Sequential Consistency: thread cannot reorder operations on shared-memory (but they may be interleaved between threads), but all global memory operations are slowed
+- Sequential Consistency: thread cannot reorder memory operations (but they may be interleaved between threads), but all memory operations are slowed
 - Weak consistency: fence instruction require all prior data operations complete, and data operations after must wait
 
 {{< subtext >}}

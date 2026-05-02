@@ -19,7 +19,7 @@ The x-86 instruction set has general purpose 32-bit registers `eax`, `ebx`, `ecx
 An instruction is formatted like `Opcode a, b`. `a` and `b` are operands, but at most one can be a memory address. `b` does also serve as the destination.
 
 On the topic of memory, more often than not, one will want to use an addressing mode to produce an effective address:
-- Absolute: \\[`addr`\\]
+- Absolute: [`addr`]
 - Register indirect: (%`reg`)
 - Register offset: `num`(%`reg`) — `num` + `reg`
 - disp(base, offset, scale): `num1`(%`reg1`, %`reg2`, `num2`) — `num1` + `reg1` + `num2` \* `reg2`

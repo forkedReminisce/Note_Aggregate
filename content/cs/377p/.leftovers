@@ -45,6 +45,12 @@ Sparse graphs:
 
 Six degrees of freedom. Experiment was mailing a letter, and having its recipients give it to people they know until it reached the target. Low diameter example.
 
+Single-source shortest-path (SSSP) problem:
+- Chaotic relaxation: random
+- Dijkstra: poor parallelization
+- Delta-stepping: allows some parallelization 
+- Bellman-Ford: best paralleization, O(VE)
+
 
 
 # Caches 

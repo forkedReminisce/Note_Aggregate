@@ -8,6 +8,7 @@ header {
 
     position: sticky;
     top: 0px; // makes sticky work
+	z-index: 1; // katex doesn't respect default stacking
     // 90% is midpoint; #{""} unquotes string (or else it's treated as a number)
     background: linear-gradient(to bottom, 
             library.$base_color + FF 54%, 90%, library.$base_color + #{"00"});
