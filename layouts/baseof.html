@@ -42,12 +42,12 @@
     >
     {{ end }}
 
-    {{/* TODO: javascript */}}
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
 </head>
 
 <body>
-    {{/* TODO: change to cached when finished */}}
-    {{ partial "header.html" . }}
+    {{ partialCached "header.html" . }}
 
     <main>
         <h1 id="title">{{- partial "inline/heading.html" .Title -}}</h1>

@@ -17,7 +17,6 @@ header {
     align-items: center; // only vertically
     justify-content: center; // aligns only the search bar
 
-
     #logo {
         margin-right: auto; // position left
         margin-left: 8px;
@@ -28,31 +27,35 @@ header {
         }
     }
 
-    #search {
+    
+
+    // search
+    --pf-font: "IBM Plex Sans JP";
+    --pf-background: #{library.$base_color};
+    --pf-text-muted: #{library.$search_placeholder_color}; // placeholder
+    --pf-border: #{library.$table_border_color};
+    --pf-border-focus: #{library.$text_color};
+    --pf-hover: transparent; // icons background
+
+    pagefind-modal-trigger {
         position: absolute; // makes centering easier
-        
-        input[type=search] {
-            background: none;
-            color: inherit;
-            font-size: 1rem; // reaffirm
-
-            // mimic table styling
-            padding: library.$td_padding;
-            border: library.$table_border;
-            border-radius: library.$table_radius;
-
-            &::placeholder {
-                color:library.$search_placeholder_color;
-            }
-
-            &:focus {
-                outline: none;
-                background-color: library.$odd_column_color;
-                box-shadow: 0px 0px 9px 5px 
-                        hsl(from library.$table_border_color h s l / 0.78);
-            }
-        }
+        max-width: 220px;
+        width: 100%;
+        --pf-background: none;
     }
+
+    --pf-outline-focus: #{library.$text_color};
+    // buffering
+    --pf-skeleton: #{library.$odd_column_color};
+    --pf-skeleton-shine: #{library.$table_border_color};
+
+    --pf-text: #{library.$text_color}; // title
+    --pf-text-secondary: #{library.$subtext_color}; // body text
+    --pf-mark: #13bcfe; // matching word
+
+    --pf-shadow-sm: 0 0 6px 1px #{library.$text_color}; // hovering over result
+
+
 
     nav {
         margin-left: auto; // position right
