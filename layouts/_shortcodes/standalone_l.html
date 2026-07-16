@@ -14,7 +14,7 @@
 {{- end -}}
 
     {{- range split .Inner "\n" -}}
-        {{- if . -}}
+        {{- if strings.ContainsNonSpace . -}}
             <li>{{- $.Page.RenderString (strings.TrimSpace .) -}}</li>
         {{ end }}
     {{- end -}}

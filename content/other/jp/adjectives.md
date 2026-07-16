@@ -53,7 +53,7 @@ The only exception is ==basic, non-past attributive==, where ==な== prevails ov
 {{< /subtext >}}
 
 {{% example_jp
-    jp="「**データが安全でないことが原因である場**合がある。」"
+    jp="「**データが安全でないことが原因である**場合がある。」"
     en="\"*There are cases **in which the cause is that the data is not safe***.\""
 %}}
 

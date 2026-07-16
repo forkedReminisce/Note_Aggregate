@@ -20,16 +20,14 @@ Asking a *binary question* is very simple. In the *basic register*, a raised int
     en="\"*You alright?*\""
 %}}
 
-Binary questions with a *negative predicate* are not actually negative. In fact, the speaker believes that they know the answer is affirmative. ==To ask about the negative, insert ん or の before the politeness marker==, if present anyway. On another note, じゃない may have の～ or ん～ precede it entirely. The question will remain affirmative, but some uncertainty is introduced.
+Binary questions with a *negative predicate* are not actually negative. In fact, the speaker believes that they know the answer is affirmative. ==To ask about the negative, insert ん or の before the politeness marker==, if present anyway. On another note, じゃない may have ん～ or の～ precede it entirely. The question will remain affirmative, but some uncertainty is introduced.
 
 {{< subtext >}}
     For verbs, ～ませんか is often used to invite someone to do something. 
 
     Basic binary questions that use ～の without か have a serious yet soft tone.
-    
-    ～のですか and ～んですか force verbs into their basic conjugations.
 
-    Polite binary questions using ～のですか or ～んですか convey the speaker's curiosity.
+    ～のですか or ～んですか also convey the speaker's curiosity.
 
     じゃないか can be simplified to じゃんか. Without か creates an affirmative *statement* with a tone softener.
 {{< /subtext >}}

@@ -15,6 +15,7 @@
     - te_negative
     - auxiliary
     - transition
+    - time
 
 - course: GOV 312L
   pages:

@@ -48,14 +48,14 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 %}}
 
 {{% example_jp
-    jp="**ここ**で働いています。"
+    jp="「**ここ**で働いています。」"
     en="\"*I'm working **here** **(for the time being)***.\""
 %}}
 
 
 
 # {{< heading "\"With\"" >}}
-**と** is used to denote **who is accompanying the subject with the action**. と's of different meanings can appear in the same sentence, so be careful. 
+**と** is used to denote **who is accompanying the subject with the action**. ==To fulfill this purpose, と is a case particle, not a parallel particle.== と's of different meanings can appear in the same sentence, so be careful. 
 
 {{< subtext >}}
     The other party is brought to an equal status as the subject.
@@ -64,3 +64,21 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 {{< /subtext >}}
 
 **で** is available to mark **the means or method of the action**. 
+
+
+
+# {{< heading "Final Particles" >}}
+While in the past (either basic or polite) conjugation, ==attaching ～ものだ creates "used to {{ verb }}==." This does put emphasis on the past routine, indicating that the memories still affect the speaker and is emotional.
+
+{{< subtext >}}
+    ～ものだ is sometimes contracted to ～もんだ.
+
+    The もの is from the noun 物.
+
+    The auxiliary いる by itself conjugated in past tense achieves a similar effect without the emphasis. If ～ものだ is further added onto it, いる takes its regular role.
+{{< /subtext >}}
+
+{{% example_jp 
+    jp="「火曜日にはいつも友だちと**釣りに行ったものだ**。」"
+    en="\"*I **used to always go fishing** with my friends on Tuesdays*.\""
+%}}

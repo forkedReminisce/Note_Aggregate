@@ -22,7 +22,7 @@ This set of demonstratives correspond to the words "**this**" and "**that**." Be
 
 {{< subtext >}}
     When using の with these demonstratives as the modifier noun, the modified noun must be one that cannot accept "the" when translated *by itself*.
-    
+
     ～れは can be contracted to either ～りゃ or ～ら, with the latter carrying an angry tone.
 
     Replacing ～れ with ～いつ is a very casual way of referring specifically to people.

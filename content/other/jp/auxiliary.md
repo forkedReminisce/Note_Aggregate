@@ -78,7 +78,7 @@ If the *verb happens in an instant and affects the subject's state*, ～いる d
 %}}
 
 <!-- TODO: the direct object becomes the subject ? -->
-**～ある** is an auxiliary verb that can replace ～いる in ==transitive predicates that have a different agent and direct object==. ～ある *inexplicitly* mentions the existence of this agent. The agent is omitted, and the direct object is marked with が.
+**～ある** is an auxiliary verb that can replace ～いる in ==transitive predicates that have a different agent and direct object==—who is also the subject. ～ある *inexplicitly* mentions the existence of this agent. The agent is omitted, and the direct object is marked with が.
 
 {{% example_jp
     jp="「彼の熱は計ってある。」"

@@ -5,7 +5,7 @@
 <div class="subtext">
     {{- range split .Inner "\n" -}}
         {{/* does this paragraph actually have text */}}
-        {{- if . -}}
+        {{- if strings.ContainsNonSpace . -}}
             {{/* 
                 $ accesses the starting context (the shortcode) 
                 strings.TrimSpace allows for formatting in the actual content
