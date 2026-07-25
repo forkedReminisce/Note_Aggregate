@@ -60,7 +60,7 @@ Dependent clauses can be created with particular words. Most of these words are 
     en="\"*I'll call you **when I have arrived at the airport in Seoul***.\""
 %}}
 
-前 places the dependent clause after the main clause in the timeline. Confusingly, the dependent clause is in non-past tense. "Right before" can be achieved with 直前, which can be used temporally or spatially. Spatially, の is a must.
+前 places the dependent clause after the main clause in the timeline. Confusingly, the dependent clause is in non-past tense. までに is very similar to 前, but it does emphasize completing the main clause by the time of the dependent clause. "Right before" can be achieved with 直前, which can be used temporally or spatially. Spatially, の is a must.
 
 {{% example_jp
     jp="「**爆発直前に**ガソリンが気化したような臭いがしていた。」"

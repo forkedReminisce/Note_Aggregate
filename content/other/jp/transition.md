@@ -19,7 +19,7 @@ params:
 
 
 
-The first dimension of transition is *physical location*. This includes **the space** of movement, **direction**, or **departure point**. The most を can suggest is that this action is the last of a sequence of actions. However, it does allow for abstract interpretations of the transition.
+The first dimension of transition is *physical location*. This includes **the space** of movement, **direction**, or **departure point**. を can suggest is that this action is the last of a sequence of actions, but it can also be emphatic of the transition space. This becomes especially important with differentiating from から for departure points, which just focuses on the physical departure. 
 
 {{< subtext >}}
     For direction, if the action concerns sight, ～のほう (～の方) must be attached to the direction to create the meaning of "toward." This is not necessary for literal direction words (e.g., north).

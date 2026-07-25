@@ -11,6 +11,8 @@ params:
 
 Verbs have an attributive and predicative form. The method of conjugation depends on the **class** the verb. There are two classes: **ichidan and godan**. 
 
+Verbs can be transitive or intransitive. It is transitive when there is a willful agent and a direct object. Sometimes, though, the direct object is omitted when context permits. This is even the case when direct object is a borderline generic (e.g., singing a *song*).
+
 
 
 # {{< heading "Ichidan" >}}

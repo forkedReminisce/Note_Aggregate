@@ -54,6 +54,33 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 
 
 
+# {{< heading "Ranges" >}}
+**から** indicates the **starting point of an action**. This is primarily with intransitive actions. If the action is non-volitional, then the location is where it occurs.
+
+When paired with the particle まで, a range is created. The intransitive action restriction no longer applies. Ambiguity tends to spring up when the thing being ranged are things (e.g., people), which is when placement begins to matter. As a rule of thumb, place it before any references to the range. Otherwise, the range is getting redefined after its initialization. Counters do offer flexibility by anchoring the range, but the counter must be after the range. から may also mark a starting state or the source of some outcome.
+
+{{< subtext >}}
+    まで (but not から) may be omitted when the range is covered by another case particle. Sometimes, the structure X～Y may be seen.
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「テイラー君は、**午後１時から午後２時まで１時間**の休憩を取りました。」"
+    en="\"*Taylor took his break **of one hour from 1PM to 2PM***.\""
+%}}
+
+As observed, **まで** is essentially the endpoint. It emphasizes the point itself and that beyond it is no point of discussion, which makes it different from に and へ in destination contexts. Although typically attached to nouns, attributive verbs in the non-past tense are valid, as is までの. To extend off this, まで may translate to "even" while also capturing everything before.
+
+{{< subtext >}}
+    までで adds the で particle (not で, the copula, albeit still possible), and it just allows whatever happens after the point of the discussion to shadow the conversation. 
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「**自分の彼女までも**オレを疑ってるんだよ。」"
+    en="\"***Everyone, even my own girlfriend,** doubts me.*.\""
+%}}
+
+
+
 # {{< heading "\"With\"" >}}
 **と** is used to denote **who is accompanying the subject with the action**. ==To fulfill this purpose, と is a case particle, not a parallel particle.== と's of different meanings can appear in the same sentence, so be careful. 
 
@@ -63,7 +90,7 @@ There are a set of particles that go *specifically* with verbs. These serve to e
     To emphasize cooperation, simply attach the adverb 一緒に or 共に to と (the latter is more formal). This generates "together with..." The action must necessitate multiple agents.
 {{< /subtext >}}
 
-**で** is available to mark **the means or method of the action**. 
+**で** is available to mark **the means or method of the action**. This is different from **から**, which doesn't give much significance to the items in how they contribute towards the result. 
 
 
 
