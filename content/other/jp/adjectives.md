@@ -39,7 +39,7 @@ These conjugations do not have an attributive form.
 
 
 # {{< heading "Akin" >}}
-Adnominal adjectives can only be placed before a noun (unless trying to sound literary). They tend to be subjective.
+Adnominal adjectives can only be placed before a noun (unless trying to sound literary). They tend to be more subjective than adjectives.
 
 Adjectival nouns are another way to modify a noun. *Not all adjectival nouns are nouns*. To commence the modification, ==attach the appropriate copula verb to the adjectival noun==. This may be performed in attributive or predicative form. 
 
@@ -48,7 +48,6 @@ Adjectival nouns are another way to modify a noun. *Not all adjectival nouns are
     en="\"*My once **pretty** self*.\""
 %}}
 
-<!-- adjectival noun predicates: である is only really seen in written contexts -->
 The only exception is ==basic, non-past attributive==, where ==な== prevails over だ. Convolutedly, however, if the adjectival noun is part of a modifying clause's predicate, ==である== is often the only option. な may replace it only if the entire sentence is existential.
 
 {{< subtext >}}
@@ -60,7 +59,7 @@ The only exception is ==basic, non-past attributive==, where ==な== prevails ov
     en="\"*There are cases **in which the cause is that the data is not safe***.\""
 %}}
 
-である is also the only option for noun predicates. However, an attributive noun uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. Strangely, some adjectival nouns may also or exclusively use の. An adjectival noun may not take の if it's literal definition is hard to use as a modifier.
+である is also the only option for noun predicates. However, an attributive noun uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. Strangely, some adjectival nouns may also or exclusively use の.
 
 <!-- why is の sometimes omitted??? -->
 {{< subtext >}}
@@ -68,7 +67,7 @@ The only exception is ==basic, non-past attributive==, where ==な== prevails ov
 
     の is sometimes omitted.
 
-    If の and な are interchangeable, the less common one creates a formal tone. Additionally, の is objective and stiff while な is subjective and soft. 
+    If の and な are both available, the less common one creates a formal tone. Additionally, の is objective and stiff while な is subjective and soft. 
 {{< /subtext >}}
 
 {{% example_jp 
@@ -79,7 +78,7 @@ The only exception is ==basic, non-past attributive==, where ==な== prevails ov
 
 
 # {{< heading "Adverbs" >}}
-Adjectives can be made into adverbs with ～く. Adjectival nouns get attached with に, but some may be seen without it to produce a less extreme version. When paired with the verb なる, the subject is becoming whatever the adverb describes. Likewise, する means the subject is turning an object into the adverb.
+Adjectives can be made into adverbs with ～く. Adjectival nouns get attached with に, but some have a version without it to be less extreme. When paired with the verb なる, the subject is becoming whatever the adverb describes. Likewise, する means the subject is turning an object into the adverb.
 
 {{% example_jp 
     jp="「時間を無駄にした。」"

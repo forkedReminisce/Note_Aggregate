@@ -17,7 +17,7 @@ With verbs come objects. There are three types of objects:
 
 
 # {{< heading "Direct Object" >}}
-**を** attaches to **the object literally receiving the transitive action**. The *subject* is an active agent.
+**を** attaches to **the object literally receiving the transitive action**. The *subject* is an active agent. The direct object may be omitted when context permits. This is even the case when direct object is a borderline generic (e.g., singing a *song*).
 
 {{< subtext >}}
     を is pronounced /o/.

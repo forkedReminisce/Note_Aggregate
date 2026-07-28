@@ -55,28 +55,28 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 
 
 # {{< heading "Ranges" >}}
-**から** indicates the **starting point of an action**. This is primarily with intransitive actions. If the action is non-volitional, then the location is where it occurs.
+**から** indicates the **starting point of an action**. In its most basic construction, intransitive verbs are used. Without the intransitive restriction, it may mark the starting state or source.
 
-When paired with the particle まで, a range is created. The intransitive action restriction no longer applies. Ambiguity tends to spring up when the thing being ranged are things (e.g., people), which is when placement begins to matter. As a rule of thumb, place it before any references to the range. Otherwise, the range is getting redefined after its initialization. Counters do offer flexibility by anchoring the range, but the counter must be after the range. から may also mark a starting state or the source of some outcome.
-
-{{< subtext >}}
-    まで (but not から) may be omitted when the range is covered by another case particle. Sometimes, the structure X～Y may be seen.
-{{< /subtext >}}
-
-{{% example_jp
-    jp="「テイラー君は、**午後１時から午後２時まで１時間**の休憩を取りました。」"
-    en="\"*Taylor took his break **of one hour from 1PM to 2PM***.\""
-%}}
-
-As observed, **まで** is essentially the endpoint. It emphasizes the point itself and that beyond it is no point of discussion, which makes it different from に and へ in destination contexts. Although typically attached to nouns, attributive verbs in the non-past tense are valid, as is までの. To extend off this, まで may translate to "even" while also capturing everything before.
+**まで** is the opposite, instead **tracking the endpoint**. It emphasizes the point itself while restricting discussion of anything beyond it, making it different from に and へ in destination contexts. Using it as a modifier with の is possible, as is extending the attributive quality of a non-past verb. 
 
 {{< subtext >}}
-    までで adds the で particle (not で, the copula, albeit still possible), and it just allows whatever happens after the point of the discussion to shadow the conversation. 
+    までで adds the で particle (not で, the copula, albeit still possible). It just makes what follows happen after the endpoint.
 {{< /subtext >}}
 
 {{% example_jp
     jp="「**自分の彼女までも**オレを疑ってるんだよ。」"
     en="\"***Everyone, even my own girlfriend,** doubts me.*.\""
+%}}
+
+When から and まで appear together, a range is created. Ambiguity tends to spring up when the thing being ranged are things (e.g., people), which is when placement begins to matter. As a rule of thumb, place it before any references to the range. Counters do offer flexibility, but it must always be after the range. 
+
+{{< subtext >}}
+    まで (but not から) may be omitted when the range is covered by another case particle. When this happens, the range sometimes appears as X～Y.
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「テイラー君は、**午後１時から午後２時まで１時間**の休憩を取りました。」"
+    en="\"*Taylor took his break **of one hour from 1PM to 2PM***.\""
 %}}
 
 
