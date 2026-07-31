@@ -49,3 +49,18 @@ Clauses that describe a *state or condition* of the subject may sometimes have *
     jp="「ケイトさんは**テイラー君**にチョコをくれました。」"
     en="\"*Kate-san gave **Taylor-kun** chocolate*.\""
 %}}
+
+Sometimes, に is used for something that the subject gets compared to. Adjectives often appear after, but the comparison isn't inherently obvious. Other uses include the topic someone is knowledgeable about, an entity to be in accordance with, or an opponent or battle itself. 
+
+{{< subtext >}}
+    For knowledge, ついて can attach to に to mean "about." 
+{{< /subtext >}}
+
+Consider an alternative: と performs the comparison with both objects at equal standing. に, instead, places the other entity statically, often above, for the subject to go up against. から may also be used for comparisons, but it expectedly denotes the starting point. To express that the subject is more than the other, mark the other thing with より.
+
+{{% example_jp
+    jp="「**駅から**遠い。」"
+    en="\"*It is far **from the train station***.\""
+%}}
+
+A little more obscure is marking the base number for something to occur. For example, once *a year* and one in *three people*. When this something is a multiplier—using the 倍 counter—it marks the time span.

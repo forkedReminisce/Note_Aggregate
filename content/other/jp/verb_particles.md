@@ -54,6 +54,47 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 
 
 
+# {{< heading "Purpose" >}}
+**に** indicates the purpose of the action. It may appear in a variety of forms depending on the situation.
+<!-- a suru verb may also just actually be functioning as a noun, which comes with a slightly different nuance -->
+- If the predicate is a movement action, the purpose will be a verb in polite non-past but with ～に replacing the ～ます. If the purpose is a する verb, the し is often omitted.
+- Certain patterns can be created, which is appropriately modified like a noun.
+- The direct object is used for the purpose
+- If the predicate is non-volitional, then に marks the cause. 
+
+{{< subtext >}}
+    ために creates "in order to." ように creates "so that."
+
+    によって can make the reason a necessary condition for the outcome.
+{{< /subtext >}}
+
+
+
+# {{< heading "Result" >}}
+**に** and **と** mark the result, such as the final form of a transformation. に is associated with graduality, whereas と is more instantaneous and even spontaneous. Alternatively—meaning either could be chosen for different reasons in the same scenario—に comes up when a state is overwritten in its entirety, but と simply evolves. To be more precise, と redefines the subject to whatever it marks. When there is a state transition, へと challenges に. 
+
+{{< subtext >}}
+    It is not possible to redefine something to "be like" something else. This forces things like よう**に**.
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「試験は火曜日へと延期されました」"
+    en="\"*The exam was postponed to Tuesday*.\""
+%}}
+
+<!-- adverbs are modifying the verb; fundamentally not the same as the particles despite functioning the same -->
+Since adjectives and adjectival nouns can't use these particles, they use their adverbial forms. Other than that, they go where a {{ noun + に or と}} would go.
+
+<!-- TODO: may move to verbs_special -->
+<!-- に's purpose function builds off this -->
+する replaces なる when a direct object enters the picture. する verbs and decision verbs also fall into this category. Instead of something becoming something else, an agent actively turns it into something else.
+
+{{< subtext >}}
+    ようにする essentially means "to make something to the point that." ようになる is the intransitive version (i.e., "to get to a point that").
+{{< /subtext >}}
+
+
+
 # {{< heading "Ranges" >}}
 **から** indicates the **starting point of an action**. In its most basic construction, intransitive verbs are used. Without the intransitive restriction, it may mark the starting state or source.
 
@@ -109,3 +150,28 @@ While in the past (either basic or polite) conjugation, ==attaching ～ものだ
     jp="「火曜日にはいつも友だちと**釣りに行ったものだ**。」"
     en="\"*I **used to always go fishing** with my friends on Tuesdays*.\""
 %}}
+
+
+
+# {{< heading "Quotes" >}}
+<!-- the verb need not always be after と -->
+**と** attaches to a clause to a quote—direct or indirect. Indirect quotes must be in the basic speech register. When paired with verbs describing thoughts (e.g., 思う) and are describing someone else's thoughts, they must use the いる auxiliary verb. In regards to tense, the quote is contained by the verb, whereas the verb itself is just when it happened (e.g., thinking in the moment, but the thinking itself happened in the past). 
+
+{{< subtext >}}
+    For direct quotes, 「」 are not necessary.
+{{< /subtext >}}
+
+When the quote may serve as the direct object, just know the direct object is what the action literally affects, while if paired with と instead of を, it can take on more meaning that may better suit the sentence. To convey that there was some doubt in the action, use かと. 
+
+Adverbs may be used with と to extend the nuance. などと makes the quote a sample from a pool of related quotes. とまで essentially creates a truth limit to the quote, which is especially handy when paired with a negative verb. とでもいうのか harshly criticizes the listener for coming up with such a quote. 
+
+At times, there isn't a quote. Instead, とは marks something that gets defined later in the sentence. Additionally, it is implied that the listener does not know what it is. というのは is a toned-down version of とは, but it may also follow a reasoning. というか is another variation of とは, akin to "how should I put it." ということは often appears at the beginning of a sentence to be "that is to say." 
+
+Sometimes, the verb may be omitted, but と must stay present. This usually only happens in questions, and the tone is confrontational. Sometimes, there is a verb but it doesn't match with the quote. The quote still clarifies the verb, but the actual verb associated with it needs to be inferred. 
+
+{{% example_jp 
+    jp="「何だと？。」"
+    en="\"*What did you say*?\""
+%}}
+
+と may sometimes be omitted if the quote demonstrates language itself. For example, a quote of a language for a linguistic discussion. It is also oftentimes omitted in novels.
