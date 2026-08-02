@@ -55,23 +55,24 @@ There are a set of particles that go *specifically* with verbs. These serve to e
 
 
 # {{< heading "Purpose" >}}
-**に** indicates the purpose of the action. It may appear in a variety of forms depending on the situation.
-<!-- a suru verb may also just actually be functioning as a noun, which comes with a slightly different nuance -->
-- If the predicate is a movement action, the purpose will be a verb in polite non-past but with ～に replacing the ～ます. If the purpose is a する verb, the し is often omitted.
-- Certain patterns can be created, which is appropriately modified like a noun.
-- The direct object is used for the purpose
+**に** indicates the **purpose of the action**. It appears in a variety of forms depending on the sentence construction:
+- If the predicate is a movement action, the purpose will be a verb in polite non-past but with ～に replacing the ～ます.
+- Certain patterns can be created with modal *nouns*
+- The direct object is being used for the purpose (separate entity)
 - If the predicate is non-volitional, then に marks the cause. 
 
 {{< subtext >}}
+    If the purpose is a する verb, the し is often omitted. Be wary if its the noun or する verb being used.
+
     ために creates "in order to." ように creates "so that."
 
-    によって can make the reason a necessary condition for the outcome.
+    によって can make the cause a necessary condition for the outcome.
 {{< /subtext >}}
 
 
 
 # {{< heading "Result" >}}
-**に** and **と** mark the result, such as the final form of a transformation. に is associated with graduality, whereas と is more instantaneous and even spontaneous. Alternatively—meaning either could be chosen for different reasons in the same scenario—に comes up when a state is overwritten in its entirety, but と simply evolves. To be more precise, と redefines the subject to whatever it marks. When there is a state transition, へと challenges に. 
+**に** and **と** mark the result. に is associated with graduality, whereas と is more instantaneous and even spontaneous. Alternatively, に comes up when a state is overwritten in its entirety, but と simply evolves. To be more precise, と redefines the subject to whatever it marks. When you still want to redefine but the new state is fundamentally different, use へと.
 
 {{< subtext >}}
     It is not possible to redefine something to "be like" something else. This forces things like よう**に**.
@@ -82,15 +83,12 @@ There are a set of particles that go *specifically* with verbs. These serve to e
     en="\"*The exam was postponed to Tuesday*.\""
 %}}
 
-<!-- adverbs are modifying the verb; fundamentally not the same as the particles despite functioning the same -->
-Since adjectives and adjectival nouns can't use these particles, they use their adverbial forms. Other than that, they go where a {{ noun + に or と}} would go.
+Adjectives and adjectival nouns cannot use these particles. Therefore, their adverbial forms modify the verbs to the same effect.
 
-<!-- TODO: may move to verbs_special -->
-<!-- に's purpose function builds off this -->
-する replaces なる when a direct object enters the picture. する verbs and decision verbs also fall into this category. Instead of something becoming something else, an agent actively turns it into something else.
+する can be like なる, but the agent actively transforms or redefines the direct object into the result. する verbs and also fall into this category. 
 
 {{< subtext >}}
-    ようにする essentially means "to make something to the point that." ようになる is the intransitive version (i.e., "to get to a point that").
+    ようにする essentially means "to make something to the point that {{ result }}." ようになる is the intransitive version (i.e., "to get to a point that").
 {{< /subtext >}}
 
 
@@ -135,6 +133,24 @@ When から and まで appear together, a range is created. Ambiguity tends to s
 
 
 
+# {{< heading "Comparison" >}}
+**に** marks the **standard** that the subject gets compared to. Some unnatural standards include the topic someone is knowledgeable about, a document to be in accordance with, or an opponent or the battle itself. 
+
+{{< subtext >}}
+    For topic of knowledge, について can mean "about." 
+{{< /subtext >}}
+
+Consider an alternative: **と** performs the comparison with both objects at **equal standing**. に, instead, treats the standard as a superior to challenge. **から** may also be used for comparisons, but as a starting point marker, it **flips the direction of comparison** to be starting point versus subject. To express that the subject is **more than** the other, mark the other thing with **より**.
+
+{{% example_jp
+    jp="「**駅から**遠い。」"
+    en="\"*It is far **from the train station***.\""
+%}}
+
+A "base number" can be marked with に. For example, once *a year* and one in *three people*. What follows is basically what can fit in that base number. Multipliers are valid, using the 倍 counter (e.g., four-fold in three years).
+
+
+
 # {{< heading "Final Particles" >}}
 While in the past (either basic or polite) conjugation, ==attaching ～ものだ creates "used to {{ verb }}==." This does put emphasis on the past routine, indicating that the memories still affect the speaker and is emotional.
 
@@ -154,23 +170,25 @@ While in the past (either basic or polite) conjugation, ==attaching ～ものだ
 
 
 # {{< heading "Quotes" >}}
-<!-- the verb need not always be after と -->
-**と** attaches to a clause to a quote—direct or indirect. Indirect quotes must be in the basic speech register. When paired with verbs describing thoughts (e.g., 思う) and are describing someone else's thoughts, they must use the いる auxiliary verb. In regards to tense, the quote is contained by the verb, whereas the verb itself is just when it happened (e.g., thinking in the moment, but the thinking itself happened in the past). 
+**と** attaches to a direct quote or indirect quote. The tense of the quote is contained by the action, but the action itself sits on the real timeline (e.g., thinking but the thought occurred in the past). When describing another's thoughts, the verb ought to use the ～いる auxiliary verb. If there was some doubt in the action, use かと.
 
 {{< subtext >}}
     For direct quotes, 「」 are not necessary.
+
+    Indirect quotes must be in the basic speech register. 
+
+    The direct object is interpreted in a literal sense. This is an important detail to remember when the quote serves a role similar to the direct object. 
 {{< /subtext >}}
 
-When the quote may serve as the direct object, just know the direct object is what the action literally affects, while if paired with と instead of を, it can take on more meaning that may better suit the sentence. To convey that there was some doubt in the action, use かと. 
+Adverbs may modify と to add nuance. などと says that the quote is one of many related quotes. とまで is essentially a "go as far to say," and with negative predicates it becomes "wouldn't..." とでもいうのか harshly criticizes the listener for coming up with such a quote. 
 
-Adverbs may be used with と to extend the nuance. などと makes the quote a sample from a pool of related quotes. とまで essentially creates a truth limit to the quote, which is especially handy when paired with a negative verb. とでもいうのか harshly criticizes the listener for coming up with such a quote. 
+とは marks something that gets defined later in the sentence, and the listener doesn't know what it is. というのは is a toned-down version of とは. というか is another variation of とは that will lead to a poor attempt at a definition (i.e., "how should I put it). ということは often appears at the beginning of a successive sentence to be "that is to say." 
 
-At times, there isn't a quote. Instead, とは marks something that gets defined later in the sentence. Additionally, it is implied that the listener does not know what it is. というのは is a toned-down version of とは, but it may also follow a reasoning. というか is another variation of とは, akin to "how should I put it." ということは often appears at the beginning of a sentence to be "that is to say." 
-
-Sometimes, the verb may be omitted, but と must stay present. This usually only happens in questions, and the tone is confrontational. Sometimes, there is a verb but it doesn't match with the quote. The quote still clarifies the verb, but the actual verb associated with it needs to be inferred. 
+<!-- mismatched verb might refer to other functions of と -->
+Sometimes, the verb may be omitted, but と must stay present. This usually only happens in questions, and the tone becomes confrontational. Sometimes, there is a verb but it doesn't match with the quote. In these cases, the quote still clarifies the predicate.
 
 {{% example_jp 
-    jp="「何だと？。」"
+    jp="「何だと？」"
     en="\"*What did you say*?\""
 %}}
 
