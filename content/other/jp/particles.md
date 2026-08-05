@@ -21,7 +21,9 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 
 # {{< heading "\"Also\"" >}}
-**も** marks nouns that **too share a trait** to something. Chaining can accomplish "all of us" and "neither." If there are multiple *disjoint* も in the same sentence, the linked thing can be different between them. If the noun is the topic, subject, or direct object, も absorbs those particles.
+<!-- chaining (e.g., XもYも linked to the same thing) as a term sucks. replace it.  -->
+**も** marks nouns that **too share a trait** to something. Chaining can accomplish "all of us" and "neither." If there are multiple *disjoint* も in the same sentence, the linked thing can be different between them. If the noun is the topic, subject, or direct object, も absorbs those particles. But it doesn't absorb every particle.
+<!-- 美人でもなく（て）かわいくもない人に一目惚れすることはあるのか。 when used with も, it seems that て can be omitted -->
 
 {{< subtext >}}
     も softens the overall tone of the sentence.
@@ -33,3 +35,8 @@ Particles are a crucial part of Japanese; they mark important details to the sen
     jp="「**僕も**お腹が空いた。」"
     en="\"***I**'m hungry, **too***.\""
 %}}
+
+<!-- TODO: rewrite main paragraph to not only focus on nouns -->
+Adjectives and adjectival nouns can also use も, with ～くも and ～でも respectively. 
+
+When after counter expressions, も interprets the amount as absurd in the speaker's mind. The quantity is also a minimum, which is the same as with は, but は isn't dramatic about it. All this gets flipped on its head with negative sentences, with the quantity now being a threshold that isn't surpassed. Of course, も implies the current situation is way off, whereas は is more stative. もの allows for the dramatic interpretation of a high amount to modify a noun. 
