@@ -22,7 +22,7 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 # {{< heading "\"Also\"" >}}
 <!-- chaining (e.g., XもYも linked to the same thing) as a term sucks. replace it.  -->
-**も** marks nouns that **too share a trait** to something. Chaining can accomplish "all of us" and "neither." If there are multiple *disjoint* も in the same sentence, the linked thing can be different between them. If the noun is the topic, subject, or direct object, も absorbs those particles. But it doesn't absorb every particle.
+**も** marks nouns, adjectives, and adjectival nouns that **too share a quality** to something. Adjectives conjugate as ～くも and adjectival nouns as ～でも. Multiple も make that "something" each other. If there are multiple *disjoint* も in the same sentence, the linked thing can be different between them. If the noun is the topic, subject, or direct object, も absorbs those particles. But it doesn't absorb every particle.
 <!-- 美人でもなく（て）かわいくもない人に一目惚れすることはあるのか。 when used with も, it seems that て can be omitted -->
 
 {{< subtext >}}
@@ -36,7 +36,4 @@ Particles are a crucial part of Japanese; they mark important details to the sen
     en="\"***I**'m hungry, **too***.\""
 %}}
 
-<!-- TODO: rewrite main paragraph to not only focus on nouns -->
-Adjectives and adjectival nouns can also use も, with ～くも and ～でも respectively. 
-
-When after counter expressions, も interprets the amount as absurd in the speaker's mind. The quantity is also a minimum, which is the same as with は, but は isn't dramatic about it. All this gets flipped on its head with negative sentences, with the quantity now being a threshold that isn't surpassed. Of course, も implies the current situation is way off, whereas は is more stative. もの allows for the dramatic interpretation of a high amount to modify a noun. 
+When after counter expressions, も interprets reaching (and potentially exceeding) the amount as absurd in the speaker's mind. は is similar but it isn't all dramatic about it. This gets flipped on its head with negative sentences, with the quantity now being a threshold that isn't surpassed. Of course, も implies the current situation is way short, whereas は is just stative. The dramatics can modify a noun using もの.
