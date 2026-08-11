@@ -16,6 +16,7 @@
     - auxiliary
     - transition
     - time
+    - dependent
     - verb_compounds
 
 - course: GOV 312L

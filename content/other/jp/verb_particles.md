@@ -133,6 +133,7 @@ When から and まで appear together, a range is created. Ambiguity tends to s
 
 
 
+<!-- TODO: does this belong in verb particles? -->
 # {{< heading "Comparison" >}}
 **に** marks the **standard** that the subject gets compared to. Some unnatural standards include the topic someone is knowledgeable about, a document to be in accordance with, or an opponent or the battle itself. 
 
