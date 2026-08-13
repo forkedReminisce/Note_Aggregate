@@ -133,25 +133,6 @@ When から and まで appear together, a range is created. Ambiguity tends to s
 
 
 
-<!-- TODO: does this belong in verb particles? -->
-# {{< heading "Comparison" >}}
-**に** marks the **standard** that the subject gets compared to. Some unnatural standards include the topic someone is knowledgeable about, a document to be in accordance with, or an opponent or the battle itself. 
-
-{{< subtext >}}
-    For topic of knowledge, について can mean "about." 
-{{< /subtext >}}
-
-Consider an alternative: **と** performs the comparison with both objects at **equal standing**. に, instead, treats the standard as a superior to challenge. **から** may also be used for comparisons, but as a starting point marker, it **flips the direction of comparison** to be starting point versus subject. To express that the subject is **more than** the other, mark the other thing with **より**.
-
-{{% example_jp
-    jp="「**駅から**遠い。」"
-    en="\"*It is far **from the train station***.\""
-%}}
-
-A "base number" can be marked with に. For example, once *a year* and one in *three people*. What follows is basically what can fit in that base number. Multipliers are valid, using the 倍 counter (e.g., four-fold in three years).
-
-
-
 # {{< heading "Final Particles" >}}
 While in the past (either basic or polite) conjugation, ==attaching ～ものだ creates "used to {{ verb }}==." This does put emphasis on the past routine, indicating that the memories still affect the speaker and is emotional.
 
