@@ -37,6 +37,30 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 
 
+# {{< heading "Conjunctions" >}}
+**が** follows a clause that describes the **premise** of the conversation or **sets up a contradiction**. The sentence can end right there. Alteratively, **けれど** can perform the latter option or **just connect clauses without any nuance**. It's possible for けれど to sound more polite and indirect. 
+
+{{< subtext >}}
+    けれども is politer than けれど; けど is more casual than けれど. 
+{{< /subtext >}}
+
+
+
+# {{< heading "Emotion" >}}
+A class of final particles serve to convey a particular emotion. **よ** implores the listener to take in the information. It pops up more often than an English speaker might think because the alternative is coming off as dismissive and emotionless. 
+
+{{< subtext >}}
+    Sentences with よ can rise or fall the entire way to generate particular nuances. This is a critical parameter for よ.
+
+    よ may attach to someone that the speaker is calling out to.
+{{< /subtext >}}
+
+**ね** is used to either seek confirmation or answer. The answer may become less direct. Only the particle has a rising intonation, but the change may start earlier if a question is genuinely being asked. な is the masculine version of ね, and it should not be used in polite speech. かね, a softer version of かな, means "I wonder" or soften the directness or a request made in casual speech. When as よね, the speaker already knows the listener agrees and are just affirming it. It's also softer than よ by itself. 
+
+っと declares something with a light tone in plain speech. とさ is used to finish a story in polite speech.
+
+
+
 # {{< heading "\"Also\"" >}}
 <!-- chaining (e.g., XもYも linked to the same thing) as a term sucks. replace it.  -->
 **も** marks nouns, adjectives, and adjectival nouns that **too share a quality** to something. Adjectives conjugate as ～くも and adjectival nouns as ～でも. Multiple も make that "something" each other. If there are multiple *disjoint* も in the same sentence, the linked thing can be different between them. If the noun is the topic, subject, or direct object, も absorbs those particles. But it doesn't absorb every particle.
@@ -58,6 +82,7 @@ When after counter expressions, も interprets reaching (and potentially exceedi
 By attaching も to the て-form, "even" is created. It also often lessens the tone of the overall sentence. Appending いい, かまわない, or さしっかえない refer to permission, and も may be removed to be more direct. The adverb 何といっても means "no matter what they say." Finally, verbal predicates can attach literally でも to their て-form to say that the main clause (which must possess volition) should or will be carried regardless of what this clause says. 
 
 {{< subtext >}}
+    <!-- mean ～くても? -->
     Adjectival nouns use ～ても.
     
     Nouns can use でも even if the copula wouldn't typically be placed there.

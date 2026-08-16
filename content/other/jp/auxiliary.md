@@ -17,12 +17,12 @@ Auxiliary verbs are entirely separate from their standalone counterparts. They a
 # {{< heading "Commands" >}}
 Instructing someone to do something makes use of **auxiliary verbs meaning "to give."** Negative verbs are conjugated with ～ないで.  
 
-*Basic* commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for *polite* commands.
+*Basic* commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for *polite* commands. Strong negative commands don't conjugate the verb, instead just attaching な.
 
 {{< subtext >}}
     Styling the command as a question adds politeness.
 
-    The final particle よ can be added to bring urgency. Alternatively, や gives off a scolding tone. 
+    The final particle よ can be added to bring urgency. Alternatively, や gives off a scolding tone. ね lessens the tone.
 {{< /subtext >}}
 
 {{% example_jp

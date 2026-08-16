@@ -20,6 +20,7 @@ Asking a *binary question* is very simple. In the *basic register*, a raised int
     en="\"*You alright?*\""
 %}}
 
+<!-- could use an example of a negative question -->
 Binary questions with a *negative predicate* are not actually negative. In fact, the speaker believes that they know the answer is affirmative. ==To ask about the negative, insert ん or の before the politeness marker==, if present anyway. On another note, じゃない may have ん～ or の～ precede it entirely. The question will remain affirmative, but some uncertainty is introduced.
 
 {{< subtext >}}
@@ -38,14 +39,15 @@ Interrogatives can be used to create more useful questions. The appropriate inte
     The basic register does not use the copula verb unless the intention is a stern tone.
 
     なぜ is actually just an adverb. If it is in the predicate, a noun must precede it. If that "noun" is a full phrase, put の in between.
-
-    The final particle よ makes the question more expressive.
 {{< /subtext >}}
 
 {{% example_jp
     jp="「誰が社長ですか。」"
     en="\"*Who is the company president*?\""
 %}}
+
+<!-- don't bother editing this rn -->
+The final particle よ makes the question more expressive. と creates a demanding question in casual or vulgar speech.
 
 
 
