@@ -38,7 +38,7 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 
 # {{< heading "Conjunctions" >}}
-**が** follows a clause that describes the **premise** of the conversation or **sets up a contradiction**. The sentence can end right there. Alteratively, **けれど** can perform the latter option or **just connect clauses without any nuance**. It's possible for けれど to sound more polite and indirect. 
+**が** follows a clause that describes the **premise** of the conversation or **sets up a contradiction**. The clause is allowed to be the final one. Alteratively, **けれど** can also lead up to a contradiction or **just connect clauses without any nuance**. It's possible for けれど to sound more polite and indirect. 
 
 {{< subtext >}}
     けれども is politer than けれど; けど is more casual than けれど. 
@@ -52,10 +52,10 @@ A class of final particles serve to convey a particular emotion. **よ** implore
 {{< subtext >}}
     Sentences with よ can rise or fall the entire way to generate particular nuances. This is a critical parameter for よ.
 
-    よ may attach to someone that the speaker is calling out to.
+    よ may attach to the person that the speaker is calling out to. It's quite dramatic.
 {{< /subtext >}}
 
-**ね** is used to either seek confirmation or answer. The answer may become less direct. Only the particle has a rising intonation, but the change may start earlier if a question is genuinely being asked. な is the masculine version of ね, and it should not be used in polite speech. かね, a softer version of かな, means "I wonder" or soften the directness or a request made in casual speech. When as よね, the speaker already knows the listener agrees and are just affirming it. It's also softer than よ by itself. 
+**ね** is used to either seek confirmation or answer. The answer may become less direct. Only the particle has a rising intonation, but it may start earlier if the question is genuinely being asked. な is the masculine version of ね, and it should not be used in polite speech. かね softens the directness of a request. When as よね, the speaker already knows that the listener agrees and they are just affirming it. 
 
 っと declares something with a light tone in plain speech. とさ is used to finish a story in polite speech.
 
