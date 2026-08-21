@@ -13,7 +13,7 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 
 
-# {{< heading "Lists"" >}}
+# {{< heading "Lists" >}}
 **と joins two *nouns* with "and."** This may be chained, but every subsequent と is replaced with a comma. Alternatively, every と is replaced with ・. Regardless of how it's written, /to/ will be pronounced every time.
 
 "I am Japanese and a doctor" is actually short for "I am Japanese and I am a doctor." Therefore, と would not be applicable despite looking so. There are other ways to cover the other functions of the English "and," one of which being **そして**. It's used to immediately build on top of information. Think "and" at the start of a sentence or "then." 

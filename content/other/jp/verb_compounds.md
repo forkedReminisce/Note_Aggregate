@@ -31,3 +31,15 @@ Compound verbs are created by taking the polite form of a verb and replacing the
     jp="「野生のピカチュウが飛び出してきた！」"
     en="\"*A wild Pikachu appeared*!\""
 %}}
+
+**～かける** offers directionality or about to start the main verb or about to finish the main verb. **～かかる** also can do directionality, but every compound is intransitive. It may also refer to the verge of observing the result of the main unaccusative verb—intransitive verbs whose subject does not initiate themselves.
+
+{{% example_jp
+    jp="「死にかかる魚って見たことがあまりない。」"
+    en="\"*I have seldom seen fish at the point of death*.\""
+%}}
+
+
+
+# {{< heading "Termination" >}}
+**～終わる** and **～終える** means the subject put an end to the main action. However, ～終わる signifies noticeable volition. The main verb is usually transitive, but ～終わる may attach to intransitive verbs that takes time. Instantaneous verbs can use ～止む, but it's more common to just use 止む instead of creating a compound verb.
