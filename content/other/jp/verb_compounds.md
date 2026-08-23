@@ -21,7 +21,7 @@ Compound verbs are created by taking the polite form of a verb and replacing the
     en="\"*Please start eating*.\""
 %}}
 
-～出す gets its dramatic nature from its other use. ～出す, alternatively, brings attention to the main action. ～出る can replace ～出す in certain circumstances, but ～出す is even more dramatic, indicates directionality, and allows the compound verb to be used as a noun with ～出し. If, however, ～出す may be mistakened with its initiation use, then ～出る is the only option. In this case, if the main verb is transitive, ～出 will make hte compound verb a noun. Some compound verbs do, in fact, support both uses of ～出す. Therefore, determine whether the main action takes enough time for there to be a beginning.
+～出す gets its dramatic nature from its other use. ～出す, alternatively, brings attention to the main action. ～出る can replace ～出す in certain circumstances, but ～出す is even more dramatic, indicates directionality, and allows the compound verb to be used as a noun with ～出し. If, however, ～出す may be mistakened with its initiation use, then ～出る is the only option. In this case, if the main verb is transitive, ～出 will make the compound verb a noun. Some compound verbs do, in fact, support both uses of ～出す. Therefore, determine whether the main action takes enough time for there to be a beginning.
 
 {{< subtext >}}
     ～出し始める is possible if ～出す is using its first meaning.
@@ -32,7 +32,7 @@ Compound verbs are created by taking the polite form of a verb and replacing the
     en="\"*A wild Pikachu appeared*!\""
 %}}
 
-**～かける** offers directionality or about to start the main verb or about to finish the main verb. **～かかる** also can do directionality, but every compound is intransitive. It may also refer to the verge of observing the result of the main unaccusative verb—intransitive verbs whose subject does not initiate themselves.
+**～かける** offers directionality or about to start the main verb or about to finish the main verb. **～かかる** also can do directionality, but every compound is intransitive. ～かかる may also refer to the verge of observing the result of the main unaccusative verb—intransitive verbs whose subject does not initiate the action themselves.
 
 {{% example_jp
     jp="「死にかかる魚って見たことがあまりない。」"
