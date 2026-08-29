@@ -1,0 +1,16 @@
+Context switch managed by hardware. It is very dependent on the hardware. As in, the hardware defines "context" and what it consists of.
+
+Popek and Goldberg set the standards of virtualization. The Virtual Machine Monitor (or Hypervisor) interacts with hardware. The Virtual Machine Monitor must have resource control and be efficient. Resource control allows it to effectively reserve resources without any sort of imbalance. The virtual machine interacts with the hypervisor. It consists of one core. It must be efficient and have the same properties of the physical machine.
+
+Rings are synonymous with user vs system control.
+
+Trap is an instruction. Trap handler table.
+
+<!-- is this only for emulation??? -->
+Hosted Interpretation: basically emulating hardware. This is robust but very slow. An optimization is to run unprivileged instructions directly and only emulate privileged instructions because they matter. However, x86 has another category of instructions known as sensitive. These don't have a trap (the trigger for emulation, the instructions are not being processed by software before running [essentially hosted interpretation 2], they're just running on hardware) but still matter. Binary translation transforms a sensitive instruction into a series of privileged instructions.
+
+Target architecture emulated by host architecture.
+
+Hardware-assisted virtualization allows for virtualization at the highest efficiency. 
+
+Para virtualization is virtualization on top of a virtual machine.

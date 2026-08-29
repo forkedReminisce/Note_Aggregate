@@ -28,3 +28,7 @@
     - vectors
     - cuda
     - mpi
+
+  course: CS 376
+  pages:
+    - cameras

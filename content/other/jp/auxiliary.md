@@ -14,24 +14,6 @@ Auxiliary verbs are entirely separate from their standalone counterparts. They a
 
 
 
-# {{< heading "Commands" >}}
-Instructing someone to do something makes use of **auxiliary verbs meaning "to give."** Negative verbs are conjugated with ～ないで.  
-
-*Basic* commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for *polite* commands. Strong negative commands don't conjugate the verb, instead just attaching な.
-
-{{< subtext >}}
-    Styling the command as a question adds politeness.
-
-    The final particle よ can be added to bring urgency. Alternatively, や gives off a scolding tone. ね lessens the tone.
-{{< /subtext >}}
-
-{{% example_jp
-    jp="「速くしてよ！」"
-    en="\"*Do it faster already*!\""
-%}}
-
-
-
 # {{< heading "States" >}}
 Although **～いる** does not share definitions with いる, ==it does possess its conjugations==. Applicable parts of speech are the coupla verb and verbs. *Tenses, politeness, and negativity* are handled by this auxiliary verb.
 
@@ -84,3 +66,31 @@ If the *verb happens in an instant and affects the subject's state*, ～いる d
     jp="「彼の熱は計ってある。」"
     en="\"*His temperature was checked* **(by someone)**.\""
 %}}
+
+
+
+# {{< heading "Commands" >}}
+Instructing someone to do something makes use of **auxiliary verbs meaning "to give."** Negative verbs are conjugated with ～ないで.  
+
+*Basic* commands are just the て-form by itself. Attach ～くれません, ～くれます, or ～ください for *polite* commands. Strong negative commands don't conjugate the verb, instead just attaching な.
+
+{{< subtext >}}
+    Styling the command as a question adds politeness.
+
+    The final particle よ can be added to bring urgency. Alternatively, や gives off a scolding tone. ね lessens the tone.
+{{< /subtext >}}
+
+{{% example_jp
+    jp="「速くしてよ！」"
+    en="\"*Do it faster already*!\""
+%}}
+
+
+
+# {{< heading "Favor" >}}
+<!-- ～やる??? -->
+<!-- recipient marked in に -->
+**～あげる** is polite and typically used when the favor is for an equal or even nonliving things. **～くれる** comes about when the "favor" is for someone's benefit or disadvantage. That someone must be close to the speaker, and the speaker can not be the one doing the giving. Using のだ or よ says that the speaker expects the giver will deliver.
+
+<!-- giver marked in に -->
+The recipient uses **～もらう**. The giver must be able to consciously give, and the favor must be beneficial. The giver must also have a sense of responsibility to the recipient. ～もらえるか can ask for a favor, as does ～いただく. ～ちょうだい is the humble equivalent of ～もらう. It can be used standalone as well, and in either case, may be asking for a favor. ～もらうのだ can be used to command the listener to demand the would-be giver to do the action. It may also just emphasize the hope of the recipient for receiving.
