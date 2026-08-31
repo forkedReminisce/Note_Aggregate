@@ -1,0 +1,5 @@
+—
+
+
+
+Context switch managed by hardware. It is very dependent on the hardware. As in, the hardware defines "context" and what it consists of. Rings describe user and kernel mode. Trap is an instruction that queries the trap handler table.

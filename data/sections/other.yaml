@@ -30,6 +30,6 @@
     - tariffs
     - iran
 
-  course: HIS 315L
-  pages:
-    -
+  # course: HIS 315L
+  # pages:
+  #   -

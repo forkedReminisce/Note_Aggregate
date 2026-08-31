@@ -1,12 +1,12 @@
 ---
 draft: true
-title: 
+title: CS 376
 
 params: 
-    desc: 
+    desc: Notes for UT Austin's CS 376 course.
     author: Andrew Nguyen 
 
-# TODO: indexes MUST specify weight. the later the section, the higher the weight
+weight: 4
 ---
 
 

@@ -9,14 +9,19 @@ params:
 
 
 
-<!-- this is stupid -->
-Barrier with pinhole to restrict which light rays reaches the photosensitive material. Known as camera obscura. Dimensionality reduction machine. People used to think our eyes emitted light, but in fact, it collects reflected light. 
+Camera obscura is how cameras can narrow the amount of light rays it captures. In essence, it is a barrier with a pinhole. The captured image is composed of projections. Due to the nature of this dimensionality reduction machine, a point of the scene may be occluded by another point, meaning its projection doesn't appear. Another consequence is that size and distance may become distorted.
 
-<!-- is f distance from vanishing point to image -->
-A projection is the point on the image that a point on the object is captured by. A point on the object that doesn't appear in the image because it is covered is occluded by another point. Projection is undefined for points on the barrier. A point at (x, y, z) projects at (fx/z, fy/z), where z is focal length—length from object to vanishing point. However, size and distance may get improperly captured because a 2D line is not a 3D line.
+{{< subtext >}}
+    Orthographic cameras maintain size by capturing every light ray straight forward instead of at an angle. 
+{{< /subtext >}}
 
-<!-- homogeneous coordinate of a line only contains the coefficient??? -->
+A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.
+
 <!-- not relevant until final part of the course -->
-A homogeneous coordinate adds another dimension with a value of 1. For example, (x, y) becomes (x, y, 1). To convert it back, divide the value of the new dimension across all dimensions. To be safe, use === (equivalent) because of lambda. A line can be represented with an inner product of homogeneous coordinate. Finding the intersection between the two lines is taking the cross product (if z is 0, they intersect at the point at infinity). Finding the line between two points requires taking the cross product of the two points. Projection uses matrix multiplication.
+The 3D point can be thought of as a homogeneous coordinate. To collapse a dimension, just divide said dimension from every other dimension. To add a dimension, concatenate a \(1\) to the vector. However, equality (=) is harder to come by, so use equivalency (≡) instead.
 
-Orthographic cameras maintain size by capturing light rays straight forward instead of at an angle. 
+Lines can also be represented as homogeneous coordinates: one vector is the coefficients and another vector is the variables (1 for no variable). To find the intersection point between two lines, take the cross product of their coefficient vectors. To find the line between two points, take the cross product of the two points. 
+
+{{< subtext >}}
+    When finding the intersection between two lines, if the extra coordinate is 0, the lines intersect at the point at infinity. 
+{{< /subtext >}}
