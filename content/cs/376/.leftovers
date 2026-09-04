@@ -1,3 +1,5 @@
 —
 
 
+
+In the RGB color space, a high value for one color typically means the other two colors will be high. Likewise, low value implies low values. The Lab color space is "perceptually uniform." That means perceptually alike colors will have similar coordinates. However, it is complex to calculate.
