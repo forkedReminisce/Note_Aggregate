@@ -3,3 +3,23 @@
 
 
 In the RGB color space, a high value for one color typically means the other two colors will be high. Likewise, low value implies low values. The Lab color space is "perceptually uniform." That means perceptually alike colors will have similar coordinates. However, it is complex to calculate.
+
+
+
+# Cameras
+Aperture is inversely correlated with depth of field.
+
+FOV: \(\Phi = \tan^{-1}(\frac{d}{2f})\). \(\tan^{-1}\) is monotonically increasing.
+
+Our eyes are comparable to cameras. Our pupils is the aperture, which is controlled by the iris. Our eyes do have lenses. The retina is basically the film. We have two types of photo receptors: cones and rods. Rods are more sensitive and they help with vision in darkness.
+
+
+
+# Math
+A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.
+
+The 3D point can be thought of as a homogeneous coordinate. To collapse a dimension, just divide said dimension from every other dimension. To add a dimension, concatenate a \(1\) to the vector. However, equality (=) is harder to come by, so use equivalency (≡) instead.
+
+Lines can also be represented as homogeneous coordinates: one vector is the coefficients and another vector is the variables (1 for no variable). To find the intersection point between two lines, take the cross product of their coefficient vectors. To find the line between two points, take the cross product of the two points. 
+
+When finding the intersection between two lines, if the extra coordinate is 0, the lines intersect at the point at infinity. 
