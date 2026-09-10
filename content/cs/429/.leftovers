@@ -9,7 +9,7 @@ ASR copies the MSB into the holes. This is particularly useful for signed values
 
 Rotation is when the fallen off bits are cycled into the holes.
 
-For unsigned, the *additive inverse* of a number `⊖(n, u)` is the other number that generates a sum of 0 via unsigned carry (i.e., loops to 0 on the number wheel). In signed, `⊖(n, s)` is simply the negation. 0 and \[-2^{n-1}\] are themselves. Alternatively, `NOT` the number and add 1 also finds the additive inverse. Subtraction uses the additive inverse of the second argument.
+For unsigned, the *additive inverse* of a number `⊖(n, u)` is the number that generates a sum of 0 via unsigned carry (i.e., loops to 0 on the number wheel). In signed, `⊖(n, s)` is simply the negation. 0 and \[-2^{n-1}\] are themselves. `(~x) + 1` is the formula for finding the additive inverse. In subtraction, the additive inverse of the second argument is added to the first argument.
 
 Signed overflow is if x and y have a different sign to the sum or difference.
 

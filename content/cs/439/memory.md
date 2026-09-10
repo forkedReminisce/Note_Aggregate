@@ -63,7 +63,6 @@ Virtual addresses are a $(p, o)$ pair bit string. The high-order $p$ bits repres
 
 
 ## {{< heading "Optimization" >}}
-<!-- TODO: TLB must be flushed on a context switch; the contents are not saved for some reason??? -->
 In general, accessing data requires going to memory twice: one to get to the page table and another to the data. The former can be less frequent with the use of the *TLB* (Translation Lookaside Buffer) cache, which resides in the MMU. It stores the most recently accessed page table entries. During address translation, both the TLB and page table will be queried *in parallel*. If there is a TLB hit, then the page table access is terminated. If there is a TLB miss, the page table entry is put into the TLB.
 
 Space is another concern because page tables can be very big and are also per process. *Multi-level page tables* address this by first cutting the $p$ bits into parts. The highest-order part indexes into the first-level page table... The final-level page table has the frame numbers. Since most processes don't actually use all the virtual address space, some lower-level page tables can be pruned. This is made possible with a sort of lazy allocation strategy for the lower-level page tables.

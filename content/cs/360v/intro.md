@@ -21,4 +21,4 @@ After hardware manufacturers recognized virtualization, hardware-assisted virtua
 <!-- TODO: is the VMCS exclusive to VT-X? idk about the control register -->
 The VMM can be thought of as an OS in that it has to manage multiple virtual machines at once. Each virtual machine has a virtual machine control structure (VMCS). It consists of guest state, host state, and the control register. Hardware introduced a dedicated, separate set of physical "virtual" registers for virtualized machines; VMs are still not allowed to access root registers. These "virtual" registers can be modified without a trap. The context switch is now also performed by hardware, increasing efficiency.
 
-Para virtualization is virtualization on top of a virtual machine.
+Para virtualization is virtualization on top of a virtual machine

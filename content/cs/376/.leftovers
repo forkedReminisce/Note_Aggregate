@@ -15,6 +15,12 @@ Our eyes are comparable to cameras. Our pupils is the aperture, which is control
 
 
 
+# Filtering
+Subtracting the image applied with a Gaussian filter from the image gets the 3D details. Adding the details back to the original image sharpens the image. Adding details with a greater coefficient greatly sharpens the image. Details are high frequency information.
+
+Linear filters are essentially the sum of the signal and filter equal the output. Non-linear filters do not equal.
+
+
 # Math
 A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.
 
