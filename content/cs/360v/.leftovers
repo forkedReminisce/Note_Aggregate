@@ -8,3 +8,5 @@ Context switch managed by hardware. It is very dependent on the hardware. As in,
 Rings describe user and kernel mode. Lower numbers is closer to kernel mode. Trap is an instruction that queries the trap handler table. 
 
 There are privileged registers and a Current Privilege Level register.
+
+The page table base register is called `CR3`. `CR2` is the address of the instruction accessing memory.

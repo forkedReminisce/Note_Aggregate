@@ -32,7 +32,9 @@
   course: CS 376
   pages:
     - cameras
+    - filters
   
   course: CS 360V
   pages: 
     - intro
+    - hypervisor

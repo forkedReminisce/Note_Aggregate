@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: CS 376
 
 params: 

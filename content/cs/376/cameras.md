@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Cameras
 
 params: 
-    desc: 
+    desc: Cameras should not capture all light or else a blurry mess is produced. Instead, a barrier in the form of aperture is installed. A lens makes up for the compromises of aperture.
     author: Andrew Nguyen 
 ---
 
