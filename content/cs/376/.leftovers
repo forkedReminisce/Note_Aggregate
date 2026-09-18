@@ -20,6 +20,12 @@ Subtracting the image applied with a Gaussian filter from the image gets the 3D 
 
 Linear filters are essentially the sum of the signal and filter equal the output. Non-linear filters do not equal.
 
+Descriptor should be:
+- Repeatable: always work even in unideal circumstances
+- Salient: distinct
+- Compact
+- Locality: only need the image, nothing else
+
 
 # Math
 A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.

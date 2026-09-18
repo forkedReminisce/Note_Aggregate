@@ -10,3 +10,5 @@ Rings describe user and kernel mode. Lower numbers is closer to kernel mode. Tra
 There are privileged registers and a Current Privilege Level register.
 
 The page table base register is called `CR3`. `CR2` is the address of the instruction accessing memory.
+
+A page table entry has a present bit to indicate whether the page is in memory (`1`) or SWAP (`0`). If it's in SWAP, it points to where. If it's in SWAP, a page fault is sent for the hypervisor to handle. The physical host address may change. 
