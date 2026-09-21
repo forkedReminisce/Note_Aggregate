@@ -26,6 +26,12 @@ Descriptor should be:
 - Compact
 - Locality: only need the image, nothing else
 
+Detectors should be invariant to some transformations, meaning the corners stay the same. It should be equivariant to other transformations, transforming the corners accordingly. Convolution is equivariant. Image scaling is not equivariant, so downsample the image and check for corners each scale. 
+
+Much of the work with LoG takes place in the first and second scales.
+
+SIFT descriptors assist LoG when scale and rotation is different. Essentially, rotate and set to common scale. Compute the gradient and build a histogram. The actual implementation is complicated.
+
 
 # Math
 A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.

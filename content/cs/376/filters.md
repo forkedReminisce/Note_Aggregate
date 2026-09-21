@@ -20,30 +20,52 @@ A filter with equal weights is called the box filter. It smoothens the image but
 
 Gaussian filters are not always the best because outlier pixels can distort its neighbors. This is because Gaussian filters use mean. Non-linear filters use median. 
 
-Filtering is good for determining what objects are in the scene, even if they're at a different angle. It's also good for stitching images together. 
 
-Gradients are essentially partial derivatives. Like the original function, gradients have dimensions. Looking at these can help with edge detection. Noise can muddle the derivative, so smoothing via convolution can help. However, the tradeoff is a blur effect, making it hard to localize the exact location. Deriving the filter then convoluting the image also works, but is not as efficient as the Sobel filter.
 
-{{< subtext >}}
-    The filter to use to detect either horizontal or vertical edges should be perpendicular to that edge.
-{{< /subtext >}}
+# {{< heading "Feature Detection" >}}
+Applications of filtering include identifying objects in the same scene from different angles and stitching images together. These rely on feature detection, and there are several kinds of features.
 
-There is flat, edge, and corner regions. When viewing only a small part of an image, moving the viewing window around the full image helps identify the type of region. Flat means the color distribution does not change. 
+If we already know a feature, it's possible to find multiple of another feature. The feature is not necessarily the same as the feature we already know. Take the difference between the feature we know and, individually, two nearest neighbors that might depict the same feature. A ratio between these two differences that's close to 1 implies that the two nearest neighbors are the same feature.
 
-<!-- M is a 2x2 matrix Ix^2 IxIy IxIy Iy^2. all terms are summations -->
-<!-- R is response function -->
-Detecting a corner uses the formula \(E(u, v) = \sum_{(x, y)} (I[x + u, y + v] - I[x, y])^2\). Edge and flat regions is all `0`. However, this operation is expensive over time. The second moment matrix \(M\) greatly simplifies things, but it requires finding the image gradients along both dimensions. By evaluating the matrix, only the horizontal values matter. If they're all high, it is likely a corner. To detect this, \(R = det(M) - \alpha sum(M)^2\). A corner will have a response function \(R\) significantly greater than \(0\). Close to \(0\) is flat, significantly less is edge.
 
-We want our detectors to be invariant to some things. This means the corners stay at the same place with certain transformations. But some transformations require shifting the corners, which means the detector should also be equivariant to other things. For example, convolution is equivariant. Image scaling is not equivariant, but downsampling and checking for corners each time works. 
+## {{< heading "Edges" >}}
+Gradients are essentially partial derivatives of the image. Convoluting the gradient with specific kernels produce \(I_x\) and \(I_y\). These results highlight the edges perpendicular to the x-axis or y-axis respectively. Magnitude can be calculated with \(\sqrt{I_x^2 + I_y^2}). In any case, these edge-detecting kernels include (for producing \(I_x\)):
 
-{{< subtext >}}
-    Keeping the image size but doubling the filter is an option, but more expensive.
-{{< /subtext >}}
+<!-- vertical version positive to negative, not negative to positive -->
+Prewitt: 
+\[
+    \begin{bmatrix}
+    -1 & 0 & 1 \\
+    -1 & 0 & 1 \\
+    -1 & 0 & 1
+    \end{bmatrix}
+\]
 
+Sobel:
+\[
+    \begin{bmatrix}
+    -1 & 0 & 1 \\
+    -2 & 0 & 2 \\
+    -1 & 0 & 1
+    \end{bmatrix}
+\]
+
+Noise in the image can muddle the gradient, so smoothen the image with a Gaussian kernel. However, the tradeoff is blur, making it hard to localize the exact location. Deriving the kernel then convoluting the image produces an equal result, but the Gaussian derivative is a lot like the Sobel filter, so just use Sobel as it's more efficient.
+
+The second moment matrix \(M\) is defined as:
+\[
+    \begin{bmatrix}
+    \sum_{x, y} I_x^2 & \sum_{x, y} I_x I_y \\
+    \sum_{x, y} I_x I_y & \sum_{x, y} I_y^2
+    \end{bmatrix}
+\]
+
+Since finding the eigenvectors and eigenvalues of \(M\) takes too long, we approximate with a response function \(R = \mathrm{det}(M) - \alpha \mathrm{trace}(M)^2). 
+- \(R \approx 0\): flat
+- \(R \ll 0\): edge
+- \(R \gg 0\): corner
+
+
+## {{< heading "Blobs" >}}
 <!-- scales are dictated by the coefficient multiplied with the standard deviation -->
-Blobs are another good option for detecting features. The Laplacian of Gaussian (LoG) is the sum of the double gradients of Gaussian. Like Gaussian, there is an ideal size of the filter for each blob size. The characteristic scale creates the maximum response. Therefore, convolved with a number of scales. Local maxima is when a pixel is larger than its scale-space neighbors (one pixel circle on this scale, across all scales). Difference of Gaussian is an approximation of LoG, which is a difference of Gaussian scales. A lot of the effort takes place in the first and second scales, but it substantially gets faster with later scales.
-
-<!-- does the algorithm rotate the image or was it provided a rotated image -->
-SIFT descriptors finds the gradient of equally sized blobs of part of a rotated and scaled image that has been normalized. Computing a histogram for each blob and concatenating it all. This mitigates illumination effects. It's very complicated nonetheless.
-
-The trick of the second nearest neighbor is the ratio between the feature and its difference between one nearest neighbor and difference with another nearest neighbor. Closer to 1 is good.
+The Laplacian of Gaussian (LoG) is the sum of the double gradients of Gaussian. LoG has ideal scales for each blob size. Therefore, convolve the image with several LoGs. LoG can be approximated with the Difference of Gaussians: \(G(x, y, k\sigma) - G(x, y, \sigma)\). A blob is a local maxima in scale-space—a pixel on a particular scale result that's larger than every other scale result at that same \((x, y)\) coordinate. 
