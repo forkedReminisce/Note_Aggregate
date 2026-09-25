@@ -44,3 +44,32 @@ There is a semantic gap between the hypervisor evicting random pages but the gue
 {{< /subtext >}}
 
 Copy-on-write will map to the same host physical page for multiple VMs if its content is the same. When one VM wants to write to it, however, it gets remapped to a copy of the page. Comparing each page is expensive, though. Therefore, a shared pages data structure is used: a hash function takes a page's data and returns an index and checks if the index is already in the data structure.
+
+
+
+# {{< heading "I/O" >}}
+<!-- device registers: status (e.g., read) and cmd (e.g., write) -->
+<!-- one such device is the network interface card (NIC) -->
+<!-- migration is when moving a VM from one physical machine to another -->
+Memory mapped I/O (MMIO) are essentially buffers that devices are perpetually reading. When the device finishes, it will send an interrupt, triggering the OS' interrupt handler. Direct Memory Access (DMA) takes advantage of hardware to allow a device to quickly operate in the MMIO.
+
+<!-- device emulation -->
+On the guest OS, the MMIO region is read/write protected. Each command will trigger a trap to the hypervisor, who will figure out how to emulate the behavior of the device. In any case, this is expensive. DMA goes through the hypervisor. Interrupts are easy because the hypervisor will change the VMCS state and the guest OS will handle the interrupt. However, it is dependent on the next time the hypervisor gets scheduled.
+
+Device passthrough dedicates a device to a VM. This is really good for performance because there are no trapping. However, the device cannot be shared with any other VMs. The host OS still owns the device, but it won't intervene until the guest OS is done with it. DMA is also supplied with guest physical addresses, so the IOMMU translates between guest physical address to host physical address. It's like a page table, and there is a IO TLB. The device sends the interrupt to the hypervisor, who forwards it to the guest OS.
+
+<!-- so a device has memory on the device itself on top of the MMIO on the hardware? -->
+These solutions were without specific hardware support. Single-Root I/O Virtualization basically offers multiple virtual devices from a single physical device. This is because the device had excess resources so that it can do this. This resource gets partitioned among guest OSs. Alternatively, the resource can be merged into one if there is no guest OS. Now, the hypervisor will allocate a virtual "function" with device passthrough, and since there are multiple virtual functions, the device can be shared between multiple guest OSs. Additionally, there is short-circuiting in that the virtual function can send the interrupt directly to the guest OS. 
+
+<!-- might be a new section -->
+Xen Paravirtualization introduces hypercalls that invoke the hypervisor. A process makes a system call, then OS makes a hypercall. Additionally, hypercalls open up batching. Batching improve performance by reducing the number of traps and privilege switching (from system calls). However, every system call needs to become a hypercall. This can break on an OS update. The OS itself also needs to be modified to allow for hypercalls.
+
+{{< subtext >}}
+    <!-- library OS contains policy (e.g., scheduling). exokernel is mechanism -->
+    To ease the development of device drivers, a light exokernel can sit on top of hardware, and library OSs sit above the exokernel. However, many modern OSs stay monolithic kernel because it would require an entire rewrite.
+{{< /subtext >}}
+
+<!-- Xen sends the signal through the event channel, not backend? -->
+Grant tables maps pages to "domains." This allows the sharing of pages. Domains are policies (the Xen hypervisor is the mechanism). Each domain has device drivers, specifically the frontend. The shared page contains buffers. Domain 0 is special because it contains the (shared, hardware specific) backend, which handles the buffers and goes to hardware. The backend receives the interrupt. Event channels between frontend and backend basically allows the backend to "interrupt" the frontend like how an I/O device interrupts the OS. The frontend then handles it with an upcall handler. The signal in the event channel denotes which handler to callback.
+
+Virtio device drivers install into guest OSs knowing they're in a VM. They serve a purpose that helps the overall host system. The frontend lives in the VM and it interacts with the virtqueue. This virtqueue is handled by the backend.

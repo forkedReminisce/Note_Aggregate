@@ -50,7 +50,7 @@ Sobel:
     \end{bmatrix}
 \]
 
-Noise in the image can muddle the gradient, so smoothen the image with a Gaussian kernel. However, the tradeoff is blur, making it hard to localize the exact location. Deriving the kernel then convoluting the image produces an equal result, but the Gaussian derivative is a lot like the Sobel filter, so just use Sobel as it's more efficient.
+Noise in the image can muddle the gradient, so smoothen the image with a Gaussian kernel. However, the tradeoff is blur, making it hard to localize the exact location. Deriving the Gaussian kernel removes noise without blurring. Since the Gaussian derivative is a lot like the Sobel filter, just use Sobel as it's more efficient.
 
 The second moment matrix \(M\) is defined as:
 \[
@@ -69,3 +69,28 @@ Since finding the eigenvectors and eigenvalues of \(M\) takes too long, we appro
 ## {{< heading "Blobs" >}}
 <!-- scales are dictated by the coefficient multiplied with the standard deviation -->
 The Laplacian of Gaussian (LoG) is the sum of the double gradients of Gaussian. LoG has ideal scales for each blob size. Therefore, convolve the image with several LoGs. LoG can be approximated with the Difference of Gaussians: \(G(x, y, k\sigma) - G(x, y, \sigma)\). A blob is a local maxima in scale-space—a pixel on a particular scale result that's larger than every other scale result at that same \((x, y)\) coordinate. 
+
+
+# {{< heading "Model Fitting">}}
+A model is like a function that maps to the data points. The simplest model is a line \(y = mx + b\). The objective function measures how well the model fits the data.
+
+Least-squares for line models. However, least-squares is quite sensitive to outliers. RANSAC tries to keep error low for as many data points as possible. It essentially continually runs least-squares on a data subset, finds the error, find how many points are below an error threshold, and save the line with the best number of points. In fact, RANSAC doesn't need to be a line, but the fit algorithm must reflect this—not necessarily least-squares. Often, after finding the best line, refit on all the inliers, not just the subset. RANSAC does have a chance of not finding the best number of inlines, but that is laughably unlikely with reasonable parameters. The subset size should be minimum to maximize selecting only inliners. Threshold is selected per dataset. RANSAC is also bad with too many outliers.
+
+
+
+# {{< heading "Stitching" >}}
+The image filtering that was covered changes the range of the image. Image warping changes the domain. Parameteric warps include translation, rotation, aspect (ratio), affine, perspective, and cylindrical. 
+- Scaling: multiply each \((x, y)\) by a scalar. In uniform scaling, each dimension is multiplied by the same scalar. Scaling matrix \(S\).
+- 2D rotation: rotation matrix R_\theta = cos -sin sin cos. 
+- Identity
+- Shear: 1 sh_x sh_y 1
+- Mirror
+- Affine: linear transformation with translation
+<!-- far away scenes can be treated as a plane because the depth between objects is relatively large compared to the distance between the camera and scene -->
+- Perspective (or homography): with homogeneous coordinates, the bottom row of the transformation matrix is not 0 0 1
+
+{{< subtext >}}
+    Some transformation matrices may need to use homogeneous coordinates to stay linear.
+
+    Transformation matrices can be combined via matrix multiplication. Remember, matrix multiplication is not commutative.
+{{< /subtext >}}

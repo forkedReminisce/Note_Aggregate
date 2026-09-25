@@ -32,6 +32,8 @@ Much of the work with LoG takes place in the first and second scales.
 
 SIFT descriptors assist LoG when scale and rotation is different. Essentially, rotate and set to common scale. Compute the gradient and build a histogram. The actual implementation is complicated.
 
+Homography has eight degrees of freedom despite having nine elements. Rotation has one degree of freedom via angle.
+
 
 # Math
 A point in the scene can be described as \((x, y, z)\), where \(z\) is the focal length—distance to the vanishing point (barrier). This point projects onto the image at \((\frac{fx}{z}, \frac{fy}{z})\), where \(f\) is the distance between the vanishing point and image.
