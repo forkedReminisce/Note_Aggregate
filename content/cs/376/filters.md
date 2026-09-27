@@ -72,25 +72,49 @@ The Laplacian of Gaussian (LoG) is the sum of the double gradients of Gaussian. 
 
 
 # {{< heading "Model Fitting">}}
-A model is like a function that maps to the data points. The simplest model is a line \(y = mx + b\). The objective function measures how well the model fits the data.
+RANSAC tries to find the best fit model through many trials. 
+1. Create a data subset
+2. Run fit algorithm (e.g., least-squares) on subset 
+3. Measure number of inlines—points below error threshold
+4. If number of inlines is highest so far, record the model as "best"
+5. Repeat for number of trials
+6. Rerun fit algorithm on inlines
 
-Least-squares for line models. However, least-squares is quite sensitive to outliers. RANSAC tries to keep error low for as many data points as possible. It essentially continually runs least-squares on a data subset, finds the error, find how many points are below an error threshold, and save the line with the best number of points. In fact, RANSAC doesn't need to be a line, but the fit algorithm must reflect this—not necessarily least-squares. Often, after finding the best line, refit on all the inliers, not just the subset. RANSAC does have a chance of not finding the best number of inlines, but that is laughably unlikely with reasonable parameters. The subset size should be minimum to maximize selecting only inliners. Threshold is selected per dataset. RANSAC is also bad with too many outliers.
+{{< subtext >}}
+    Subset size should be the minimum according to model (e.g., lines are size 2). This maximizes the chances of selecting only inlines.
+{{< /subtext >}}
+
+RANSAC does have a chance of failing, but that is laughably unlikely with reasonable parameters. However, too many outliers substantially increases the likelihood of failure.
 
 
 
 # {{< heading "Stitching" >}}
-The image filtering that was covered changes the range of the image. Image warping changes the domain. Parameteric warps include translation, rotation, aspect (ratio), affine, perspective, and cylindrical. 
-- Scaling: multiply each \((x, y)\) by a scalar. In uniform scaling, each dimension is multiplied by the same scalar. Scaling matrix \(S\).
-- 2D rotation: rotation matrix R_\theta = cos -sin sin cos. 
+- Scaling: multiply each \((x, y)\) by a scalar from the scaling matrix \(S\)
+- 2D rotation: 
+\[
+    R_\theta = \begin{bmatrix} 
+        \cos(\theta) & -\sin(\theta) \\
+        \sin(\theta) & \cos(\theta)
+    \end{bmatrix}
+\]
 - Identity
 - Shear: 1 sh_x sh_y 1
-- Mirror
+\[
+    \begin{bmatrix} 
+        1 & \mathrm{sh}_x \\
+        \mathrm{sh}_y & 1
+    \end{bmatrix}
+\]
+- Mirror: identity but make some \(1\)s negative as necessary
 - Affine: linear transformation with translation
-<!-- far away scenes can be treated as a plane because the depth between objects is relatively large compared to the distance between the camera and scene -->
-- Perspective (or homography): with homogeneous coordinates, the bottom row of the transformation matrix is not 0 0 1
+- Perspective (or homography): with homogeneous coordinates, the bottom row of the transformation matrix is not \([0 \hspace{1mu} 0 \hspace{1mu} 1]\)
 
 {{< subtext >}}
+    Uniform scaling is when each dimension is multiplied by the same scalar.
+
     Some transformation matrices may need to use homogeneous coordinates to stay linear.
 
-    Transformation matrices can be combined via matrix multiplication. Remember, matrix multiplication is not commutative.
+    Transformation matrices can be combined via matrix multiplication. This is known as matrix composition. Remember, matrix multiplication is not commutative.
 {{< /subtext >}}
+
+<!-- far away scenes can be treated as a plane because the depth between objects is relatively large compared to the distance between the camera and scene. can use homography to accomplish this -->
