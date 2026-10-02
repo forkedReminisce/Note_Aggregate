@@ -55,13 +55,30 @@ Device emulation is one approach on the VM. For the guest OS, the MMIO region is
 Alternatively, under device passthrough, the host OS hands off control of the device exclusively to one VM. This eliminates trapping, but the device can no longer be shared with other VMs. Interrupts are forwarded by the hypervisor. DMA writes to host physical addresses mapped from guest physical addresses. The IOMMU holds the translations in a data structure, and there is an IO TLB. 
 
 <!-- so a device has memory on the device itself on top of the MMIO on the hardware? -->
+<!-- interrupt demapping? remapping? -->
 These solutions are without specific hardware support. Single-Root I/O Virtualization basically unlocks sharing for device passthrough. A device manufacturer allows their device to partition its resources as necessary to create virtual functions. Its these virtual functions that the VM receives. The virtual function may also be able to short-circuit—send the interrupt directly to the guest OS.
 
 
-## {{< heading "Xen Paravirtualization>}}
+## {{< heading "Xen Paravirtualization" >}}
 Xen Paravirtualization brings many optimizations to I/O. First, there is the hypercall that the OS uses to invoke the hypervisor. Although the OS needs to be modified to support hypercalls, they do allow for batching. The main benefit of batching is that it reduces the number of traps.
 
 <!-- Xen sends the signal through the event channel, not backend? -->
 Each domain has the simple frontends for device drivers. Domain 0 specially contains the only backend that actually interacts with the hardware. Grant tables allow for pages to be shared between domains. These shared pages are used to transfer data between the frontend and backend. Since the backend receives the interrupt, event channels allows the frontend to also receive the interrupt. Based on the signal, the frontend calls a particular upcall handler.
 
 Virtio device drivers install into guest OSs knowing they're in a VM. They serve a purpose that helps the overall host system. The frontend lives in the VM and it interacts with the virtqueue. This virtqueue is handled by the backend.
+
+The hypervisor is kept as small as possible. Since domain 0 as to make hypercalls, the hypervisor still gets the final say. So if domain 0 gets compromised, it's not the end of the world.
+
+
+
+## {{< heading "GPU" >}}
+Direct assignment is just like device passthrough. When the GPU uses DMA or sends an interrupt, the Virtual Function I/O (VFIO) reroutes it to the correct VM. The VFIO is free to modify the IOMMU, interrupts, and page table. 
+
+Mediated passthrough is when the hypervisor handles control operations, but the VM is allowed to perform data operations without hypervisor influence. Control operations includes modifying the IOMMU and interrupts. The VM may only get access to a fraction of the cores on the GPU. The GPU has to be time-sliced for each VM for this fraction of the GPU.
+
+Something akin to SR-IOV is static spatial sharing of the GPU. Under NVIDIA Multi GPU (MIG), GPU manufacturers divide up GPU regions that each can be allocated to VMs. However, it's not possible to change the division configuration at a fine level. SR-IOV is alternatively possible on GPUs, and the VFIO will be necessary.
+
+When writing to the GPU's HBM, memory will have to be accessed. GPUs have page tables, and they have mappings from virtual physical addresses to host physical addresses.
+
+<!-- probably used when the OS expects a certain GPU -->
+The cycle is app, GPU instantion, GPU drivers, and the hardware GPU. Emulating the hardware is too difficult, so API remoting at the GPU instanution level is used. So when the VM makes a CUDA call, it is intercepted and transformed accordingly and sent to the GPU. This is slow but robust.

@@ -52,6 +52,7 @@ Sobel:
 
 Noise in the image can muddle the gradient, so smoothen the image with a Gaussian kernel. However, the tradeoff is blur, making it hard to localize the exact location. Deriving the Gaussian kernel removes noise without blurring. Since the Gaussian derivative is a lot like the Sobel filter, just use Sobel as it's more efficient.
 
+<!-- harris -->
 The second moment matrix \(M\) is defined as:
 \[
     \begin{bmatrix}
@@ -88,7 +89,7 @@ RANSAC does have a chance of failing, but that is laughably unlikely with reason
 
 
 
-# {{< heading "Stitching" >}}
+# {{< heading "Transformations" >}}
 - Scaling: multiply each \((x, y)\) by a scalar from the scaling matrix \(S\)
 - 2D rotation: 
 \[
@@ -98,7 +99,7 @@ RANSAC does have a chance of failing, but that is laughably unlikely with reason
     \end{bmatrix}
 \]
 - Identity
-- Shear: 1 sh_x sh_y 1
+- Shear: 
 \[
     \begin{bmatrix} 
         1 & \mathrm{sh}_x \\
@@ -118,3 +119,19 @@ RANSAC does have a chance of failing, but that is laughably unlikely with reason
 {{< /subtext >}}
 
 <!-- far away scenes can be treated as a plane because the depth between objects is relatively large compared to the distance between the camera and scene. can use homography to accomplish this -->
+Homographies are particularly powerful because they can relate two images of arbitrary views. 
+
+A point on an image can be related to a point on another image by multiplying the vector by a matrix \(M\) and adding a translation \(t\)—an affine transformation. The objective function is the squared distance with the actual new coordinate. Express this as only a matrix multiplication. if the data matrix has too many entries, consider using a fit algorithm.
+
+<!-- homography is with homogenous coordinates -->
+Solving for a homography requires a data matrix of nine columns:
+\[
+    0^T & -p_i^T & y`_1p_i^T \\
+    p_i^T & 0^T & -x`_ip_i^T
+\]
+
+The point matrix is multiplied by the homography vector. \(\mathrm{argmin} ||Ah||^2\), where \(h\) is a row of \(H\) and is non-zero. The eigenvector of \(A^TA\) with the smallest eigenvalue will help with non-zero. It is also an algebraic error, but a geometric error is desired and it is really ugly. It's possible to use RANSAC to find the homography.
+
+Forward warping maps the original pixel to a location on the transformed image. Sometimes, an original pixel cannot map to an exact new location. Splatting will give the value to the neighboring pixels. Inverse warping maps from the new image to the old image. Similarly, it may need to pull values from neighboring pixels of the old image.
+
+Mosaicing blends multiple images together. There might be regions where only one image contributes, and there might be regions where multiple contribute. 
