@@ -32,11 +32,23 @@ Much of the work with LoG takes place in the first and second scales.
 
 SIFT descriptors assist LoG when scale and rotation is different. Essentially, rotate and set to common scale. Compute the gradient and build a histogram. The actual implementation is complicated. These are used to match features between images.
 
-If there are less unknowns than datapoints, least-squares will be overdetermined. If there are more unknowns, underdetermined. When it's undetermined, regularization (to the objective function) is necessary to prefer some models over others. Typically, it's preferred that the model is small. There's also a trade-off that applies to the regularization that may either prioritize accuracy or the preference. \((X^TX + \lambdaI)^{-1} X^Ty\). Choosing trade-off by testing on a validation set of data in a trial-and-error way. 
-
 Filtering modifies range. Warping modifies domain.
 
 Homography has eight degrees of freedom despite having nine elements. Rotation has one degree of freedom via angle.
+
+1. Find corners/blobs
+2. Describe regions near features (SIFT)
+3. Match features based on region
+4. Find homography using RANSAC
+5. Inverse warp
+
+
+
+# Machine Learning
+If there are less unknowns than equations, training is overdetermined. If there are more unknowns, underdetermined. 
+
+Regularized fixed squares is defined as \((X^TX + \lambdaI)^{-1} X^Ty\). \(\lambda\) balances the influence of loss and regularization. Both these should be small, and picking the right \(\lambda\) depends on an additional validation set for the purposes of trial-and-error.
+
 
 
 # Math

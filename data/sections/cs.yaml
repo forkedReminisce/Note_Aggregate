@@ -33,6 +33,7 @@
   pages:
     - cameras
     - filters
+    - ml
   
   course: CS 360V
   pages: 

@@ -9,18 +9,38 @@ params:
 
 
 
-<!-- input vector aka feature vector -->
-Machine learning is about transforming an input vector into a more desirable output vector using a transition function. The setting could be unsupervised (just data) or supervised (data and labels). Likewise, the output could be discrete or continuous. Some applications based on this are:
+The input vector (A.K.A. feature vector or data point) is transformed into a label—the output vector. Labels could be given (supervised) or not (unsupervised). Likewise, the output could be discrete or continuous. Some applications based on this are:
 - Supervised & Discrete: classification or categorization
-- Supervised & Continuous: regression—inferences
+- Supervised & Continuous: regression—infer attributes of the depicted
 - Unsupervised & Discrete: clustering—relate a set of images and create categories
 - Unsupervised & Continuous: dimensionality reduction—map dimensions to details of the image
 
-<!-- finding a linear model is known as linear regression -->
-<!-- x^TX is rank deficient, meaning that there is no inverse (underdetermined) -->
-Model fitting may also be known as training or learning. In any case, the goal is to find the model that minimizes error. Inference or testing then uses the model given any input. However, separated testing is important or else there will be overfitting—fits too precisely to the data. Additionally, have a separate data set for testing in addition to the training set. That way, the ML model doesn't see the data and can be evaluated in a truthful environment. 
+Model fitting may also be known as training or learning. Inference or testing then "deploys" the model. There is the notion of a mutually exclusive training set and test set to best evaluate the model.
 
-Memorization is a terrible strategy of classification because any slight deviation will throw off the model. The real easiest form computes the distance between the training set and the new input image. The image gets categorized in the same category as the nearest neighbor. K-nearest neighbors; figure out K from the validation set. 
+<!-- features are columns -->
+A linear regression is a method of training when given any number of variables (features). The model is defined as:
 
-<!-- there can be regularization -->
-Alternatively, a linear model may be used for classification. Each category has a weight vector and the input feature vector is multiplied with it. Whichever product is largest, the image gets classified as. These weight vectors can be transposed and stacked vertically into a matrix \(W\). The resultant scores can be converted into probabilities (softmax).
+\[
+    w* = (X^T X)^{-1} X^T y
+\]
+
+{{< subtext >}}
+    There is always an extra feature for intercept and bias.
+{{< /subtext >}}
+
+Sometimes, \(X^T X\) is rank deficient, meaning that the inverse cannot be taken and, more importantly, underdetermined—infinite solutions. Regularized fixed squares solves this by preferring some solutions over others.
+
+
+
+# {{< heading "Classification" >}}
+Memorization is a terrible strategy of classification because any slight deviation will throw off the model. The real easiest form computes the distance between the training set and the new input image. The image gets categorized in the same category as the nearest neighbor. 
+
+{{< subtext >}}
+    K-Nearest Neighbor is a better algorithm that places the new image in the category that appears the most amongst its K neighbors. An additional validation set can be used to figure out the value of K.
+{{< /subtext >}}
+
+Alternatively, a linear model may be used for classification. Each category has a weight vector and the input vector is multiplied with it. Whichever product is largest, the image gets classified as. These weight vectors can be transposed and stacked vertically into a matrix \(W\). The resultant scores can be converted into probabilities with softmax.
+
+{{< subtext >}}
+    Regularization can be applied.
+{{< /subtext >}}

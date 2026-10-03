@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Types Of Virtualization
 
 params: 
-    desc: 
+    desc: Throughout history, there has been a number of approaches to virtualization. Some have persisted to this day, but they serve specialized purposes.
     author: Andrew Nguyen 
 ---
 

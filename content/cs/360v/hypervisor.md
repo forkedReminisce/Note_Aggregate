@@ -56,7 +56,7 @@ Alternatively, under device passthrough, the host OS hands off control of the de
 
 <!-- so a device has memory on the device itself on top of the MMIO on the hardware? -->
 <!-- interrupt demapping? remapping? -->
-These solutions are without specific hardware support. Single-Root I/O Virtualization basically unlocks sharing for device passthrough. A device manufacturer allows their device to partition its resources as necessary to create virtual functions. Its these virtual functions that the VM receives. The virtual function may also be able to short-circuit—send the interrupt directly to the guest OS.
+These solutions are without specific hardware support. Single-Root I/O Virtualization (SR-IOV) basically unlocks sharing for device passthrough. A device manufacturer allows their device to partition its resources as necessary to create virtual functions. Its these virtual functions that the VM receives. The virtual function may also be able to short-circuit—send the interrupt directly to the guest OS.
 
 
 ## {{< heading "Xen Paravirtualization" >}}
@@ -74,11 +74,6 @@ The hypervisor is kept as small as possible. Since domain 0 as to make hypercall
 ## {{< heading "GPU" >}}
 Direct assignment is just like device passthrough. When the GPU uses DMA or sends an interrupt, the Virtual Function I/O (VFIO) reroutes it to the correct VM. The VFIO is free to modify the IOMMU, interrupts, and page table. 
 
-Mediated passthrough is when the hypervisor handles control operations, but the VM is allowed to perform data operations without hypervisor influence. Control operations includes modifying the IOMMU and interrupts. The VM may only get access to a fraction of the cores on the GPU. The GPU has to be time-sliced for each VM for this fraction of the GPU.
+Mediated passthrough is when the hypervisor handles the IOMMU and interrupts. Additionally, only a fraction of the cores are made available to the VM and it's time-sliced.
 
-Something akin to SR-IOV is static spatial sharing of the GPU. Under NVIDIA Multi GPU (MIG), GPU manufacturers divide up GPU regions that each can be allocated to VMs. However, it's not possible to change the division configuration at a fine level. SR-IOV is alternatively possible on GPUs, and the VFIO will be necessary.
-
-When writing to the GPU's HBM, memory will have to be accessed. GPUs have page tables, and they have mappings from virtual physical addresses to host physical addresses.
-
-<!-- probably used when the OS expects a certain GPU -->
-The cycle is app, GPU instantion, GPU drivers, and the hardware GPU. Emulating the hardware is too difficult, so API remoting at the GPU instanution level is used. So when the VM makes a CUDA call, it is intercepted and transformed accordingly and sent to the GPU. This is slow but robust.
+Something akin to SR-IOV is static spatial sharing of the GPU. Under NVIDIA Multi-GPU (MIG), the GPU is divided up into GPU regions that each can be allocated to VMs. However, it's not possible to change the division configuration at a fine level. That is not to say that SR-IOV is possible, though, and the VFIO will be necessary.
