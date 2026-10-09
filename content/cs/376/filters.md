@@ -29,7 +29,7 @@ If we already know a feature, it's possible to find multiple of another feature.
 
 
 ## {{< heading "Edges" >}}
-Gradients are essentially partial derivatives of the image. Convoluting the gradient with specific kernels produce \(I_x\) and \(I_y\). These results highlight the edges perpendicular to the x-axis or y-axis respectively. Magnitude can be calculated with \(\sqrt{I_x^2 + I_y^2}). In any case, these edge-detecting kernels include (for producing \(I_x\)):
+Gradients are essentially partial derivatives of the image. Convoluting the gradient with specific kernels produce \(I_x\) and \(I_y\). These results highlight the edges perpendicular to the x-axis or y-axis respectively. Magnitude can be calculated with \(\sqrt{I_x^2 + I_y^2}\). In any case, these edge-detecting kernels include (for producing \(I_x\)):
 
 <!-- vertical version positive to negative, not negative to positive -->
 Prewitt: 
@@ -108,7 +108,7 @@ RANSAC does have a chance of failing, but that is laughably unlikely with reason
 \]
 - Mirror: identity but make some \(1\)s negative as necessary
 - Affine: linear transformation with translation
-- Perspective (or homography): with homogeneous coordinates, the bottom row of the transformation matrix is not \([0 \hspace{1mu} 0 \hspace{1mu} 1]\)
+- Perspective (or homography): with homogeneous coordinates, the bottom row of the transformation matrix is not \([0 \hspace{1sp} 0 \hspace{1sp} 1]\)
 
 {{< subtext >}}
     Uniform scaling is when each dimension is multiplied by the same scalar.

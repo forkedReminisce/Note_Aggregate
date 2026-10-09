@@ -77,3 +77,21 @@ Direct assignment is just like device passthrough. When the GPU uses DMA or send
 Mediated passthrough is when the hypervisor handles the IOMMU and interrupts. Additionally, only a fraction of the cores are made available to the VM and it's time-sliced.
 
 Something akin to SR-IOV is static spatial sharing of the GPU. Under NVIDIA Multi-GPU (MIG), the GPU is divided up into GPU regions that each can be allocated to VMs. However, it's not possible to change the division configuration at a fine level. That is not to say that SR-IOV is possible, though, and the VFIO will be necessary.
+
+
+
+## {{< heading "Storage" >}}
+The VM has a file system of its own. When a file needs to be accessed, it will calculate the address like normal (as though it were the host OS). However, this address needs to be translated to the host address. For both the VM and the hypervisor, the file needs to be found, then the address can be created.
+
+<!-- doing the calculations were a drop in the bucket compared to actually reading the HDD? -->
+This used to be able to be ignored because HDDs were slow, but SSDs are fast now.
+
+When modifying the file system, journaling is necessary because these operations are atomic. There must be a commit before actually touching the file system. In I/O amplification, there can be double journaling because the VM will journal and the hypervisor will journal this journal. The hypervisor also journals the data the VM has written after the commit. Then the hypervisor has to write all the journal data to the file system.
+
+Under copy on write file systems, only the metadata (i.e., inodes) is copied. When a block is attempted to be written to, only that block is copied and the respective pointer in the inode is modified. Most VMs have copy on write file systems.
+
+The virtual device storage is backed by the host machine. The hypervisor can provision the entire thing, but this can negatively impact performance. Thin provisioning only allocates a number of blocks but not the entire file. The file system must support holes, which means there can be unallocated gaps between allocated blocks.
+
+Snapshots allow the file to return to the state at the time the snapshot was taken. This really relies on copy on write so that the entire file(s) are not copied, but just their metadata. When the file is modified, the original metadata is modified, not the copied metadata of the snapshot. But since the data is not copied, snapshots do not serve as a great backup.
+
+Taking a snapshot of the entire VM requires copying CPU state, memory, device, and storage state. So VMCS, registers, and interrupts. For copying memory, there is the EPT. The VM is also freezed during a snapshot. The EPT is write protected, and if the guest OS tries to access a page, the VM is frozen. This is all used for migration.

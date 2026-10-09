@@ -29,13 +29,14 @@
     - cuda
     - mpi
 
-  course: CS 376
+- course: CS 376
   pages:
     - cameras
     - filters
     - ml
   
-  course: CS 360V
+- course: CS 360V
   pages: 
-    - intro
+    - types
     - hypervisor
+    - security

@@ -44,3 +44,22 @@ Alternatively, a linear model may be used for classification. Each category has 
 {{< subtext >}}
     Regularization can be applied.
 {{< /subtext >}}
+
+<!-- optimization -->
+One way to find the minimum function evaluation is grid search—try every coordinate. Obviously this will blow up with many dimensions, so random search executes for a number of iterations with random samples. But since there can be so many dimensions, failure is more likely than RANSAC.
+
+<!-- L(w) is loss of w. gradient of L(w) -->
+<!-- stochastic and minibatch -->
+Since gradients are equivalent to derivatives, it's possible to move in the opposite direction of the gradient. The step size (or learning rate) is small, and each step happens for a predefined number of iterations. Too large a learning rate leads to divergence, and too little falls short. There's also a fear of oscillation. Either exponentially decrease the learning rate per couple steps or average past gradients (momentum), exponentially decaying the influence of earlier gradients. 
+
+When there are multiple minima, gradient descent finds just one. Which one depends on initialization. However, many functions are convex, meaning there is only one global minima.
+
+Optimize \(w\) with minibatch stochastic gradient descent (SGD) to maximize training accuracy. Optimize \(\lambda\) with grid or random search to maximize validation accuracy.
+
+One way of thinking of derivation is recursively abstracting terms, taking the partial derivative of each, and multiply them together. If each "building block" were to have a forward and backward function, the forward would be evaluating \(f(x)\) and the backward would be \(af`(x)\). This can be used for gradient descent by going forward and backward (at a block, the forward input serves the \(x\) in the backward \(f`(x)\)). The result is multiplied by the step size and added to the current value \(w\). At the end, the value is close to minimizing the loss function (i.e., found the value that makes the loss function 0)ate leads to divergence, and too little falls short. There's also a fear of oscillation. Either exponentially decrease the learning rate per couple steps or average past gradients (momentum), exponentially decaying the influence of earlier gradients. 
+
+When there are multiple minima, gradient descent finds just one. Which one depends on initialization. However, many functions are convex, meaning there is only one global minima.
+
+Optimize \(w\) with minibatch stochastic gradient descent (SGD) to maximize training accuracy. Optimize \(\lambda\) with grid or random search to maximize validation accuracy.
+
+One way of thinking of derivation is recursively abstracting terms, taking the partial derivative of each, and multiply them together. If each "building block" were to have a forward and backward function, the forward would be evaluating \(f(x)\) and the backward would be \(af`(x)\). This can be used for gradient descent by going forward and backward (at a block, the forward input serves the \(x\) in the backward \(f`(x)\)). The result is multiplied by the step size and added to the current value \(w\). At the end, the value is close to minimizing the loss function (i.e., found the value that makes the loss function 0). If two backward inputs converge, the outputs are summed. Not every term needs to be broken up; some derivatives are so well known that it's better to keep some terms together.

@@ -49,6 +49,12 @@ If there are less unknowns than equations, training is overdetermined. If there 
 
 Regularized fixed squares is defined as \((X^TX + \lambdaI)^{-1} X^Ty\). \(\lambda\) balances the influence of loss and regularization. Both these should be small, and picking the right \(\lambda\) depends on an additional validation set for the purposes of trial-and-error.
 
+Finding the gradient numerically is slow.
+
+Underfitting is when a line with not enough parameters is tried to fit the points (e.g, linear to fit something that looks like a parabola). Overfitting has too many parameters. Sure, the points are hit, but in between each point, the estimation is effectively useless. Overfitting has high variance—removing one point changes the model dramatically.
+
+Greater regularization creates small coefficients, ergo, less complex model. This can allow for a lot of parameters without overfitting effects (low variance). Overfitting is fine on training data, but not for validation data.
+
 
 
 # Math
