@@ -80,18 +80,16 @@ Something akin to SR-IOV is static spatial sharing of the GPU. Under NVIDIA Mult
 
 
 
-## {{< heading "Storage" >}}
-The VM has a file system of its own. When a file needs to be accessed, it will calculate the address like normal (as though it were the host OS). However, this address needs to be translated to the host address. For both the VM and the hypervisor, the file needs to be found, then the address can be created.
+# {{< heading "File Systems" >}}
+When the VM accesses a file, the address it generates needs to be translated for the host machine. 
 
-<!-- doing the calculations were a drop in the bucket compared to actually reading the HDD? -->
-This used to be able to be ignored because HDDs were slow, but SSDs are fast now.
+Modifying metadata and/or data requires atomicity and, therefore, journaling. However, a case of I/O amplification can occur through something known as double journaling. This is when the VM journals its changes, commits, then actually makes the changes. The hypervisor then journals the journal then writes the VM's journal and its modifications.
 
-When modifying the file system, journaling is necessary because these operations are atomic. There must be a commit before actually touching the file system. In I/O amplification, there can be double journaling because the VM will journal and the hypervisor will journal this journal. The hypervisor also journals the data the VM has written after the commit. Then the hypervisor has to write all the journal data to the file system.
+<!-- files copied from host VM? -->
+Most VMs have copy-on-write file systems. When a file is copied, only the metadata (e.g., inodes) is copied. When a data block is written to, a copy of the block is made and the respective pointer in the copied metadata is changed. 
 
-Under copy on write file systems, only the metadata (i.e., inodes) is copied. When a block is attempted to be written to, only that block is copied and the respective pointer in the inode is modified. Most VMs have copy on write file systems.
+Snapshots saves the file state for the purposes of restoring it at a later time. This relies on copy-on-write. The copied metadata replaces the original metadata, and the original metadata serves as the snapshot. 
 
-The virtual device storage is backed by the host machine. The hypervisor can provision the entire thing, but this can negatively impact performance. Thin provisioning only allocates a number of blocks but not the entire file. The file system must support holes, which means there can be unallocated gaps between allocated blocks.
+Taking a snapshot of the entire VM requires copying CPU state, memory, device, and storage state. It is desirable for the VM to be frozen during a snapshot, so the EPT is write-protected. If the VM tries to access a page, the VM is frozen. Snapshots of the VM is great for migration.
 
-Snapshots allow the file to return to the state at the time the snapshot was taken. This really relies on copy on write so that the entire file(s) are not copied, but just their metadata. When the file is modified, the original metadata is modified, not the copied metadata of the snapshot. But since the data is not copied, snapshots do not serve as a great backup.
-
-Taking a snapshot of the entire VM requires copying CPU state, memory, device, and storage state. So VMCS, registers, and interrupts. For copying memory, there is the EPT. The VM is also freezed during a snapshot. The EPT is write protected, and if the guest OS tries to access a page, the VM is frozen. This is all used for migration.
+Virtual storage is backed by the host machine's storage. The hypervisor can provision the entire amount the VM wants, but that's slow. Instead, thin provisioning allocates a fraction of the whole amount. The VM's file system must support holes—unallocated gaps between allocated space.

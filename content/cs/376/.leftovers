@@ -55,6 +55,8 @@ Underfitting is when a line with not enough parameters is tried to fit the point
 
 Greater regularization creates small coefficients, ergo, less complex model. This can allow for a lot of parameters without overfitting effects (low variance). Overfitting is fine on training data, but not for validation data.
 
+Optimize \(w\) with minibatch stochastic gradient descent (SGD) to maximize training accuracy. Optimize \(\lambda\) with grid or random search to maximize validation accuracy.
+
 
 
 # Math
