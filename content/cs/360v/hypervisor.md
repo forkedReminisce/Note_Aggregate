@@ -93,3 +93,34 @@ Snapshots saves the file state for the purposes of restoring it at a later time.
 Taking a snapshot of the entire VM requires copying CPU state, memory, device, and storage state. It is desirable for the VM to be frozen during a snapshot, so the EPT is write-protected. If the VM tries to access a page, the VM is frozen. Snapshots of the VM is great for migration.
 
 Virtual storage is backed by the host machine's storage. The hypervisor can provision the entire amount the VM wants, but that's slow. Instead, thin provisioning allocates a fraction of the whole amount. The VM's file system must support holes—unallocated gaps between allocated space.
+
+
+
+# {{< heading "Type 2" >}}
+<!-- QEMU is the hypervisor -->
+Type 1 hypervisors have the hypervisor directly interact with the hardware. Type 2 hypervisors have to go through the host OS. QEMU just sets up the VM.
+
+<!-- only the part that is needed from QEMU makes up the KVM. this is good for development and probably security -->
+QEMU runs the Kernel Virtual Machine (KVM), which is a kernel module. KVM is on ring 0 in root mode. When the VM—lives in ring 3—makes a system call, the KVM needs to be invoked for the VM to transition to non-root ring 0. An optimization is to not make KVM switch to QEMU, and instead just directly switch to the VM. The KVM facilitates hardware-assisted virtualization (e.g., setting up the VMCS).
+
+<!-- is double memory allocated, one for VM and one for host? lazy syncing -->
+QEMU allocates memory for the VM. Therefore, the EPT is host virtual address to host physical address. The host virtual address is QEMU's. On startup, the VM's memory needs to be filled with necessary information for startup by QEMU.
+
+Naively, when the VM wants to interact with a device, it needs to go to the KVM. The KVM goes to QEMU, who goes to the device driver, which finally interacts with hardware. By installing the virtio device driver on the VM, the virtqueue will gain an entry that the device driver dequeues from. Doorbell: the VM has a event register. When it fills it, the data is sent to the KVM. The KVM makes the request to the device driver then returns control to the VM.
+
+Amazon developed a type 2 hypervisor can be thought of as a substitute for QEMU. It's called Firecracker. This allows them to specialize to their specific purposes. This also allows them to create a mini virtual machine, where they take out all the fluff . It also minimizes the memory footprint.
+
+
+
+# {{< heading "Nested Virtualization" >}}
+Nested virtualization is when there is another hypervisor on top of the current (L0) hypervisor. This L1 hypervisor manages L2 guest OS's; there are L1 guest VMs on top of the L0 hypervisor. These (unmodified) hypervisors should run as though they're the L0 hypervisor taking care of just guest VMs. 
+
+<!-- why can't L0 do work? does VMCS lose it, so it requires L1 to make the request for L0 to understand? -->
+Each component has a separate VMCS for the hypervisors down the layers. This leads to a component having multiple VMCSs, and that's the essence of VMCS Shadowing. This is necessary for hardware to use the VMCS. When there are multiple layers of hypervisors, higher levels will go directly to the L0 hypervisor. L0 can't do any work, so it returns to L1, and it continues up the stack. When modifying a higher level VMCS, hardware can directly edit the shadow VMCS (realistically, the desired action by the higher level hypervisor).
+
+<!-- CR3 points to guest page table??? -->
+Regarding memory, the hypervisor the guest VM runs on top of uses shadow page tables. The hypervisors below use EPT. This is shadow on extended page tables. All these extended page tables are a pain, so instead merge them to map the VM's physical address directly to the L0 physical address. EPT points to this merged page table. This optimization is known as mutli-dimensional paging, and it's more performant because the guest page table gets modified much more than the EPTs. The individual EPTs are made read-only.
+
+{{< subtext >}}
+    The TLB contains the virtual address of the guest VM to L0 physical address.
+{{< /subtext >}}

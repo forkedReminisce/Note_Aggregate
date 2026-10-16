@@ -25,6 +25,8 @@ GPUs' high bandwidth memory (HBM) does have page tables that can map from VPA to
 <!-- probably when the OS expects a certain GPU -->
 The cycle is app, GPU instantion, GPU drivers, and the hardware GPU. Emulating the hardware is too difficult, so API remoting at the GPU instanution level is used. So when the VM makes a CUDA call, it is intercepted and transformed accordingly and sent to the GPU. This is slow but robust.
 
+The VM doesn't handle errors, but rather the KVM. 
+
 
 
 # Isolation

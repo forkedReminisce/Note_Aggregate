@@ -58,6 +58,8 @@ Since gradients are like derivatives, maybe move against the gradient. This is t
     When there are multiple minima, gradient descent finds just one. Which one depends on initialization. However, many functions are convex, meaning there is only one global minima anyway.
 {{< /subtext >}}
 
+<!-- backpropagation -->
+<!-- step size is negative (traveling against the gradient) -->
 It's possible to just derive \(L(w)\) instead. If each term is recursively decomposed and turned into a bidirectional function, forward would be \(x \to f(x)\) and backward \(y \to yf`(x)\). For optimization, go forward with \(w_i\) then start backward with \(1\). To get \(w_{i+1}\), subtract the final backward result times a step size from \(w_i\). When there are multiple forward inputs, the backward will send \(y\) times the partial derivative with respect to that input. When there are multiple backward inputs, they sum. 
 
 {{< subtext >}}
