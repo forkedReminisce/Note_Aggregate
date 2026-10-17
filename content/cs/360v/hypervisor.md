@@ -96,31 +96,30 @@ Virtual storage is backed by the host machine's storage. The hypervisor can prov
 
 
 
-# {{< heading "Type 2" >}}
-<!-- QEMU is the hypervisor -->
-Type 1 hypervisors have the hypervisor directly interact with the hardware. Type 2 hypervisors have to go through the host OS. QEMU just sets up the VM.
+# {{< heading "QEMU" >}}
+Type 1 hypervisors have the hypervisor directly interact with the hardware. Type 2 hypervisors have the host OS in the way, and it must go through the host OS. QEMU is a type 2 hypervisor.
 
-<!-- only the part that is needed from QEMU makes up the KVM. this is good for development and probably security -->
-QEMU runs the Kernel Virtual Machine (KVM), which is a kernel module. KVM is on ring 0 in root mode. When the VM—lives in ring 3—makes a system call, the KVM needs to be invoked for the VM to transition to non-root ring 0. An optimization is to not make KVM switch to QEMU, and instead just directly switch to the VM. The KVM facilitates hardware-assisted virtualization (e.g., setting up the VMCS).
+QEMU delegates a lot of the work to the Kernel Virtual Machine (KVM). The KVM is on root ring 0, and the VM lives in ring 3. When the VM makes a system call, the KVM switches it to non-root ring 0. The KVM also facilitates hardware-assisted virtualization (e.g., setting up the VMCS).
 
-<!-- is double memory allocated, one for VM and one for host? lazy syncing -->
-QEMU allocates memory for the VM. Therefore, the EPT is host virtual address to host physical address. The host virtual address is QEMU's. On startup, the VM's memory needs to be filled with necessary information for startup by QEMU.
+Since QEMU allocates the memory for the VM, the EPT is host virtual address to host physical address. On startup, the VM's memory needs to be filled with necessary information for startup by QEMU.
 
-Naively, when the VM wants to interact with a device, it needs to go to the KVM. The KVM goes to QEMU, who goes to the device driver, which finally interacts with hardware. By installing the virtio device driver on the VM, the virtqueue will gain an entry that the device driver dequeues from. Doorbell: the VM has a event register. When it fills it, the data is sent to the KVM. The KVM makes the request to the device driver then returns control to the VM.
+<!-- event register is part of the doorbell idea -->
+Without optimization, when the VM wants to interact with the device, the request must go through the KVM, QEMU, device driver, then finally hardware. Instead, if the virtio device driver gets installed on the VM, requests will get enqueued onto virtqueue that the device driver dequeues from. The VM also has an event register that, when filled, is sent to the KVM. The KVM makes the request to the device driver then returns control to the VM.
 
-Amazon developed a type 2 hypervisor can be thought of as a substitute for QEMU. It's called Firecracker. This allows them to specialize to their specific purposes. This also allows them to create a mini virtual machine, where they take out all the fluff . It also minimizes the memory footprint.
+Amazon developed a type 2 hypervisor can be thought of as a substitute for QEMU called Firecracker. By redeveloping the wheel, they can specialize to their specific purposes. This also allows them to create a mini virtual machine, where they take out all the fluff, and minimize the memory footprint.
 
 
 
 # {{< heading "Nested Virtualization" >}}
-Nested virtualization is when there is another hypervisor on top of the current (L0) hypervisor. This L1 hypervisor manages L2 guest OS's; there are L1 guest VMs on top of the L0 hypervisor. These (unmodified) hypervisors should run as though they're the L0 hypervisor taking care of just guest VMs. 
+Nested virtualization is when there are hypervisors on top of hypervisors. The hypervisor closest to hardware is the L0 hypervisor, and what might sit above it are L1 hypervisors and guest OS's.
 
-<!-- why can't L0 do work? does VMCS lose it, so it requires L1 to make the request for L0 to understand? -->
-Each component has a separate VMCS for the hypervisors down the layers. This leads to a component having multiple VMCSs, and that's the essence of VMCS Shadowing. This is necessary for hardware to use the VMCS. When there are multiple layers of hypervisors, higher levels will go directly to the L0 hypervisor. L0 can't do any work, so it returns to L1, and it continues up the stack. When modifying a higher level VMCS, hardware can directly edit the shadow VMCS (realistically, the desired action by the higher level hypervisor).
+When a higher level hypervisor tries to operate on the VMCS of its hypervisors and VMs, it will have to trap to the L0 hypervisor. This trap can be eliminated with VMCS shadowing, where each VMCS of the higher levels is copied at L0. Therefore, when the higher level hypervisor does something with its VMCS, hardware actually performs it on L0's copy of it. 
 
 <!-- CR3 points to guest page table??? -->
-Regarding memory, the hypervisor the guest VM runs on top of uses shadow page tables. The hypervisors below use EPT. This is shadow on extended page tables. All these extended page tables are a pain, so instead merge them to map the VM's physical address directly to the L0 physical address. EPT points to this merged page table. This optimization is known as mutli-dimensional paging, and it's more performant because the guest page table gets modified much more than the EPTs. The individual EPTs are made read-only.
+Under shadow on extended page tables, the hypervisor that the VM runs on top of uses shadow page tables and the hypervisors below use EPT. If these EPTs are merged to map the VM's physical address to L0's physical address, it is multi-dimensional paging. The intermediate EPTs still exist, but are now read-only.
 
 {{< subtext >}}
-    The TLB contains the virtual address of the guest VM to L0 physical address.
+    Under shadow on extended page tables, the TLB maps the VM's virtual addresses to L0's physical addresses.
+
+    `EPT` points to the merged EPT.
 {{< /subtext >}}

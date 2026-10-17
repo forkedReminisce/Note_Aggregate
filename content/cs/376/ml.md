@@ -65,3 +65,20 @@ It's possible to just derive \(L(w)\) instead. If each term is recursively decom
 {{< subtext >}}
     Sometimes, it's better not to completely decompose part of an expression. It might be able to simplify into one function instead of many.
 {{< /subtext >}}
+
+
+
+# {{< heading "Parameters" >}}
+<!-- optimization is applied to the parameters values -->
+The number of parameters a fully connected network (FC) has is the sum of \(\mathrm{inputs per weight} \times \mathrm{weights}\) of each layer *plus* the total amount of biases—number of neurons after the first layer. This gets nasty really quickly, so a convolutional neural network (CNN) shrinks the space by averaging. The convolution operation here is analogous to cross-correlation in image processing.
+
+<!-- or is parameters filter area * number of filters * number of filters + number of filters -->
+Each neuron produces a separate output that is stacked in the third dimension. Assuming a square input, the side length of one of these outputs would be \(\frac{\mathrm{input side length} - \mathrm{filter side length}}{\mathrm{stride}} + 1). The number of parameters is \(\mathrm{filter side length} \times \mathrm{filter side length} \times \mathrm{input channels} \times \mathrm{neurons} + \mathrm{neurons}\). The receptive field is the *recursive* area of input cells that one output cell covers. Therefore, chaining convolutions with smaller filters to produce a receptive field equal to a bigger filter would have less parameters than just using that big filter.
+
+{{< subtext >}}
+    Stride is how much the filter slides over by.
+{{< /subtext >}}
+
+A pool is another type of layer that pairs really well with convolution. Functionally, it is just like convolution, but it has no neurons. Instead, it operates one channel at a time, and the number of output channels is equal to the input channels. Pools have zero parameters.
+
+The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. 

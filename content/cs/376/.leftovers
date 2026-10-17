@@ -57,16 +57,9 @@ Greater regularization creates small coefficients, ergo, less complex model. Thi
 
 Optimize \(w\) with minibatch stochastic gradient descent (SGD) to maximize training accuracy. Optimize \(\lambda\) with grid or random search to maximize validation accuracy.
 
-The number of parameters a network has is the sum of weights and biases. Each weight has a number of inputs, and each weight after the first layer counts as a bias. 
-
-<!-- number of channels determined by the number of neurons? -->
-Neural networks explode the number of parameters, so convnet reduces it by operating on the original image shape (think of filtering) instead of a vector. 2-D, the output is smaller, but it adds a bunch of channels (3-D). Stride is how much to slide by. 
-
-POOL reduces spatial space and the number of parameters (0 parameters).
-
-The size of one dimension of the output is \(\frac{total size - filter size}{stride} + 1\). The number of parameters is \((area of filter \times number of input channels) \times number of filters + number of filters\). The number of parameters for the linear layer is \(input size \times number of neurons + number of biases\). All of this forms a convolution network.
-
 Receptive field is the area an output pixel uses as parameters. 
+
+Alexnet has so many parameters from the fully connected layers at the end.
 
 
 
