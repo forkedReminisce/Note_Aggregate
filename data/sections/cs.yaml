@@ -32,7 +32,7 @@
 - course: CS 376
   pages:
     - cameras
-    - filters
+    - stitching
     - ml
   
 - course: CS 360V
@@ -40,3 +40,4 @@
     - types
     - hypervisor
     - security
+    - container

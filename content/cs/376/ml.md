@@ -45,6 +45,8 @@ Alternatively, a linear model may be used for classification. Each category has 
     Regularization can be applied.
 {{< /subtext >}}
 
+Augmentation is the strategy of applying transformations to images of the training set and include them in the training set. The model should still be able to properly classify the image. 
+
 
 
 # {{< heading "Optimization" >}}
@@ -58,7 +60,7 @@ Since gradients are like derivatives, maybe move against the gradient. This is t
     When there are multiple minima, gradient descent finds just one. Which one depends on initialization. However, many functions are convex, meaning there is only one global minima anyway.
 {{< /subtext >}}
 
-<!-- backpropagation -->
+<!-- computational graph -->
 <!-- step size is negative (traveling against the gradient) -->
 It's possible to just derive \(L(w)\) instead. If each term is recursively decomposed and turned into a bidirectional function, forward would be \(x \to f(x)\) and backward \(y \to yf`(x)\). For optimization, go forward with \(w_i\) then start backward with \(1\). To get \(w_{i+1}\), subtract the final backward result times a step size from \(w_i\). When there are multiple forward inputs, the backward will send \(y\) times the partial derivative with respect to that input. When there are multiple backward inputs, they sum. 
 
@@ -73,7 +75,7 @@ It's possible to just derive \(L(w)\) instead. If each term is recursively decom
 The number of parameters a fully connected network (FC) has is the sum of \(\mathrm{inputs per weight} \times \mathrm{weights}\) of each layer *plus* the total amount of biases—number of neurons after the first layer. This gets nasty really quickly, so a convolutional neural network (CNN) shrinks the space by averaging. The convolution operation here is analogous to cross-correlation in image processing.
 
 <!-- or is parameters filter area * number of filters * number of filters + number of filters -->
-Each neuron produces a separate output that is stacked in the third dimension. Assuming a square input, the side length of one of these outputs would be \(\frac{\mathrm{input side length} - \mathrm{filter side length}}{\mathrm{stride}} + 1). The number of parameters is \(\mathrm{filter side length} \times \mathrm{filter side length} \times \mathrm{input channels} \times \mathrm{neurons} + \mathrm{neurons}\). The receptive field is the *recursive* area of input cells that one output cell covers. Therefore, chaining convolutions with smaller filters to produce a receptive field equal to a bigger filter would have less parameters than just using that big filter.
+Each neuron produces a separate output that is stacked in the third dimension. Assuming a square input, the side length of one of these outputs would be \(\frac{\mathrm{input side length} - \mathrm{filter side length}}{\mathrm{stride}} + 1\). The number of parameters is \(\mathrm{filter side length} \times \mathrm{filter side length} \times \mathrm{input channels} \times \mathrm{neurons} + \mathrm{neurons}\). The receptive field is the *recursive* area of input cells that one output cell covers. Therefore, chaining convolutions with smaller filters to produce a receptive field equal to a bigger filter would have less parameters than just using that big filter.
 
 {{< subtext >}}
     Stride is how much the filter slides over by.
@@ -81,4 +83,10 @@ Each neuron produces a separate output that is stacked in the third dimension. A
 
 A pool is another type of layer that pairs really well with convolution. Functionally, it is just like convolution, but it has no neurons. Instead, it operates one channel at a time, and the number of output channels is equal to the input channels. Pools have zero parameters.
 
-The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. 
+The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. Residual learning is when the residual can skip layers to end up at a particular layer. 
+
+Instead of optimizing the parameters from scratch, transfer learning (or fine-tuning) takes a pre-trained model. Now only a small number of parameters needs to be optimized. This is ideal for a smaller training set, but much larger will require starting from scratch. 
+
+Maybe the output should retain the shape of the input. 
+
+Like how humans rely on context to identify objects in difficult situations, models could also use context. The goal is to get a large receptive field whilst not using too much memory. With encoder-decode, downsample then upsample. Downsampling can be achieved with convolutions and pooling. The transition point is when the middle pixels have a "view" of the edges (e.g., represent the entire image with one center pixel).

@@ -31,3 +31,15 @@ The VM doesn't handle errors, but rather the KVM.
 
 # Isolation
 The 0-day attack targets a vulnerability that can gain access to a machine in less than a day.
+
+
+
+# Containers
+Running a container for a different OS than the host OS requires a VM of that different OS. Docker and other container platforms do that for you.
+
+<!-- stuff below this is techniques before containers. idk what to do with this -->
+`chroot` achieves file system isolation. It makes `/` refer to the argument. Therefore, it is not possible to see what's before the argument; only after. However, `mount` is still an available call. It makes the second argument serve as a shortcut to the first argument.
+
+Free BSD offers a lot of the isolation like containers. A process can be put in this jail, and it and all its descendants will be in this jail. `mount` is constrained to the jail this time. However, the OS has to check every time if the process is in jail or not. This metadata is part of the PCB.
+
+`/proc` contains the files for file system configuration. For example, `/proc/<pid>/ns` contains the namespace number of <pid>. This can be used to determine whether two processes are in the same namespace.

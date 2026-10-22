@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Stitching
 
 params: 
-    desc: 
+    desc: "Stitching images together follows a pipeline: detect features, describe them, find the homography of best fit, then warp the images and stitch them together."
     author: Andrew Nguyen 
 ---
 
@@ -61,7 +61,7 @@ The second moment matrix \(M\) is defined as:
     \end{bmatrix}
 \]
 
-Since finding the eigenvectors and eigenvalues of \(M\) takes too long, we approximate with a response function \(R = \mathrm{det}(M) - \alpha \mathrm{trace}(M)^2). 
+Since finding the eigenvectors and eigenvalues of \(M\) takes too long, we approximate with a response function \(R = \mathrm{det}(M) - \alpha \mathrm{trace}(M)^2\). 
 - \(R \approx 0\): flat
 - \(R \ll 0\): edge
 - \(R \gg 0\): corner
@@ -90,6 +90,7 @@ RANSAC does have a chance of failing, but that is laughably unlikely with reason
 
 
 # {{< heading "Transformations" >}}
+There are different kinds of transformations:
 - Scaling: multiply each \((x, y)\) by a scalar from the scaling matrix \(S\)
 - 2D rotation: 
 \[
