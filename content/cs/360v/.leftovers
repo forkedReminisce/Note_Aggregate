@@ -15,7 +15,7 @@ A page table entry has a present bit to indicate whether the page is in memory (
 
 
 
-# Hypervisor
+# Virtual Machines
 At some point, chip frequency hit a power wall that melted. Therefore, multi-core replaced faster chips.
 
 Dark Silicon keeps part of the chip off to manage heat and not melt anything. This is facilitated with accelerators that specialize in certain tasks (e.g., an accelerator for encryption and decryption) that stay off when the task isn't needed at the moment. 
@@ -37,8 +37,10 @@ The 0-day attack targets a vulnerability that can gain access to a machine in le
 # Containers
 Running a container for a different OS than the host OS requires a VM of that different OS. Docker and other container platforms do that for you.
 
+Memory and scheduling have to go to the container layer, and the host OS just sees it as the container, not the processes inside the container. 
+
 <!-- stuff below this is techniques before containers. idk what to do with this -->
-`chroot` achieves file system isolation. It makes `/` refer to the argument. Therefore, it is not possible to see what's before the argument; only after. However, `mount` is still an available call. It makes the second argument serve as a shortcut to the first argument.
+`chroot` achieves file system isolation. It makes `/` refer to the argument. Therefore, it is not possible to see what's before the argument; only after. However, `mount` is still an available call. 
 
 Free BSD offers a lot of the isolation like containers. A process can be put in this jail, and it and all its descendants will be in this jail. `mount` is constrained to the jail this time. However, the OS has to check every time if the process is in jail or not. This metadata is part of the PCB.
 

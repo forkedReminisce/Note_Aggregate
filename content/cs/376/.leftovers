@@ -61,6 +61,8 @@ Receptive field is the area an output pixel uses as parameters.
 
 Alexnet has so many parameters from the fully connected layers at the end. VGG16 has larger filters.
 
+Residual learning is when the residual can skip layers to end up at a particular layer. 
+
 
 
 # Math

@@ -83,10 +83,8 @@ Each neuron produces a separate output that is stacked in the third dimension. A
 
 A pool is another type of layer that pairs really well with convolution. Functionally, it is just like convolution, but it has no neurons. Instead, it operates one channel at a time, and the number of output channels is equal to the input channels. Pools have zero parameters.
 
-The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. Residual learning is when the residual can skip layers to end up at a particular layer. 
+The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. 
 
-Instead of optimizing the parameters from scratch, transfer learning (or fine-tuning) takes a pre-trained model. Now only a small number of parameters needs to be optimized. This is ideal for a smaller training set, but much larger will require starting from scratch. 
+Instead of optimizing the parameters from scratch, fine-tuning instead copies layers from an existing network. This can be combined with transfer learning—initializing weights from a pre-trained model. This is ideal for a smaller training set; larger warrants starting from scratch.
 
-Maybe the output should retain the shape of the input. 
-
-Like how humans rely on context to identify objects in difficult situations, models could also use context. The goal is to get a large receptive field whilst not using too much memory. With encoder-decode, downsample then upsample. Downsampling can be achieved with convolutions and pooling. The transition point is when the middle pixels have a "view" of the edges (e.g., represent the entire image with one center pixel).
+Some applications require that the output image be the same shape as the input image instead of some long tube. This can be achieved with the encoder-decoder—downsample the image to a point then upsample. Downsampling can be achieved with convolutions and pooling.

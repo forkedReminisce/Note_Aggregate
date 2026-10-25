@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Virtual Machines 
 
 params: 
-    desc: 
+    desc: A machine has many assumptions built in, but virtual machines jeopardize the entire model. Therefore, engineers made the decision to assist with virtualization in order to keep these assumptions in place. As a result, a new set of assumptions append the currently existing ones.
     author: Andrew Nguyen 
 ---
 
