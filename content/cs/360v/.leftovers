@@ -35,6 +35,8 @@ The 0-day attack targets a vulnerability that can gain access to a machine in le
 
 
 # Containers
+For maximum security, the container(s) are run on a VM. To keep the benefits of containers, the VM is actually a micro-VM.
+
 Running a container for a different OS than the host OS requires a VM of that different OS. Docker and other container platforms do that for you.
 
 Memory and scheduling have to go to the container layer, and the host OS just sees it as the container, not the processes inside the container. 
@@ -45,3 +47,7 @@ Memory and scheduling have to go to the container layer, and the host OS just se
 Free BSD offers a lot of the isolation like containers. A process can be put in this jail, and it and all its descendants will be in this jail. `mount` is constrained to the jail this time. However, the OS has to check every time if the process is in jail or not. This metadata is part of the PCB.
 
 `/proc` contains the files for file system configuration. For example, `/proc/<pid>/ns` contains the namespace number of <pid>. This can be used to determine whether two processes are in the same namespace.
+
+Containers are stateless thanks to the private layer being temporary. In other words, containers do not depend on being in a particular state. Being stateless boosts scalability because it reduces the amount of setup necessary.
+
+User-space instructions on a VM or container have the same performance as running the instruction directly. System calls also has no calls since either architecture has to interface with the OS anyway. Privileged kernel instructions, however, have a cost on VMs only since it goes beyond the guest OS.

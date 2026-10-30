@@ -87,4 +87,25 @@ The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F
 
 Instead of optimizing the parameters from scratch, fine-tuning instead copies layers from an existing network. This can be combined with transfer learning—initializing weights from a pre-trained model. This is ideal for a smaller training set; larger warrants starting from scratch.
 
+<!-- such models require context -->
 Some applications require that the output image be the same shape as the input image instead of some long tube. This can be achieved with the encoder-decoder—downsample the image to a point then upsample. Downsampling can be achieved with convolutions and pooling.
+
+<!-- encoder is downsample. decoder is upsample -->
+The encoder-decoder generates image context on each input pixel. Upsampling makes use of unpooling and transpose convolution. One unpooling operation is nearest neighbor. The transition point often should not be downsampled to a vector.
+
+{{< subtext >}}
+    The encoder and decoder need not be symmetric.
+{{< /subtext >}}
+
+In any case, these upscaling strategies produces poor fidelity results. This is improved with U-Net by copying the last downscaling layer of each spatial resolution and concatenating it to the start of the first layer of the same spatial resolution (see matrix stacking along the channel axis). This copy contains high frequency information that helps provide additional context because all the convolutions inflated all the values. The next layers have to figure out how to fuse the two features.
+
+This was semantic segmentation—classify each pixel of an image. Object detection goes a step further by distinguishing between each instance of the class. Remember, it is not possible to have varying size outputs.
+
+<!-- what is a true detection -->
+<!-- i think recall is number of true detections vs number of objects (ground truth)  -->
+Jaccard coefficient (or IoU) is the metric for determining the accuracy of the bounding box. It is the intersection divided by the union of the ground-truth bounding box and the predicted bounding box. This measure accuracy. With a new set of true detections, precision is this number over the total number detections. Recall is this number over ground truth positives.
+
+<!-- the region needs to be warped in order to be used a common neural network -->
+Histogram of Gradient (HOG) trains a gradient template for a particular object (e.g., pedestrian). When convolved with a feature map, a high response indicates an instance of that object. However, sliding window added with using multiple templates (for each object) is very inefficient. Instead, a proposal mechanism returns regions of interest that narrows the search area and template scales before passing through the CNN.
+
+Faster R-CNN produces a feature map from the image through the CNN. This feature map is used to create region proposals ==of the feature map==. Each bounding box is warped and thrown through a small neural network to classify each box. If there were no region proposals, YOLO just predicts at each location. 
