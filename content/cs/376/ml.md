@@ -48,8 +48,7 @@ Alternatively, a linear model may be used for classification. Each category has 
 Augmentation is the strategy of applying transformations to images of the training set and include them in the training set. The model should still be able to properly classify the image. 
 
 
-
-# {{< heading "Optimization" >}}
+## {{< heading "Optimization" >}}
 It is desired to find the \(w\) that would minimize the loss function \(L(w)\). Grid search tries every coordinate, and random search iterates a set number of times on random samples and picks the one with the smallest evaluation. With many dimensions, grid search takes forever and random search is more likely to fail.
 
 Since gradients are like derivatives, maybe move against the gradient. This is the idea of gradient descent. If the step size (or learning rate) is too small, the algorithm will finish before finding the \(w\). Too large will be divergence. There is also the concern of oscillation. Therefore, exponentially decay step size and, for each step, incorporate the average of previous steps (in decreasing contribution the further back in the past it is). 
@@ -69,8 +68,7 @@ It's possible to just derive \(L(w)\) instead. If each term is recursively decom
 {{< /subtext >}}
 
 
-
-# {{< heading "Parameters" >}}
+## {{< heading "Parameters" >}}
 <!-- optimization is applied to the parameters values -->
 The number of parameters a fully connected network (FC) has is the sum of \(\mathrm{inputs per weight} \times \mathrm{weights}\) of each layer *plus* the total amount of biases—number of neurons after the first layer. This gets nasty really quickly, so a convolutional neural network (CNN) shrinks the space by averaging. The convolution operation here is analogous to cross-correlation in image processing.
 
@@ -83,29 +81,28 @@ Each neuron produces a separate output that is stacked in the third dimension. A
 
 A pool is another type of layer that pairs really well with convolution. Functionally, it is just like convolution, but it has no neurons. Instead, it operates one channel at a time, and the number of output channels is equal to the input channels. Pools have zero parameters.
 
-The goal is to create a CNN that will turn an input into a \(1 \times 1 \times F\) vector for various purposes such as classification. 
-
 Instead of optimizing the parameters from scratch, fine-tuning instead copies layers from an existing network. This can be combined with transfer learning—initializing weights from a pre-trained model. This is ideal for a smaller training set; larger warrants starting from scratch.
 
-<!-- such models require context -->
-Some applications require that the output image be the same shape as the input image instead of some long tube. This can be achieved with the encoder-decoder—downsample the image to a point then upsample. Downsampling can be achieved with convolutions and pooling.
 
-<!-- encoder is downsample. decoder is upsample -->
-The encoder-decoder generates image context on each input pixel. Upsampling makes use of unpooling and transpose convolution. One unpooling operation is nearest neighbor. The transition point often should not be downsampled to a vector.
+## {{< heading "Advanced Classification" >}}
+To classify an entire image, the CNN should output a \(1 \times 1 \times F\) vector with the probabilities of \(F\) classes. To classify each pixel, known as **semantic segmentation**, the output would be \(H \times W \times F\). Like how humans rely on the context of the entire image to properly identify a cropped section, such models need context as well. This can be achieved with the encoder-decoder—downsample the image to a point then upsample. Downsampling can be achieved with convolutions and pooling. Upsampling makes use of unpooling and transpose convolution.
 
 {{< subtext >}}
     The encoder and decoder need not be symmetric.
 {{< /subtext >}}
 
-In any case, these upscaling strategies produces poor fidelity results. This is improved with U-Net by copying the last downscaling layer of each spatial resolution and concatenating it to the start of the first layer of the same spatial resolution (see matrix stacking along the channel axis). This copy contains high frequency information that helps provide additional context because all the convolutions inflated all the values. The next layers have to figure out how to fuse the two features.
+However, unpooling and transpose convolution produces poor fidelity. This can be improved with U-Net. By copying the last layer of each downsampling step to the start of the respective upsampling step, upsampling is now provided the context of which pixels were high frequency. This is important because all the convolutions before inflated every pixel to the point the distinction is no longer obvious.
 
-This was semantic segmentation—classify each pixel of an image. Object detection goes a step further by distinguishing between each instance of the class. Remember, it is not possible to have varying size outputs.
+**Object detection** goes a step further by distinguishing between each instance of the class. Remember, it is not possible to have dynamic size outputs.
 
 <!-- what is a true detection -->
 <!-- i think recall is number of true detections vs number of objects (ground truth)  -->
-Jaccard coefficient (or IoU) is the metric for determining the accuracy of the bounding box. It is the intersection divided by the union of the ground-truth bounding box and the predicted bounding box. This measure accuracy. With a new set of true detections, precision is this number over the total number detections. Recall is this number over ground truth positives.
+Jaccard coefficient (or IoU) is the metric for determining the accuracy of the predicted bounding box. It is the intersection divided by the union with the ground-truth bounding box. The number of true detections can be obtained from this metric, which is used for two additional, more robust measures of effectiveness. Precision is \(\frac{\mathbb{true detections}}{\mathbb{total detections}}\). Recall is \(\frac{\mathbb{true detections}}{\mathbb{ground-truth detections}})
 
-<!-- the region needs to be warped in order to be used a common neural network -->
-Histogram of Gradient (HOG) trains a gradient template for a particular object (e.g., pedestrian). When convolved with a feature map, a high response indicates an instance of that object. However, sliding window added with using multiple templates (for each object) is very inefficient. Instead, a proposal mechanism returns regions of interest that narrows the search area and template scales before passing through the CNN.
+Histogram of Gradient (HOG) trains a gradient template for a particular object (e.g., pedestrian). When convolved with a feature map, a high response indicates an instance of that object. However, convolving with multiple templates is very inefficient. Instead, a proposal mechanism returns regions of interest that narrows the search area and template scales before passing it through the CNN.
 
-Faster R-CNN produces a feature map from the image through the CNN. This feature map is used to create region proposals ==of the feature map==. Each bounding box is warped and thrown through a small neural network to classify each box. If there were no region proposals, YOLO just predicts at each location. 
+{{< subtext >}}
+    The proposed region needs to be warped before going through the CNN. That is because the CNN expects a particular input shape.
+{{< /subtext >}}
+
+Faster R-CNN produces a feature map from the image through the CNN. This feature map is used to create region proposals ==of the feature map==. Each bounding box is warped and thrown through a small neural network to classify each box. 

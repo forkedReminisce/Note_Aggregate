@@ -9,7 +9,7 @@ params:
 
 
 
-While VMs have their common level at that hypervisor, containers have theirs at the host OS level. This means that containers have weaker isolation. However, the benefit is that containers are smaller in size and resource demands. There's also the added benefit of CPU scheduling and memory access functioning just like the container being just another process.
+While VMs have their common level at that hypervisor, containers have theirs at the host OS level. This means that containers have weaker isolation. However, the benefit is that containers are smaller in size and resource demands, and containers are treated as just another process, improving CPU scheduling and memory access. 
 
 {{< subtext >}}
     More containers than VMs can be run on a physical machine by a factor of 10-100.
@@ -34,11 +34,10 @@ One namespace worth touching on is the user namespace. With a new user namespace
 An image can be thought of as a package that the container runs. It consists of layers representing each installation of a package (i.e., diffs). If all the containers' packages were installed, the resultant image can act as the **overlay file system**. What this means is that instead of each container having its own separate image, they can instead possess pointers to the corresponding diff in the "central" image for each of its packages. If the overlay file system doesn't have the package, the container can just make a new layer on the overlay file system.
 
 {{< subtext >}}
-    The overlay file system is copy-on-write; the package layers are read-only.
+    The package layers are read-only.
 {{< /subtext >}}
 
-<!-- private layer alternatively called the mutable working directory -->
-On top of the package layers is the *private layer*. If the container ever needs to write to a file system, it can write to the private layer. However, data written is not persistent; the private layer is thrown away when the container terminates. If some of the written data needs to be retained, write it to a persistent volume (i.e., some external storage). It is copy-on-write; if a file in a layer is written to, the file is copied-up to the mutable.
+On top of the package layers is the mutable working directory. If the container ever needs to write to a file system, it can write to this layer. As the overlay file system is copy-on-write, writing to a file copies-up to the mutable. However, the data written is not persistent. If the written data needs to be retained, write it to a persistent volume (i.e., some external storage). 
 
 Finding files requires going through each layer top-to-bottom. In other words, if the file exists in multiple layers, the topmost is read. Remember, the layers are like git commits that evolve the file system one layer at a time.
 
@@ -54,11 +53,8 @@ For containers on the same machine to communicate between each other, a virtual 
 
 
 
-# {{< heading "Open Container Initiative" >}}
-<!-- OCI commands are used by Kubernetes to create containers -->
-Kata containers contains an OCI package. Kubernetes interacts with the Kata runtime to create containers and other things. The OCI is like an interface, and the Kata runtime implements the OCI. These OCI libraries implement interfaces like the container refine interface (CRI) and container network interface (CNI).
+# {{< heading "Small Details" >}}
+The Open Container Initiative (OCI) essentially provides a layer of abstraction between container management software and the actual implementation of creating containers and the like. These OCI commands are implemented by container runtimes, and a particular runtime may be used for a particular goal. Such runtimes will implement the commands in a particular way. However, every runtime can only differ so much because the OCI outlines the implementation of a number of interfaces.
 
-
-
-# {{< heading "gVisor" >}}
-When the container makes a system call, it usually just goes to the host OS. For security, the container is usually wrapped in a VM. Alternatively, gVisor has the container sit on top of an alternate layer that is a user-space kernel called the gVisor Sentry. If the gVisor Sentry cannot handle it does the system call go to the host OS. 
+<!-- whats the benefit -->
+gVisor is an alternative to running the container on a VM. On a VM, when the container makes a system call, the guest OS will handle it until it can't anymore. With gVisor, the system call is sent to the gVisor Sentry, a user-space kernel. Only when necessary does the system call go to the host OS.

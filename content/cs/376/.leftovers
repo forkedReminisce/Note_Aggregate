@@ -63,6 +63,8 @@ Alexnet has so many parameters from the fully connected layers at the end. VGG16
 
 Residual learning is when the residual can skip layers to end up at a particular layer. 
 
+YOLO doesn't use R-CNN. 
+
 
 
 # Math
