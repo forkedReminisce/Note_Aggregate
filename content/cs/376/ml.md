@@ -61,7 +61,7 @@ Since gradients are like derivatives, maybe move against the gradient. This is t
 
 <!-- computational graph -->
 <!-- step size is negative (traveling against the gradient) -->
-It's possible to just derive \(L(w)\) instead. If each term is recursively decomposed and turned into a bidirectional function, forward would be \(x \to f(x)\) and backward \(y \to yf`(x)\). For optimization, go forward with \(w_i\) then start backward with \(1\). To get \(w_{i+1}\), subtract the final backward result times a step size from \(w_i\). When there are multiple forward inputs, the backward will send \(y\) times the partial derivative with respect to that input. When there are multiple backward inputs, they sum. 
+It's possible to just derive \(L(w)\) instead. If each term is recursively decomposed and turned into a bidirectional function, forward would be \(x \to f(x)\) and backward \(y \to yf\prime(x)\). For optimization, go forward with \(w_i\) then start backward with \(1\). To get \(w_{i+1}\), subtract the final backward result times a step size from \(w_i\). When there are multiple forward inputs, the backward will send \(y\) times the partial derivative with respect to that input. When there are multiple backward inputs, they sum. 
 
 {{< subtext >}}
     Sometimes, it's better not to completely decompose part of an expression. It might be able to simplify into one function instead of many.
@@ -106,3 +106,17 @@ Histogram of Gradient (HOG) trains a gradient template for a particular object (
 {{< /subtext >}}
 
 Faster R-CNN produces a feature map from the image through the CNN. This feature map is used to create region proposals ==of the feature map==. Each bounding box is warped and thrown through a small neural network to classify each box. 
+
+<!-- is the words transition supposed be for explanation purposes? -->
+What about classifying multiple objects jointly? Instead of classes, let there be words. The model should then output a sequence of words. This is known as sequence modeling. 
+
+{{< subtext >}}
+    The model is like a state machine as it predicts a word. Each state produces a word, and it uses the intermediate steps of the previous word to do so. This replaces the FC portion of a CNN model. 
+{{< /subtext >}}
+
+<!-- this transformer was for nlp. still works for images. -->
+Self-attention first creates an alignment for how close each token is to a query token. Now softmax over these alignments and sum over the multiplication of each probability with its respective token. Transform the token before the alignment and output calculations with different transformers. These transforms inject more "freedom" and "expression" into the output. Since the alignment score doesn't include position information, positional encodings are incorporated into the token.
+
+<!-- each patch goes through a transformer, and the output performs a local task (e.g., pixel classification) -->
+<!-- transformers avoid convolution. idk why. parallelism? there's still a convolution to convert the patch to a vector anyway. -->
+For images, turn it into patches. Each patch serves as a token by converting it into a vector. There is a special, learned token that is not based on a patch; it is a classification token that will classify the global image. 
