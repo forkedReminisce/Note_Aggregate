@@ -9,16 +9,12 @@ params:
 
 
 
-Unikernels are their own VM. They consist of only one application with a single address space. However, there is no guest OS. So when the unikernel needs to do a privileged instruction, it makes a call to a function of the library OS. In fact, the unikernel is stripped down to only the bare essentials.
+Unikernels don't have an OS. Instead of making system calls, call functions of the *library OS*. This library OS is linked with a single compiled application into an image. This allows a unikernel to have better performance and memory usage over containers running in a micro-VM. Unikernels are just an example of specialization. However, there is the drawback of compatibility, or lack thereof. 
 
 {{< subtext >}}
-    The library OS is compiled with the application into the image.
+    Unikernel Linux is a middle-of-the-road compromise between containers in a VM and unikernels—better compatibility than unikernels but larger since it requires the entire Linux library OS.
 {{< /subtext >}}
 
-<!-- better density, performance, memory -->
-For security, containers have been deployed in a micro-VM. However, this eats at the benefit containers have over VMs. Unikernels embrace and specialize in this. The improvement comes from less demands from the library OS over even a mini guest OS. However, unikernels do suffer from compatibility issues; containers will work almost always. Unikernel Linux improves on compatibility (not as much as containers), but requires shipping the entire Linux library OS.
-
-<!-- ukboot??? nolibc interfaces with a bunch of libraries like ukmalloc??? -->
-A unikernel needs to be modular. As a counterexample, Linux's subsystems are all dependent on each other, and a change to one will affect all. Unikraft delivers this by doing everything from scratch. For example, instead of glibc, Unikraft made its own posix-layer called nolibc. The program can and should still be coded as though it isn't intended for a unikernel (i.e., as normal), but the underlying implementation of the functions like `malloc`.
+A unikernel needs to be modular. As a counterexample, Linux's subsystems are all dependent on each other, and a change to one will affect all. To achieve modularity, Unikraft started from scratch. glibc was replaced with nolibc. nolibc interfaces with a number of libraries like ukalloc. These implement the C library functions like `malloc()` in a way more suitable to unikernels.
 
 If one is willing to modify their program to specialize for unikernels, they can make the full use of the high-performance API. 

@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Containers
 
 params: 
-    desc: 
+    desc: Containers compromise slightly on isolation to be lighter than VMs.
     author: Andrew Nguyen 
 ---
 

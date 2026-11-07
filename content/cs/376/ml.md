@@ -1,9 +1,9 @@
 ---
-draft: true
-title: 
+draft: false
+title: Machine Learning
 
 params: 
-    desc: 
+    desc: Like how humans can identify objects, computers can too with the help of machine learning. Neural networks are the key.
     author: Andrew Nguyen 
 ---
 
@@ -107,16 +107,13 @@ Histogram of Gradient (HOG) trains a gradient template for a particular object (
 
 Faster R-CNN produces a feature map from the image through the CNN. This feature map is used to create region proposals ==of the feature map==. Each bounding box is warped and thrown through a small neural network to classify each box. 
 
-<!-- is the words transition supposed be for explanation purposes? -->
-What about classifying multiple objects jointly? Instead of classes, let there be words. The model should then output a sequence of words. This is known as sequence modeling. 
+<!-- this replaces the fc portion of a cnn model -->
+Going back to the classic classification problem, it might be desired to classify multiple objects together. **Sequence modeling** is a chain such that the intermediate steps of the previously predicted object is used in conjunction with image for predicting the next object. 
 
-{{< subtext >}}
-    The model is like a state machine as it predicts a word. Each state produces a word, and it uses the intermediate steps of the previous word to do so. This replaces the FC portion of a CNN model. 
-{{< /subtext >}}
 
-<!-- this transformer was for nlp. still works for images. -->
-Self-attention first creates an alignment for how close each token is to a query token. Now softmax over these alignments and sum over the multiplication of each probability with its respective token. Transform the token before the alignment and output calculations with different transformers. These transforms inject more "freedom" and "expression" into the output. Since the alignment score doesn't include position information, positional encodings are incorporated into the token.
 
-<!-- each patch goes through a transformer, and the output performs a local task (e.g., pixel classification) -->
+# {{< heading "Transformers" >}}
+Self-attention builds on top of sequence modeling. Call the intermediate steps tokens. Each token will be compared to a query token to produce an alignment score. Since alignment scores lack position information, add positional encodings to the token. Now softmax over these scores. The output is the sum over the products of each probability with its respective token. The output is pretty restrictive, so transformers are applied to the tokens—one before alignment score calculation and a separate one for the multiplication with probability.
+
 <!-- transformers avoid convolution. idk why. parallelism? there's still a convolution to convert the patch to a vector anyway. -->
-For images, turn it into patches. Each patch serves as a token by converting it into a vector. There is a special, learned token that is not based on a patch; it is a classification token that will classify the global image. 
+To use a transformer with images, create patches. They become tokens when turned into a vector. The output can be used to perform a local task (e.g., pixel classification). To perform a global task, an additional token that is not derived from a patch is necessary: the classification token. It is learned.

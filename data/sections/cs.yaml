@@ -34,10 +34,12 @@
     - cameras
     - stitching
     - ml
+    - 3d
   
 - course: CS 360V
   pages: 
     - types
     - hypervisor
     - security
-    - container
+    - containers
+    - unikernels
