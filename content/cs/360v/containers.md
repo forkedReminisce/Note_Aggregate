@@ -58,3 +58,7 @@ The Open Container Initiative (OCI) essentially provides a layer of abstraction 
 
 <!-- whats the benefit -->
 gVisor is an alternative to running the container on a VM. On a VM, when the container makes a system call, the guest OS will handle it until it can't anymore. With gVisor, the system call is sent to the gVisor Sentry, a user-space kernel. Only when necessary does the system call go to the host OS.
+
+LightVM found that a micro-VM doesn't significantly improve startup time compared to having the full-size VM. The bottleneck was the Xen, specifically XenStore. XenStore is for creating the device drivers (i.e., frontend and backend), and the time it takes to add a single device increased with the number of devices already added. 
+
+LightVM re-architected the XenStore such that the creation of VM devices is moved off the critical path (the procedures to booting the VM) into creating shells for each device. When a VM wants a device, the respective shell is copied and customized for the VM.

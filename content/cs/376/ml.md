@@ -97,7 +97,7 @@ However, unpooling and transpose convolution produces poor fidelity. This can be
 
 <!-- what is a true detection -->
 <!-- i think recall is number of true detections vs number of objects (ground truth)  -->
-Jaccard coefficient (or IoU) is the metric for determining the accuracy of the predicted bounding box. It is the intersection divided by the union with the ground-truth bounding box. The number of true detections can be obtained from this metric, which is used for two additional, more robust measures of effectiveness. Precision is \(\frac{\mathbb{true detections}}{\mathbb{total detections}}\). Recall is \(\frac{\mathbb{true detections}}{\mathbb{ground-truth detections}})
+Jaccard coefficient (or IoU) is the metric for determining the accuracy of the predicted bounding box. It is the intersection divided by the union with the ground-truth bounding box. The number of true detections can be obtained from this metric, which is used for two additional, more robust measures of effectiveness. Precision is \(\frac{\mathrm{true detections}}{\mathrm{total detections}}\). Recall is \(\frac{\mathrm{true detections}}{\mathrm{ground-truth detections}}\)
 
 Histogram of Gradient (HOG) trains a gradient template for a particular object (e.g., pedestrian). When convolved with a feature map, a high response indicates an instance of that object. However, convolving with multiple templates is very inefficient. Instead, a proposal mechanism returns regions of interest that narrows the search area and template scales before passing it through the CNN.
 

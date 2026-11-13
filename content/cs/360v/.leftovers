@@ -62,3 +62,15 @@ Hypervisors already execute instructions in the right ISA and I/O backends. Ther
 The ideas of exokernels are realized with unikernels (and libraries compiled into the image) and a hypervisor.
 
 Density is how many unikernels or containers are able to run on one physical machine. Unikernels win.
+
+MirageOS has the components in a single language (OCaml). However, it is not compatible with many apps unless they are written in OCaml. Unikraft is the other end of the spectrum in that it supports POSIX applications, but it shifts the attention to the kernel libraries that needs to be written from scratch.
+
+serverless functions have a trigger (e.g., http request). 
+- on-demand, meaning a person only gets charged when the function is used, not for the time it is kept online (great for irregular, bursty traffic). 
+- it is (automatically) scalable, meaning large amounts of traffic cannot shut down anything (because there is nothing to shut down). 
+- stateless
+a function that can be made serverless should be quick and unreliant on state.
+the environment the function runs in is saved in a container image. starting up the environment is slow. to speed it up, after the first initialization, it is snapshotted into a checkpoint. every time the function is invoked, instead of reinitializing the environment, the checkpoint is loaded.
+for (microVM) firecracker, each customer gets their own micro VM for all of their serverless functions. this was a form of nested virtualization, which has a performance hit. 
+
+amazon came up with Nitro Sandbox: resources of the EC2 VM are given to the Nitro Sandbox. the sandbox and the vm run at the same level on top of the hypervisor. the sandbox is also confidential; there is hardware attestation for only querying whether something is happening.
