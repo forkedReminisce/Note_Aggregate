@@ -18,10 +18,4 @@ Unikernels don't have an OS. Instead of making system calls, call functions of t
 
 A unikernel needs to be modular. As a counterexample, Linux's subsystems are all dependent on each other, and a change to one will affect all. To achieve modularity, Unikraft started from scratch. glibc was replaced with nolibc. nolibc interfaces with a number of libraries like ukalloc. These implement the C library functions like `malloc()` in a way more suitable to unikernels.
 
-If one is willing to modify their program to specialize for unikernels, they can make the full use of the high-performance API. 
-
-<!-- both rumprun and unikernel linux support posix applications -->
-<!-- rumprun is not portable; only supports a specific type of kernel -->
-RumpRun makes use of a concept known as anykernel. If the kernel is modular, the Rump Runtime can just pull the components it needs without having to rewrite and maintain it. That way, the kernel is essentially in the application namespace. However, this does leave specialization on the table that cannot be achieved. 
-
-Unikernel Linux compiled the kernel with the application. System calls were just functions, so there was no context switch. However, this did not offer any meaningful performance boost.
+Compare this to MirageOS, where both the components and app must be written in the same language: OCaml. This obviously has poor compatibility. RumpRun has marginally better compatibility. If the kernel is modular, the Rump Runtime will simply takes the components it needs. Unikernel Linux is better in that it compiles the entire Linux kernel with the application. All these are a tradeoff in compatibility for less maintainer overhead.

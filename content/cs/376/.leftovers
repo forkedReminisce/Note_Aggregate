@@ -70,11 +70,9 @@ YOLO doesn't use R-CNN.
 
 
 # 3D
-u_0 and v_0 are the displacement of the pinhole relative to the center of the camera (i.e., origin). 
-
 Camera calibration is about creating data samples in order to find M. This is quite manual.
 
-The baseline is the distance between two cameras' origins. If they capture a 3D point, the triange formed between the baseline and project rays is an epipolar triangle. Where the baseline intersects with the image plane are epipoles.
+The baseline is the distance between two cameras' origins. If the cameras capture the same 3D point, the plane formed between the baseline and projection rays is the epipolar plane. Where the baseline intersects with the image plane are epipoles.
 
 
 
