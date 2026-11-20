@@ -39,7 +39,8 @@
 - course: CS 360V
   pages: 
     - types
-    - hypervisor
+    - vm
     - security
     - containers
     - unikernels
+    - serverless

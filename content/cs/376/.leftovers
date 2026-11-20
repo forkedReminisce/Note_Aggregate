@@ -72,8 +72,6 @@ YOLO doesn't use R-CNN.
 # 3D
 Camera calibration is about creating data samples in order to find M. This is quite manual.
 
-The baseline is the distance between two cameras' origins. If the cameras capture the same 3D point, the plane formed between the baseline and projection rays is the epipolar plane. Where the baseline intersects with the image plane are epipoles.
-
 
 
 # Math
