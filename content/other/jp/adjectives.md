@@ -55,11 +55,11 @@ The only exception is ==basic, non-past attributive==, where ==な== prevails ov
 {{< /subtext >}}
 
 {{% example_jp
-    jp="「**データが安全でないことが原因である**場合がある。」"
-    en="\"*There are cases **in which the cause is that the data is not safe***.\""
+    jp="「**データが安全である**ことを確認する。」"
+    en="\"*To confirm that **the data is safe***.\""
 %}}
 
-である is also the only option for noun predicates. However, an attributive noun uses ==の==. When the modified noun is a relative noun (e.g., 下), it becomes an adverb. Strangely, some adjectival nouns may also or exclusively use の.
+である is also the only option for noun predicates. However, an attributive noun uses ==の==. When the modified noun is a relative noun (e.g., 下), the relative noun serves as an adverb. Strangely, some adjectival nouns may also or exclusively use の.
 
 <!-- why is の sometimes omitted??? -->
 {{< subtext >}}

@@ -21,7 +21,8 @@ params:
     en="\"*It’s because the machine broke*.\""
 %}}
 
-**のだ** and んだ strongly asserts the cause. When asking for the reason, のかのですか or のかんですか can be used. In casual speech, の alone performs the same thing; のだ will create a blunt question.
+<!-- のかの or の -->
+**のだ** and んだ strongly asserts the cause. When asking for the reason, のかのですか or のかんですか can be used. In casual speech, it is の alone. のだ will create a blunt question.
 
 {{< subtext >}}
     のだ and んだ may also strongly assert an exclamation or desire.
@@ -34,6 +35,8 @@ params:
 {{< subtext >}}
     ですので and ですんで appear frequently enough that they're correct. ますので and ますんで not so much. 
 {{< /subtext >}}
+
+When there are multiple reasons, use one of the above particles for the final cause; every other reason ends with し. However, if のだ and んだ is followed by し of their own, then the clause is denoted as the primary cause.
 
 
 
@@ -76,7 +79,7 @@ params:
     en="\"*There was a smell of gasoline vaporizing **right before the explosion***.\""
 %}}
 
-後 is flipped compared to 前. First, its spatial definition refers to the direction of the 後ろ or the remaining portion of a matter. It's temporal function behaves differently depending on the predicate of the dependent clause. Verb predicates use あと and must be in past tense. When no particle follows it, the main clause happens after the dependent clause. に adds that the main clause is immediately after, and it may be combined as には to emphasize or にも to add "even." Without に, から notes that the main clause is unexpected, whereas で highlights that the main clause is not immediately after the dependent clause finishing. The auxiliary ～てから also exists, but only for verbs with volition, allowing the dependent clause to establish the starting point for the main clause. For temporal or action-related nouns, ～ごに (or ～のごに for temporal nouns) exists. 
+後 is flipped compared to 前. First, its spatial definition refers to the direction toward the 後ろ or the remaining portion of a matter. It's temporal function behaves differently depending on the predicate of the dependent clause. Verb predicates use あと and must be in past tense. When no particle follows it, the main clause happens after the dependent clause. に adds that the main clause is immediately after, and it may be combined as には to emphasize or にも to add "even." Taking out に, から notes that the main clause is unexpected, whereas で highlights that the main clause is not immediately after the dependent clause finishing. The auxiliary ～てから also exists, but only for verb predicates with volition, allowing the dependent clause to establish the starting point for the main clause. For temporal or action-related nouns, ～ごに (or ～のごに for temporal nouns) exists. 
 
 {{< subtext >}}
     ～てから allows the dependent clause to not have started yet, which あと cannot do.
@@ -84,7 +87,7 @@ params:
     ～てから may be followed by other particles like は or の. It may even appear in the main clause when followed by the copula.
 {{< /subtext >}}
 
-間 fundamentally means "between." This makes sense spatially, where it may also take on the definition "among;" temporally, the dependent clause and main clause happen simultaneously. The dependent clause is usually in ～ている form, but it may appear as ～ていた form to indicate the recollection. With instantaneous verbs, the meaning that the dependent clause had been completed while the main clause begins is created, but a non-past conjugation will restore the simultaneous meaning. 間 may also be modified like a noun to produce time phrases that the main clause can occur during. に suggests that the dependent and main clauses finish at the same time, while には makes it so that the main clause in its entirety happens within the dependent clause.
+間 fundamentally means "between." This makes sense spatially, where it may also take on the definition "among." Temporally, the dependent clause and main clause happen simultaneously. The dependent clause is usually in ～ている form, but it may appear as ～ていた form to indicate recollection. With instantaneous verbs, the meaning that the dependent clause had been completed while the main clause begins is created, but a non-past conjugation will restore the simultaneous meaning. 間 may also be modified like a noun (e.g., other nouns or adjectives) to produce time phrases that the main clause can occur during. に suggests that the dependent and main clauses finish at the same time, while には makes it so that the main clause in its entirety happens within the dependent clause.
 
 {{< subtext >}}
     If the agent is the same between clauses, ～ている can be replaced with ～ながら.

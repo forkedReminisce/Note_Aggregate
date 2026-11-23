@@ -89,7 +89,7 @@ Instructing someone to do something makes use of **auxiliary verbs meaning "to g
 
 # {{< heading "Favor" >}}
 <!-- ～やる??? -->
-**～あげる** is polite and typically used when the favor is for an equal or even nonliving things. **～くれる** comes about when the "favor" is for someone's benefit or disadvantage. That someone must be close to the speaker, and the speaker can not be the one doing the giving. Using のだ or よ with ～くれる says that the speaker expects that the giver will deliver. 
+These auxiliary verbs are not for asking for favors, but carrying them out. **～あげる** is polite and typically used when the favor is for an equal or even nonliving things. **～くれる** comes about when the "favor" is for someone's benefit or disadvantage. That someone must be close to the speaker, and the speaker can not be the one doing the giving. Using ～のだ or ～よ (not final particles) with ～くれる says that the speaker expects that the giver will deliver. 
 
 <!-- giver marked in に -->
 The recipient uses **～もらう**. The giver must be able to consciously give, and the favor must be beneficial. The giver must also have a sense of responsibility to the recipient. ～もらえる can ask for a favor, as does ～いただく. ～ちょうだい is the humble equivalent of ～もらう. It can be used standalone as well, and may be asking for a favor regardless of whether it's standalone or an auxiliary verb. ～もらうのだ can be used to command the listener to demand the would-be giver to do the action. It may also just emphasize the hope of the recipient for the giver to carry through.

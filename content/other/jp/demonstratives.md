@@ -3,13 +3,13 @@ draft: false
 title: Demonstratives
 
 params: 
-    desc: '"This," "that," "here," and "there" have Japanese equivalents built on top of the morae こ, そ, and あ'
+    desc: '"This," "that," "here," and "there" have Japanese equivalents built on top of the morae こ, そ, あ, and ど'
     author: Andrew Nguyen 
 ---
 
 
 
-**Demonstratives** can be used as a pronoun or attributively. There are different sets when referring to *entities* or *locations*, but first morae is always either こ, そ, or あ depending on *distance*.
+**Demonstratives** can be used as a pronoun or attributively. There are a number of sets, but first morae is always either こ, そ, or あ depending on distance or awareness. The ど class disregards all that for the sole purpose of asking questions.
 
 
 
@@ -62,16 +62,16 @@ These *pronouns* already have a plural function. However, attaching ～ら can h
 
 
 # {{< heading "Likeness" >}}
-For brevity, only one class will be listed at a time, but the others are easy to construct from there. Additionally, there is a class for asking what the entity relates to, and it starts with ど～.
+For brevity, only the こ class will be listed.
 
-**こんな** go before nouns to say it is "like this," particularly focusing on the degree both entities are at. The formal ones go このような. These words can sometimes be adjectival nouns, but it is uncommon. Really, the only time it comes up is when it is part of a subordinate clause that is followed by の. 
+**こんな** goes before nouns to say it is "like this". このような is the formal version. These words can sometimes be adjectival nouns, but it is uncommon. Really, the only time it comes up is when it is part of a subordinate clause that is followed by の. 
 
 {{% example_jp
     jp="「公園には**そのような小鳥**がたくさんいます。」"
     en="\"*There are many **such birds** in the park*.\""
 %}}
 
-The basic adverbial form is **こう**. Several words build on top of this one, like このように, こういう風に, こうして, and こうやって. These adverbs plus このように refer to likeness. こんなに, another adverb, instead relates to degree.
+The basic adverbial form is **こう**. Several words build on top of this one, like このように, こういう風に, こうして, and こうやって. They all refer to likeness. こんなに, another adverb, instead relates to degree.
 
 {{< subtext >}}
     Instead of あう, it's ああ.
@@ -79,18 +79,20 @@ The basic adverbial form is **こう**. Several words build on top of this one, 
     こうやって is more casual than こうして.
 {{< /subtext >}}
 
-こうした and こうしたものだ makes *this* an ongoing thing. The latter may only be used at sentence end. した may be replaced with いう or いった. いう kind of sweepingly relates things, so いった allows for specifying what it is the entity something is narrowly like.
+こうした describes "this" as ongoing. ～ものだ must be attached when used at the end of the sentence.
 
 {{< subtext >}}
-    どうしたものか is the exception to the construction. 
+    With どう, the suffix is instead ものか.
 {{< /subtext >}}
+
+こういう kind of creates an incomplete list of things that are like. こういった avoids that; only things that can be argued to be it. Attach ～ものだ at sentence end.
 
 {{% example_jp
     jp="「キャンディーやアイスクリーム、こういった甘いものが好きです。」"
     en="\"*I like sweet things **of the candy and ice cream varieties***.\""
 %}}
 
-こういう風 and こんな風 are adjectival nouns that emphasize the likeness. この風 is also possible but more direct.
+こんな風 and こういう風 are adjectival nouns that emphasize the likeness. The former is far more casual, while the latter is more objective. この風 is also possible but more direct.
 
 
 

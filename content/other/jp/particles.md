@@ -18,7 +18,7 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
 "I am Japanese and a doctor" is actually short for "I am Japanese and I am a doctor." Therefore, と would not be applicable despite looking so. There are other ways to cover the other functions of the English "and," one of which being **そして**. It's used to immediately build on top of information. Think "and" at the start of a sentence or "then." 
 
-と creates **complete lists**, suggesting that there are no *omitted* items that are satisfiable. **や**'s purpose is to create incomplete lists. When the items are incompatible, や translates to "or." や is able to do this because each entity's independence is lowered as compared to と. や also pairs really well with predicates with a wide scope or when the speaker wants to direct the listener's attention to the information that follows the list, *even when the list is complete*. Additionally, because と often introduces its entities, や conversely works old information.
+と creates **complete lists**, suggesting that there are no *omitted* items that are satisfiable. **や**'s purpose is to create incomplete lists. や also pairs really well with predicates with a wide scope or when the speaker wants to direct the listener's attention to the information that follows the list, *even when the list is complete*. Additionally, because と often introduces its entities, や conversely works old information.
 
 {{% example_jp
     jp="「山椒魚は、杉苔や銭苔を眺めることを好まなかった。」"
@@ -34,6 +34,11 @@ Particles are a crucial part of Japanese; they mark important details to the sen
 
     し cannot suggest a chronological order; that is reserved for the て-form.
 {{< /subtext >}}
+
+{{% example_jp
+    jp="「テイラー君は、コーディングもできるし、自作パソコンも作れるし、ゲームも上手だ。」"
+    en="\"*Taylor-kun can code, build his own PCs, and is even good at gaming*.\""
+%}}
 
 
 
@@ -93,16 +98,14 @@ By attaching も to the て-form, "even" is created. It also often lessens the t
 
 
 # {{< heading "Reason" >}}
-**し** indicates **causes for the overarching clause**. Like it's "and" function, some reasons may be omitted. If the result comes first, し does not attach to the final clause, unless there's only one clause given. Or, in colloquial speech, the result may be omitted, so a final し allows the listener to not think about the reasons too much and instead focus on whatever the result is.
+**し** indicates **causes for the overarching clause**. Like it's incomplete lists function, some reasons may be omitted. If the result comes first, し does not attach to the final cause unless only one was given. Or, in colloquial speech, the result may be omitted, so a final し allows the listener to not think about the reasons too much and instead focus on whatever the result is. で may follow the final し.
 
 {{% example_jp
     jp="「**ちょっと用事がありますし**、お先に帰らせていただきます。」"
     en="\"***I got some chores**, so I’ll be heading home first*.\""
 %}}
 
-し can appear together with から and ので, with し marking every reason except the last, leaving it for the other particles. で is an alternate "final" particle, and it is sometimes preceded with a し of its own. のだ and んだ can also be a final particle, but if し then follows them, then the clause is denoted as the primary cause.
-
-The clauses may alternatively be effects and the main clause is the cause. In this case, だから may appear at the start of the first result or から or ので attach onto the (preceding) overarching clause.
+The clauses may alternatively be the effects. In this case, だから may appear at the start of the list or から or ので attach onto the (preceding) overarching clause.
 
 
 

@@ -63,7 +63,7 @@ There's some variations of ～か that increase the uncertainty. By increasing o
 - ～か: no concern
 - ～のか: the situation is at least bothersome 
 - ～だか 
-- ～んだか requiring nouns and adjectival nouns to modify per usual and adjectives and verbs to no longer modify.
+- ～んだか 
 
 {{< subtext >}}
     ～だか does not require な from nouns and adjectival nouns, but does require ～ん or ～の for adjectives and verbs. ～のか and ～んだか are per usual with nouns and adjectival nouns, though.

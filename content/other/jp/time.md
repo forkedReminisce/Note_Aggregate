@@ -30,13 +30,13 @@ Time phrases are often accompanied with either the に, は, or both (には). A
 # {{< heading "Non-Deictic" >}}
 Non-deictic time phrases are usually marked by に. With にも, も takes on the "also" definition.
 
-Unlike deictic phrases, non-deictic phrases are not by default anchored to some reference point. The reference point can be established in a number of ways, but to set it to "now," use the demonstratives. ==They modify the phrase with の前==. 前 can be replaced with 次, but it doesn't really change much except that この次 now refers to the future.
+Unlike deictic phrases, non-deictic phrases are not by default anchored to some reference point. The reference point can be established in a number of ways, but to set it to "now," use the demonstratives. They modify the phrase with の前. 前 can be replaced with 次, but it doesn't really change much except that この次 now refers to the future.
 - この前: has recently occurred
 - その前: happened in the near past or future, and known by the speaker and not by the listener
 - あの前: past or future, but both participants are aware of the situation
 
 {{< subtext >}}
-    この前 by itself without に means "the other day" (deictic). With に, it means "before this" in a temporal (non-deictic) or spatial sense. While recency この前 is whatever the speaker feels, the synonym この間 (sometimes pronounced こないだ) is more well-defined. この間に means "within this interval" in a temporal (non-deictic) or spatial way.
+    この前 without に means "the other day" (deictic). With に, it means "before this" in a non-deictic temporal or spatial sense. While recency is is whatever the speaker feels, the synonym この間 (sometimes pronounced こないだ) is more well-defined. この間に means "within this interval" in a temporal (non-deictic) or spatial way.
 
     前の～ translates to "the (xxx) before."
 

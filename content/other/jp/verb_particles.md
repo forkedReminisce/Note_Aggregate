@@ -152,7 +152,7 @@ While in the past (either basic or polite) conjugation, ==attaching ～ものだ
 
 
 # {{< heading "Quotes" >}}
-**と** attaches to a direct quote or indirect quote. The tense of the quote is contained by the action, but the action itself sits on the real timeline (e.g., thinking but the thought occurred in the past). When describing another's thoughts, the verb ought to use the ～いる auxiliary verb. If there was some doubt in the action, use かと.
+**と** attaches to a direct quote or indirect quote. The tense of the quote is scoped by the action (e.g., thinking but the thought occurred in the past). When describing another's thoughts, the verb ought to use the ～いる auxiliary verb. If there was some doubt in the action, use かと instead of と.
 
 {{< subtext >}}
     For direct quotes, 「」 are not necessary.
@@ -164,7 +164,7 @@ While in the past (either basic or polite) conjugation, ==attaching ～ものだ
 
 Adverbs may modify と to add nuance. などと says that the quote is one of many related quotes. とまで is essentially a "go as far to say," and with negative predicates it becomes "wouldn't..." とでもいうのか harshly criticizes the listener for coming up with such a quote. 
 
-とは marks something that gets defined later in the sentence, and the listener doesn't know what it is. というのは is a toned-down version of とは. というか is another variation of とは that will lead to a poor attempt at a definition (i.e., "how should I put it). ということは often appears at the beginning of a successive sentence to be "that is to say." 
+とは marks something that gets defined later in the sentence, and the listener doesn't know what it is. というのは is a toned-down version of とは. というか is another variation of とは that will lead to a poor attempt at a definition (i.e., "how should I put it"). ということは often appears at the beginning of a successive sentence to be "that is to say." 
 
 <!-- mismatched verb might refer to other functions of と -->
 Sometimes, the verb may be omitted, but と must stay present. This usually only happens in questions, and the tone becomes confrontational. Sometimes, there is a verb but it doesn't match with the quote. In these cases, the quote still clarifies the predicate.
@@ -174,4 +174,4 @@ Sometimes, the verb may be omitted, but と must stay present. This usually only
     en="\"*What did you say*?\""
 %}}
 
-と may sometimes be omitted if the quote demonstrates language itself. For example, a quote of a language for a linguistic discussion. It is also oftentimes omitted in novels.
+と may sometimes be omitted if the quote demonstrates language itself. For example, a quote of a language for a linguistic discussion. Quotation marks suffice. It is also oftentimes omitted in novels.

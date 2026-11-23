@@ -22,12 +22,11 @@ Irregular verbs are those that don't exactly follow the normal verb conjugation 
 
 する has **many translations**. For the most part, it is a transitive verb. The direct object could be another verb, an activity, wearable accessory, trait, or occupation.
 
-<!-- TODO: is this necessary to talk about -->
 {{< subtext >}}
     When describing one's occupation, する becomes している.
 {{< /subtext >}}
 
-"To sense" applies to the five senses or emotion. "To cost" is used by the customer, and the price precedes する. Finally, for particular nouns, する can be attached to turn it into a verb.
+"To sense" applies to the five senses or emotion. "To cost" is used by the customer. Finally, for particular nouns, する can be attached to turn it into a verb.
 
 {{% example_jp
     jp="「LINEスタンプは**百円**します。」"
